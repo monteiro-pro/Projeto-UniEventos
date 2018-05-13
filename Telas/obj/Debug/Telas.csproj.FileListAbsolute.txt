@@ -1,0 +1,10 @@
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\Telas.exe.config
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\Telas.exe
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\Telas.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.csprojResolveAssemblyReference.cache
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.Loguin.resources
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.Properties.Resources.resources
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.csproj.GenerateResource.Cache
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.exe
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.Cadastro.resources
