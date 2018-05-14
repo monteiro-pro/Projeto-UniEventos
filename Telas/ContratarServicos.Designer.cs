@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnContratar = new System.Windows.Forms.Button();
             this.listServicos = new System.Windows.Forms.ListView();
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.slcTipoServico = new System.Windows.Forms.ComboBox();
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,6 +57,16 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serviços Cadastrados";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(630, 108);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(161, 56);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnContratar
             // 
@@ -83,6 +93,11 @@
             this.listServicos.View = System.Windows.Forms.View.Details;
             this.listServicos.SelectedIndexChanged += new System.EventHandler(this.listServicos_SelectedIndexChanged);
             // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome do Serviço";
+            this.Nome.Width = 250;
+            // 
             // Tipo
             // 
             this.Tipo.Text = "Tipo";
@@ -92,16 +107,6 @@
             // 
             this.Valor.Text = "Valor";
             this.Valor.Width = 106;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(630, 108);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(161, 56);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // txtNome
             // 
@@ -144,11 +149,6 @@
             this.slcTipoServico.TabIndex = 20;
             this.slcTipoServico.Text = "Escolha um Tipo...";
             // 
-            // Nome
-            // 
-            this.Nome.Text = "Nome do Serviço";
-            this.Nome.Width = 250;
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -172,6 +172,7 @@
             this.ClientSize = new System.Drawing.Size(874, 550);
             this.Controls.Add(this.groupBox2);
             this.Name = "ContratarServicos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContratarServicos";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

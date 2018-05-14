@@ -30,11 +30,11 @@
         {
             this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.listCadastrados = new System.Windows.Forms.ListView();
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(161, 56);
             this.btnSair.TabIndex = 30;
-            this.btnSair.Text = "Sair";
+            this.btnSair.Text = "Voltar";
             this.btnSair.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -59,16 +59,6 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuários e Empresas Cadastrados";
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(148, 393);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(161, 56);
-            this.btnExcluir.TabIndex = 31;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
             // 
             // listCadastrados
             // 
@@ -84,20 +74,30 @@
             this.listCadastrados.UseCompatibleStateImageBehavior = false;
             this.listCadastrados.View = System.Windows.Forms.View.Details;
             // 
-            // Nome
-            // 
-            this.Nome.Text = "Nome";
-            this.Nome.Width = 254;
-            // 
             // Tipo
             // 
             this.Tipo.Text = "Tipo";
             this.Tipo.Width = 124;
             // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 254;
+            // 
             // Telefone
             // 
             this.Telefone.Text = "Telefone";
             this.Telefone.Width = 203;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(148, 393);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(161, 56);
+            this.btnExcluir.TabIndex = 31;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
             // 
             // AdminLogado
             // 
@@ -108,6 +108,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExcluir);
             this.Name = "AdminLogado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminLogado";
             this.Load += new System.EventHandler(this.AdminLogado_Load);
             this.groupBox1.ResumeLayout(false);

@@ -157,6 +157,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Name = "CadastrarServico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastrarServico";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

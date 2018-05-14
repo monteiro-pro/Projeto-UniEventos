@@ -74,6 +74,11 @@ namespace AplicacaoForm
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Cadastro cadastro = new Cadastro();
+            cadastro.Closed += (s, args) => this.Close();
+            cadastro.Show();
+
 
         }
 

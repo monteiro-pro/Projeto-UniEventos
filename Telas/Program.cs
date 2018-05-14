@@ -17,7 +17,7 @@ namespace AplicacaoForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsuarioLogado());
+            Application.Run(new Loguin());
         }
     }
 }

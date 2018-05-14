@@ -88,11 +88,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioLogado.cs">
+    <Compile Include="ClienteLogado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsuarioLogado.Designer.cs">
-      <DependentUpon>UsuarioLogado.cs</DependentUpon>
+    <Compile Include="ClienteLogado.Designer.cs">
+      <DependentUpon>ClienteLogado.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdminLogado.resx">
       <DependentUpon>AdminLogado.cs</DependentUpon>
@@ -124,8 +124,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UsuarioLogado.resx">
-      <DependentUpon>UsuarioLogado.cs</DependentUpon>
+    <EmbeddedResource Include="ClienteLogado.resx">
+      <DependentUpon>ClienteLogado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
+      <Project>{1308995a-7963-4f32-b983-429ccd2322c3}</Project>
+      <Name>Biblioteca</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

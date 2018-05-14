@@ -40,12 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Dados\Acesso\DadosUsuario.cs" />
+    <Compile Include="Dados\Conexao\Conectar.cs" />
+    <Compile Include="Fachada\FachadaUsuario.cs" />
     <Compile Include="Negocio\Basica\Usuario.cs" />
+    <Compile Include="Negocio\Regra\RegraUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocio\Regra\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -31,11 +31,11 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
             this.listServicos = new System.Windows.Forms.ListView();
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(121, 51);
             this.btnSair.TabIndex = 17;
-            this.btnSair.Text = "Sair";
+            this.btnSair.Text = "Voltar";
             this.btnSair.UseVisualStyleBackColor = true;
             // 
             // btnEditar
@@ -72,17 +72,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serviços Cadastrados";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(571, 35);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(161, 56);
-            this.btnCadastrar.TabIndex = 15;
-            this.btnCadastrar.Text = "Cadastr. Serviço";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // listServicos
             // 
@@ -113,6 +102,17 @@
             this.columnHeader1.Text = "Valor";
             this.columnHeader1.Width = 106;
             // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(571, 35);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(161, 56);
+            this.btnCadastrar.TabIndex = 15;
+            this.btnCadastrar.Text = "Cadastr. Serviço";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
             // EmpresaLogada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,6 +122,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.groupBox1);
             this.Name = "EmpresaLogada";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmpresaLogada";
             this.Load += new System.EventHandler(this.EmpresaLogada_Load);
             this.groupBox1.ResumeLayout(false);

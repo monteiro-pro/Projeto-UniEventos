@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.slcTipoCadastro = new System.Windows.Forms.ComboBox();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtTelefone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.slcTipoCadastro = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,45 +64,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar-se";
             // 
-            // label2
+            // txtSenha
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nome:";
+            this.txtSenha.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(227, 243);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(180, 33);
+            this.txtSenha.TabIndex = 11;
             // 
-            // label1
+            // txtEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tipo de Cadastro:";
+            this.txtEmail.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(227, 193);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(286, 33);
+            this.txtEmail.TabIndex = 10;
             // 
-            // label3
+            // txtTelefone
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 246);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Senha:";
+            this.txtTelefone.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Location = new System.Drawing.Point(227, 143);
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(238, 33);
+            this.txtTelefone.TabIndex = 9;
             // 
-            // label4
+            // txtNome
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 196);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "E-Mail:";
+            this.txtNome.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(227, 93);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(286, 33);
+            this.txtNome.TabIndex = 8;
+            // 
+            // slcTipoCadastro
+            // 
+            this.slcTipoCadastro.AccessibleName = "";
+            this.slcTipoCadastro.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slcTipoCadastro.FormattingEnabled = true;
+            this.slcTipoCadastro.Items.AddRange(new object[] {
+            "Cliente",
+            "Empresa"});
+            this.slcTipoCadastro.Location = new System.Drawing.Point(227, 46);
+            this.slcTipoCadastro.Name = "slcTipoCadastro";
+            this.slcTipoCadastro.Size = new System.Drawing.Size(286, 33);
+            this.slcTipoCadastro.TabIndex = 7;
+            this.slcTipoCadastro.Text = "Escolha um Tipo...";
             // 
             // label5
             // 
@@ -114,50 +120,45 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Telefone:";
             // 
-            // slcTipoCadastro
+            // label4
             // 
-            this.slcTipoCadastro.AccessibleName = "";
-            this.slcTipoCadastro.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slcTipoCadastro.FormattingEnabled = true;
-            this.slcTipoCadastro.Items.AddRange(new object[] {
-            "Teste"});
-            this.slcTipoCadastro.Location = new System.Drawing.Point(227, 46);
-            this.slcTipoCadastro.Name = "slcTipoCadastro";
-            this.slcTipoCadastro.Size = new System.Drawing.Size(286, 33);
-            this.slcTipoCadastro.TabIndex = 7;
-            this.slcTipoCadastro.Text = "Escolha um Tipo...";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(43, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 25);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "E-Mail:";
             // 
-            // txtNome
+            // label3
             // 
-            this.txtNome.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(227, 93);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(286, 33);
-            this.txtNome.TabIndex = 8;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(43, 246);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 25);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Senha:";
             // 
-            // txtTelefone
+            // label1
             // 
-            this.txtTelefone.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(227, 143);
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(238, 33);
-            this.txtTelefone.TabIndex = 9;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(43, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tipo de Cadastro:";
             // 
-            // txtEmail
+            // label2
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(227, 193);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(286, 33);
-            this.txtEmail.TabIndex = 10;
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(227, 243);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(180, 33);
-            this.txtSenha.TabIndex = 11;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(43, 96);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nome:";
             // 
             // btnCadastrar
             // 
@@ -168,6 +169,7 @@
             this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // Cadastro
             // 
@@ -177,6 +179,7 @@
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.groupBox1);
             this.Name = "Cadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

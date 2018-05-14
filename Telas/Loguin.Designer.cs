@@ -98,7 +98,8 @@
             this.slcTipoAcesso.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slcTipoAcesso.FormattingEnabled = true;
             this.slcTipoAcesso.Items.AddRange(new object[] {
-            "Teste"});
+            "Cliente",
+            "Empresa"});
             this.slcTipoAcesso.Location = new System.Drawing.Point(214, 32);
             this.slcTipoAcesso.Name = "slcTipoAcesso";
             this.slcTipoAcesso.Size = new System.Drawing.Size(286, 33);
@@ -167,6 +168,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Name = "Loguin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loguin";
             this.Load += new System.EventHandler(this.Loguin_Load);
             this.groupBox1.ResumeLayout(false);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Telas
 {
-    public partial class UsuarioLogado : Form
+    public partial class ClienteLogado : Form
     {
-        public UsuarioLogado()
+        public ClienteLogado()
         {
             InitializeComponent();
         }

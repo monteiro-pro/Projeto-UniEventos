@@ -162,6 +162,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
             this.Name = "EditarPerfil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarPerfil";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
