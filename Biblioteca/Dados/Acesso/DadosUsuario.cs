@@ -132,10 +132,10 @@ namespace Biblioteca.Dados.Acesso
             {
                 this.abrirConexao();
                 //## Mudar Para IdUsuario
-                string sql = "SELECT idusuario, nome FROM Usuario WHERE nome = @nome";
+                string sql = "SELECT idusuario, nome FROM Usuario WHERE email = @email";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-                cmd.Parameters["@nome"].Value = usuario.Nome;
+                cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                cmd.Parameters["@email"].Value = usuario.Email;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 
@@ -152,6 +152,39 @@ namespace Biblioteca.Dados.Acesso
             catch
             {
                 throw new Exception("Erro ao Executar o Comando VerificarDuplicidade no Banco!");
+            }
+
+            return retorno;
+        }
+
+        public bool Logar(Usuario usuario)
+        {
+            bool retorno = false;
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM Usuario WHERE email = @email AND senha = @senha";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                cmd.Parameters["@email"].Value = usuario.Email;
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar);
+                cmd.Parameters["@senha"].Value = usuario.Senha;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch
+            {
+                throw new Exception("Erro ao Executar o Comando Logar!");
             }
 
             return retorno;

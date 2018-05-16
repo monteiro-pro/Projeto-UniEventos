@@ -10,11 +10,11 @@ namespace Biblioteca.Negocio.Regra
 {
     public class RegraUsuario
     {
-        public void Inserir(Usuario usuario)
+        public void Validar(Usuario usuario)
         {
-            if (usuario == null)
+            if (usuario.TipoAcesso != "Empresa" || usuario.TipoAcesso != "Cliente")
             {
-                throw new Exception("Objeto Não Instanciado!");
+                throw new Exception("Tipo de Acesso Não Informado!");
             }
 
             if (String.IsNullOrEmpty(usuario.Nome))
@@ -22,10 +22,29 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Nome não Informado!");
             }
 
+            if (String.IsNullOrEmpty(usuario.Email))
+            {
+                throw new Exception("Email Não Informado!");
+            }
+
             if (VerificarDuplicidade(usuario) == true)
             {
-                throw new Exception("Usuário Não Existe no Banco!");
+                throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
             }
+
+            if (String.IsNullOrEmpty(usuario.Senha))
+            {
+                throw new Exception("Senha Não Informada!");
+            }
+        }
+        public void Inserir(Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                throw new Exception("Objeto Não Instanciado!");
+            }
+
+            Validar(usuario);
 
             new DadosUsuario().Inserir(usuario);
         }
@@ -68,6 +87,8 @@ namespace Biblioteca.Negocio.Regra
             }
 
             new DadosUsuario().Alterar(usuario);
+
+            Validar(usuario);
         }
 
         public List<Usuario> Listar()
@@ -77,8 +98,6 @@ namespace Biblioteca.Negocio.Regra
 
         public bool VerificarDuplicidade(Usuario usuario)
         {
-            new DadosUsuario().VerificarDuplicidade(usuario);
-
             if (usuario == null)
             {
                 throw new Exception("Obejeto Não Instanciado!");
@@ -91,6 +110,26 @@ namespace Biblioteca.Negocio.Regra
             }
 
             return new DadosUsuario().VerificarDuplicidade(usuario);
+        }
+
+        public bool Logar(Usuario usuario)
+        {
+            if(usuario == null)
+            {
+                throw new Exception("Usuário Não Instanciado!");
+            }
+
+            if (String.IsNullOrEmpty(usuario.Email))
+            {
+                throw new Exception("Propiedade Email Vazio!");
+            }
+
+            if (String.IsNullOrEmpty(usuario.Senha))
+            {
+                throw new Exception("Propiedade Senha Vazia!");
+            }
+
+            return new DadosUsuario().Logar(usuario);
         }
     }
 }

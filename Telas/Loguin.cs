@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Biblioteca.Fachada;
+using Biblioteca.Negocio.Basica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,7 +46,22 @@ namespace AplicacaoForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Usuario usuario = new Usuario();
+                FachadaUsuario fachada = new FachadaUsuario();
 
+                usuario.Email = txtEmail.Text;
+                usuario.Senha = txtSenha.Text;
+
+                fachada.Logar(usuario);
+
+                MessageBox.Show("Logado Com Sucesso!");
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro ao Tentar Logar!" + ex);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
