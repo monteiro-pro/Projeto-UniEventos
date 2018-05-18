@@ -54,9 +54,15 @@ namespace AplicacaoForm
                 usuario.Email = txtEmail.Text;
                 usuario.Senha = txtSenha.Text;
 
-                fachada.Logar(usuario);
+                if (fachada.Logar(usuario).Email == usuario.Email && fachada.Logar(usuario).Senha == usuario.Senha)
+                {
+                    MessageBox.Show("Logado Com Sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show("Email ou Senha Inválidos!");
+                }
 
-                MessageBox.Show("Logado Com Sucesso!");
             }
             catch(Exception ex)
             {

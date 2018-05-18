@@ -157,9 +157,9 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
-        public bool Logar(Usuario usuario)
+        public Usuario Logar(Usuario usuario)
         {
-            bool retorno = false;
+            Usuario retorno = new Usuario();
             try
             {
                 this.abrirConexao();
@@ -174,7 +174,12 @@ namespace Biblioteca.Dados.Acesso
 
                 while (DbReader.Read())
                 {
-                    retorno = true;
+                    retorno.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
+                    retorno.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
+                    retorno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    retorno.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
+                    retorno.Email = DbReader.GetString(DbReader.GetOrdinal("email"));
+                    retorno.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
                     break;
                 }
 
@@ -184,7 +189,7 @@ namespace Biblioteca.Dados.Acesso
             }
             catch
             {
-                throw new Exception("Erro ao Executar o Comando Logar!");
+                throw new Exception("Email, Senha ou Tipo de Acesso Invalido!");
             }
 
             return retorno;

@@ -112,7 +112,7 @@ namespace Biblioteca.Negocio.Regra
             return new DadosUsuario().VerificarDuplicidade(usuario);
         }
 
-        public bool Logar(Usuario usuario)
+        public Usuario Logar(Usuario usuario)
         {
             if(usuario == null)
             {
@@ -121,7 +121,7 @@ namespace Biblioteca.Negocio.Regra
 
             if (String.IsNullOrEmpty(usuario.Email))
             {
-                throw new Exception("Propiedade Email Vazio!");
+                throw new Exception("Propiedade Email Vazia!");
             }
 
             if (String.IsNullOrEmpty(usuario.Senha))

@@ -36,7 +36,7 @@ namespace Biblioteca.Fachada
             return regra.Listar();
         }
 
-        public bool Logar(Usuario usuario)
+        public Usuario Logar(Usuario usuario)
         {
             return regra.Logar(usuario);
         }
