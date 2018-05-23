@@ -21,5 +21,13 @@ namespace Telas
         {
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ClienteLogado cliente = new ClienteLogado();
+            cliente.Closed += (s, args) => this.Close();
+            cliente.Show();
+        }
     }
 }

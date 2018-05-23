@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telas;
 
 namespace AplicacaoForm
 {
@@ -56,7 +57,22 @@ namespace AplicacaoForm
 
                 if (fachada.Logar(usuario).Email == usuario.Email && fachada.Logar(usuario).Senha == usuario.Senha)
                 {
-                    MessageBox.Show("Logado Com Sucesso!");
+                    if(fachada.Logar(usuario).TipoAcesso == "Cliente")
+                    {
+                        this.Hide();
+                        ClienteLogado logado = new ClienteLogado(fachada.Logar(usuario));
+                        logado.Closed += (s, args) => this.Close();
+                        logado.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        EmpresaLogada logado = new EmpresaLogada(fachada.Logar(usuario));
+                        logado.Closed += (s, args) => this.Close();
+                        logado.Show();
+                    }
+
+                    
                 }
                 else
                 {

@@ -12,7 +12,7 @@ namespace Biblioteca.Negocio.Regra
     {
         public void Validar(Usuario usuario)
         {
-            if (usuario.TipoAcesso != "Empresa" || usuario.TipoAcesso != "Cliente")
+            if (usuario.TipoAcesso != "Empresa" && usuario.TipoAcesso != "Cliente")
             {
                 throw new Exception("Tipo de Acesso Não Informado!");
             }

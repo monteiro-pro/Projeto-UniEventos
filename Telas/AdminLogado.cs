@@ -21,5 +21,13 @@ namespace Telas
         {
 
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Loguin loguin = new Loguin();
+            loguin.Closed += (s, args) => this.Close();
+            loguin.Show();
+        }
     }
 }

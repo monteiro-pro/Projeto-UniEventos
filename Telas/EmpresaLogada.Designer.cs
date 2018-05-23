@@ -46,8 +46,9 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(121, 51);
             this.btnSair.TabIndex = 17;
-            this.btnSair.Text = "Voltar";
+            this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnEditar
             // 
@@ -58,6 +59,7 @@
             this.btnEditar.TabIndex = 16;
             this.btnEditar.Text = "Editar Perfil";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // groupBox1
             // 

@@ -49,6 +49,7 @@
             this.btnEditar.TabIndex = 13;
             this.btnEditar.Text = "Editar Perfil";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // groupBox1
             // 
@@ -72,6 +73,7 @@
             this.btnContratar.TabIndex = 15;
             this.btnContratar.Text = "Contr. Serviço";
             this.btnContratar.UseVisualStyleBackColor = true;
+            this.btnContratar.Click += new System.EventHandler(this.btnContratar_Click);
             // 
             // listServicos
             // 
@@ -115,8 +117,9 @@
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(121, 51);
             this.btnSair.TabIndex = 14;
-            this.btnSair.Text = "Voltar";
+            this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // ClienteLogado
             // 
