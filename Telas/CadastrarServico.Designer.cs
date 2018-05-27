@@ -47,7 +47,10 @@
             this.slcTipoCadastro.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slcTipoCadastro.FormattingEnabled = true;
             this.slcTipoCadastro.Items.AddRange(new object[] {
-            "Teste"});
+            "Entretenimento",
+            "Espaço",
+            "Alimento",
+            "Equipamento"});
             this.slcTipoCadastro.Location = new System.Drawing.Point(225, 44);
             this.slcTipoCadastro.Name = "slcTipoCadastro";
             this.slcTipoCadastro.Size = new System.Drawing.Size(286, 33);
@@ -91,6 +94,7 @@
             this.btnCadastrar.TabIndex = 21;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtValor
             // 

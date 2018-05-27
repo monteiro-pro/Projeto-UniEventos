@@ -36,9 +36,14 @@ namespace Biblioteca.Fachada
             return regra.Listar();
         }
 
-        public Usuario Logar(Usuario usuario)
+        public Usuario Logar(String nome, String senha)
         {
-            return regra.Logar(usuario);
+            return regra.Logar(nome, senha);
+        }
+
+        public Usuario SelectUsuario(int idUsuario)
+        {
+            return regra.SelectUsuario(idUsuario);
         }
     }
 }

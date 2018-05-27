@@ -1,4 +1,5 @@
 ﻿using AplicacaoForm;
+using Biblioteca.Fachada;
 using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,27 @@ namespace Telas
 {
     public partial class EmpresaLogada : Form
     {
+        private FachadaServicos Fachada;
+        private Servicos Servicos;
+        private int IdEntidade;
         public EmpresaLogada()
         {
             InitializeComponent();
         }
-        public EmpresaLogada(Usuario usuario)
+        public EmpresaLogada(int idEntidade)
         {
+            Fachada = new FachadaServicos();
+            Servicos = new Servicos();
+
+            this.IdEntidade = idEntidade;
+
             InitializeComponent();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CadastrarServico cadastrar = new CadastrarServico();
+            CadastrarServico cadastrar = new CadastrarServico(IdEntidade);
             cadastrar.Closed += (s, args) => this.Close();
             cadastrar.Show();
         }
@@ -38,7 +47,15 @@ namespace Telas
 
         private void EmpresaLogada_Load(object sender, EventArgs e)
         {
+            ListView items = new ListView();
+            items = listServicos;
 
+            foreach (Servicos item in Fachada.Listar(IdEntidade))
+            {
+               // items.ControlAdded()
+
+                //listServicos.n
+            }
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -52,9 +69,20 @@ namespace Telas
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditarPerfil perfil = new EditarPerfil();
+            EditarPerfil perfil = new EditarPerfil(IdEntidade);
             perfil.Closed += (s, args) => this.Close();
             perfil.Show();
+        }
+
+        private void listServicos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Nome.Text = "testetetetetet";
+            foreach (Servicos item in Fachada.Listar(IdEntidade))
+            {
+                Nome.Text = item.Nome;
+                Tipo.Text = item.TipoServico;
+                Valor.Text = Convert.ToString(item.Valor);
+            }
         }
     }
 }

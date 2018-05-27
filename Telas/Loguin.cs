@@ -49,25 +49,21 @@ namespace AplicacaoForm
         {
             try
             {
-                Usuario usuario = new Usuario();
                 FachadaUsuario fachada = new FachadaUsuario();
 
-                usuario.Email = txtEmail.Text;
-                usuario.Senha = txtSenha.Text;
-
-                if (fachada.Logar(usuario).Email == usuario.Email && fachada.Logar(usuario).Senha == usuario.Senha)
+                if (fachada.Logar(txtEmail.Text, txtSenha.Text) != null)
                 {
-                    if(fachada.Logar(usuario).TipoAcesso == "Cliente")
+                    if(fachada.Logar(txtEmail.Text, txtSenha.Text).TipoAcesso == "Cliente")
                     {
                         this.Hide();
-                        ClienteLogado logado = new ClienteLogado(fachada.Logar(usuario));
+                        ClienteLogado logado = new ClienteLogado(fachada.Logar(txtEmail.Text, txtSenha.Text).IdUsuario);
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }
                     else
                     {
                         this.Hide();
-                        EmpresaLogada logado = new EmpresaLogada(fachada.Logar(usuario));
+                        EmpresaLogada logado = new EmpresaLogada(fachada.Logar(txtEmail.Text, txtSenha.Text).IdUsuario);
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }
@@ -117,8 +113,6 @@ namespace AplicacaoForm
             Cadastro cadastro = new Cadastro();
             cadastro.Closed += (s, args) => this.Close();
             cadastro.Show();
-
-
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

@@ -132,6 +132,7 @@
             this.Name = "ClienteLogado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClienteLogado";
+            this.Load += new System.EventHandler(this.ClienteLogado_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

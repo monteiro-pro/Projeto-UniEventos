@@ -27,10 +27,7 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Email Não Informado!");
             }
 
-            if (VerificarDuplicidade(usuario) == true)
-            {
-                throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
-            }
+
 
             if (String.IsNullOrEmpty(usuario.Senha))
             {
@@ -44,9 +41,14 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Objeto Não Instanciado!");
             }
 
-            Validar(usuario);
+            if (VerificarDuplicidade(usuario) == true)
+            {
+                throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
+            }
 
             new DadosUsuario().Inserir(usuario);
+
+            Validar(usuario);
         }
 
         public void Deletar(Usuario usuario)
@@ -81,11 +83,6 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Usuário Não Informado!");
             }
 
-            if (VerificarDuplicidade(usuario) == false)
-            {
-                throw new Exception("Usuário Não Existe no Banco!");
-            }
-
             new DadosUsuario().Alterar(usuario);
 
             Validar(usuario);
@@ -94,6 +91,27 @@ namespace Biblioteca.Negocio.Regra
         public List<Usuario> Listar()
         {
             return new DadosUsuario().Listar();
+        }
+
+        public Usuario Logar(String nome, String senha)
+        {
+            if(String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(senha))
+            {
+                throw new Exception("Valores do Parametro Não Informado!");
+            }
+
+            return new DadosUsuario().Logar(nome, senha);
+        }
+
+        public Usuario SelectUsuario(int idUsuario)
+        {
+            if(idUsuario <= 0)
+            {
+                throw new Exception("Id Não Informado!");
+            }
+
+            return new DadosUsuario().SelectUsuario(idUsuario);
+
         }
 
         public bool VerificarDuplicidade(Usuario usuario)
@@ -110,26 +128,6 @@ namespace Biblioteca.Negocio.Regra
             }
 
             return new DadosUsuario().VerificarDuplicidade(usuario);
-        }
-
-        public Usuario Logar(Usuario usuario)
-        {
-            if(usuario == null)
-            {
-                throw new Exception("Usuário Não Instanciado!");
-            }
-
-            if (String.IsNullOrEmpty(usuario.Email))
-            {
-                throw new Exception("Propiedade Email Vazia!");
-            }
-
-            if (String.IsNullOrEmpty(usuario.Senha))
-            {
-                throw new Exception("Propiedade Senha Vazia!");
-            }
-
-            return new DadosUsuario().Logar(usuario);
         }
     }
 }

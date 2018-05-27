@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Biblioteca.Fachada;
+using Biblioteca.Negocio.Basica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +14,57 @@ namespace Telas
 {
     public partial class CadastrarServico : Form
     {
+        private FachadaServicos Fachada;
+        private Servicos Servicos;
+
+        private int IdEntidade;
+
         public CadastrarServico()
         {
+            InitializeComponent();
+        }
+
+        public CadastrarServico(int idEntidade)
+        {
+            Fachada = new FachadaServicos();
+            Servicos = new Servicos();
+
+            this.IdEntidade = idEntidade;
+
             InitializeComponent();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EmpresaLogada empresa = new EmpresaLogada();
+            EmpresaLogada empresa = new EmpresaLogada(IdEntidade);
             empresa.Closed += (s, args) => this.Close();
             empresa.Show();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Servicos.TipoServico = slcTipoCadastro.Text;
+                Servicos.Nome = txtNome.Text;
+                Servicos.Valor = Convert.ToInt32(txtValor.Text);
+                Servicos.IdUsuario = IdEntidade;
+
+                Fachada.Inserir(Servicos);
+
+                MessageBox.Show("Serviço Cadastrado Com Sucesso!");
+
+                this.Hide();
+                EmpresaLogada empresa = new EmpresaLogada(IdEntidade);
+                empresa.Closed += (s, args) => this.Close();
+                empresa.Show();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Tentar Cadastrar o Serviço!" + ex);
+            }
         }
     }
 }

@@ -73,6 +73,9 @@ namespace Biblioteca.Dados.Acesso
             string sql = "UPDATE Usuario SET nome = @nome, telefone = @telefone, email = @email, senha = @senha WHERE idusuario = @idusuario";
             SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
+            cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
+            cmd.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+
             cmd.Parameters.Add("@nome", SqlDbType.VarChar);
             cmd.Parameters["@nome"].Value = usuario.Nome;
 
@@ -125,6 +128,40 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
+        public Usuario SelectUsuario(int idUsuario)
+        {
+            Usuario retorno = new Usuario();
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM Usuario WHERE idUsuario = " + idUsuario;
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    retorno.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
+                    retorno.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
+                    retorno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    retorno.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
+                    retorno.Email = DbReader.GetString(DbReader.GetOrdinal("email"));
+                    retorno.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
+                    break;
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch
+            {
+                throw new Exception("Erro ao Executar o Comando SelectUsuario no Banco!");
+            }
+
+            return retorno;
+        }
+
         public bool VerificarDuplicidade(Usuario usuario)
         {
             bool retorno = false;
@@ -157,7 +194,7 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
-        public Usuario Logar(Usuario usuario)
+        public Usuario Logar(String nome, String senha)
         {
             Usuario retorno = new Usuario();
             try
@@ -166,9 +203,9 @@ namespace Biblioteca.Dados.Acesso
                 string sql = "SELECT * FROM Usuario WHERE email = @email AND senha = @senha";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
-                cmd.Parameters["@email"].Value = usuario.Email;
+                cmd.Parameters["@email"].Value = nome;
                 cmd.Parameters.Add("@senha", SqlDbType.VarChar);
-                cmd.Parameters["@senha"].Value = usuario.Senha;
+                cmd.Parameters["@senha"].Value = senha;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 
@@ -189,7 +226,7 @@ namespace Biblioteca.Dados.Acesso
             }
             catch
             {
-                throw new Exception("Email, Senha ou Tipo de Acesso Invalido!");
+                throw new Exception("Erro ao Executar o Comando Logar no Banco!");
             }
 
             return retorno;

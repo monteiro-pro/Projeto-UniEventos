@@ -34,7 +34,7 @@
             this.listServicos = new System.Windows.Forms.ListView();
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +80,7 @@
             this.listServicos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Nome,
             this.Tipo,
-            this.columnHeader1});
+            this.Valor});
             this.listServicos.GridLines = true;
             this.listServicos.Location = new System.Drawing.Point(17, 35);
             this.listServicos.Name = "listServicos";
@@ -88,6 +88,7 @@
             this.listServicos.TabIndex = 16;
             this.listServicos.UseCompatibleStateImageBehavior = false;
             this.listServicos.View = System.Windows.Forms.View.Details;
+            this.listServicos.SelectedIndexChanged += new System.EventHandler(this.listServicos_SelectedIndexChanged);
             // 
             // Nome
             // 
@@ -99,10 +100,10 @@
             this.Tipo.Text = "Tipo";
             this.Tipo.Width = 186;
             // 
-            // columnHeader1
+            // Valor
             // 
-            this.columnHeader1.Text = "Valor";
-            this.columnHeader1.Width = 106;
+            this.Valor.Text = "Valor";
+            this.Valor.Width = 106;
             // 
             // btnCadastrar
             // 
@@ -141,6 +142,6 @@
         private System.Windows.Forms.ListView listServicos;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Tipo;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader Valor;
     }
 }
