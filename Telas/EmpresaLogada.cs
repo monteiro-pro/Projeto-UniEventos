@@ -15,8 +15,8 @@ namespace Telas
 {
     public partial class EmpresaLogada : Form
     {
-        private FachadaServicos Fachada;
-        private Servicos Servicos;
+        private FachadaServico FachadaServico;
+        private Servico EntServicos;
         private int IdEntidade;
         public EmpresaLogada()
         {
@@ -24,8 +24,8 @@ namespace Telas
         }
         public EmpresaLogada(int idEntidade)
         {
-            Fachada = new FachadaServicos();
-            Servicos = new Servicos();
+            FachadaServico = new FachadaServico();
+            EntServicos = new Servico();
 
             this.IdEntidade = idEntidade;
 
@@ -47,14 +47,13 @@ namespace Telas
 
         private void EmpresaLogada_Load(object sender, EventArgs e)
         {
-            ListView items = new ListView();
-            items = listServicos;
 
-            foreach (Servicos item in Fachada.Listar(IdEntidade))
+            foreach (Servico item in FachadaServico.Listar(IdEntidade))
             {
-               // items.ControlAdded()
-
-                //listServicos.n
+                ListViewItem lista = new ListViewItem(item.Nome);
+                lista.SubItems.Add(item.TipoServico);
+                lista.SubItems.Add(Convert.ToString(item.Valor));
+                listServicos.Items.Add(lista);
             }
         }
 
@@ -76,13 +75,7 @@ namespace Telas
 
         private void listServicos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Nome.Text = "testetetetetet";
-            foreach (Servicos item in Fachada.Listar(IdEntidade))
-            {
-                Nome.Text = item.Nome;
-                Tipo.Text = item.TipoServico;
-                Valor.Text = Convert.ToString(item.Valor);
-            }
+
         }
     }
 }

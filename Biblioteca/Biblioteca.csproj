@@ -40,14 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Dados\Acesso\DadosServicos.cs" />
+    <Compile Include="Dados\Acesso\DadosContrato.cs" />
+    <Compile Include="Dados\Acesso\DadosServico.cs" />
     <Compile Include="Dados\Acesso\DadosUsuario.cs" />
     <Compile Include="Dados\Conexao\Conectar.cs" />
-    <Compile Include="Fachada\FachadaServicos.cs" />
+    <Compile Include="Fachada\FachadaContrato.cs" />
+    <Compile Include="Fachada\FachadaServico.cs" />
     <Compile Include="Fachada\FachadaUsuario.cs" />
-    <Compile Include="Negocio\Basica\Servicos.cs" />
+    <Compile Include="Negocio\Basica\Contrato.cs" />
+    <Compile Include="Negocio\Basica\Servico.cs" />
     <Compile Include="Negocio\Basica\Usuario.cs" />
-    <Compile Include="Negocio\Regra\RegraServicos.cs" />
+    <Compile Include="Negocio\Regra\RegraContrato.cs" />
+    <Compile Include="Negocio\Regra\RegraServico.cs" />
     <Compile Include="Negocio\Regra\RegraUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

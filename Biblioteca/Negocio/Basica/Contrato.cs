@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Negocio.Basica
 {
-    public class Servicos
+    public class Contrato
     {
-        public int IdServico { set; get; }
-        public int IdUsuario { set; get; }
-        public string TipoServico { set; get; }
+        public int Idcontrato { set; get; }
+        public int Idusuario { set; get; }
+        public int Idservico { set; get; }
+
         public string Nome { set; get; }
+        public string Tipo { set; get; }
+        public string Empresa { set; get; }
         public int Valor { set; get; }
     }
 }

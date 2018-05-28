@@ -81,9 +81,10 @@
             this.label2.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(31, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 25);
+            this.label2.Size = new System.Drawing.Size(177, 25);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Nome da Empresa:";
+            this.label2.Text = "Nome do Serviço:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnCadastrar
             // 

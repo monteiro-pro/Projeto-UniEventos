@@ -15,8 +15,8 @@ namespace AplicacaoForm
 {
     public partial class EditarPerfil : Form
     {
-        private FachadaUsuario fachada;
-        private Usuario usuario;
+        private FachadaUsuario FachadaUsuario;
+        private Usuario EntUsuario;
 
         private int idEntidade;
         public EditarPerfil()
@@ -28,8 +28,8 @@ namespace AplicacaoForm
         {
             this.idEntidade = idEntidade;
 
-            fachada = new FachadaUsuario();
-            usuario = new Usuario();
+            FachadaUsuario = new FachadaUsuario();
+            EntUsuario = new Usuario();
 
             InitializeComponent();
         }
@@ -38,16 +38,16 @@ namespace AplicacaoForm
         {
             try
             {
-                usuario.Nome = txtNome.Text;
-                usuario.Telefone = Convert.ToInt32(txtTelefone.Text);
-                usuario.Email = txtEmail.Text;
-                usuario.Senha = txtSenha.Text;
+                EntUsuario.Nome = txtNome.Text;
+                EntUsuario.Telefone = Convert.ToInt32(txtTelefone.Text);
+                EntUsuario.Email = txtEmail.Text;
+                EntUsuario.Senha = txtSenha.Text;
 
-                fachada.Alterar(usuario);
+                FachadaUsuario.Alterar(EntUsuario);
 
                 MessageBox.Show("Dados Alterados Com Sucesso!");
 
-                if (usuario.TipoAcesso == "Cliente")
+                if (EntUsuario.TipoAcesso == "Cliente")
                 {
                     this.Hide();
                     ClienteLogado logado = new ClienteLogado(idEntidade);
@@ -71,12 +71,12 @@ namespace AplicacaoForm
 
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
-            usuario = fachada.SelectUsuario(idEntidade);
+            EntUsuario = FachadaUsuario.SelectUsuario(idEntidade);
 
-            txtNome.Text = usuario.Nome;
-            txtTelefone.Text = Convert.ToString(usuario.Telefone);
-            txtEmail.Text = usuario.Email;
-            txtSenha.Text = usuario.Senha;
+            txtNome.Text = EntUsuario.Nome;
+            txtTelefone.Text = Convert.ToString(EntUsuario.Telefone);
+            txtEmail.Text = EntUsuario.Email;
+            txtSenha.Text = EntUsuario.Senha;
 
         }
 
@@ -87,7 +87,7 @@ namespace AplicacaoForm
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (usuario.TipoAcesso == "Cliente")
+            if (EntUsuario.TipoAcesso == "Cliente")
             {
                 this.Hide();
                 ClienteLogado logado = new ClienteLogado(idEntidade);

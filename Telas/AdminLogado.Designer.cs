@@ -35,6 +35,7 @@
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,9 +65,11 @@
             // listCadastrados
             // 
             this.listCadastrados.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.Tipo,
             this.Nome,
             this.Telefone});
+            this.listCadastrados.FullRowSelect = true;
             this.listCadastrados.GridLines = true;
             this.listCadastrados.Location = new System.Drawing.Point(34, 43);
             this.listCadastrados.Name = "listCadastrados";
@@ -99,6 +102,11 @@
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
             // 
             // AdminLogado
             // 
@@ -126,5 +134,6 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Tipo;
         private System.Windows.Forms.ColumnHeader Telefone;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

@@ -46,5 +46,13 @@ namespace AplicacaoForm
                 MessageBox.Show("Erro em Tentar Conectar-se ao Banco!" + ex);
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Loguin loguin = new Loguin();
+            loguin.Closed += (s, args) => this.Close();
+            loguin.Show();
+        }
     }
 }

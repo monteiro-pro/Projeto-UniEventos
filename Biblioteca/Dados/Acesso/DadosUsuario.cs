@@ -46,16 +46,16 @@ namespace Biblioteca.Dados.Acesso
             }
         }
 
-        public void Deletar(Usuario usuario)
+        public void Deletar(int idUsuario)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "DELETE INTO Usuario WHERE idusuario = @idusuario";
+                string sql = "DELETE Usuario WHERE idusuario = @idusuario";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
-                cmd.Parameters["@idusuario"].Value = usuario.IdUsuario;
+                cmd.Parameters["@idusuario"].Value = idUsuario;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -100,7 +100,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario";
+                string sql = "SELECT * FROM Usuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -108,6 +108,7 @@ namespace Biblioteca.Dados.Acesso
                 while (DbReader.Read())
                 {
                     Usuario usuario = new Usuario();
+                    usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
                     usuario.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
                     usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     usuario.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
@@ -134,7 +135,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario WHERE idUsuario = " + idUsuario;
+                string sql = "SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -169,7 +170,7 @@ namespace Biblioteca.Dados.Acesso
             {
                 this.abrirConexao();
                 //## Mudar Para IdUsuario
-                string sql = "SELECT idusuario, nome FROM Usuario WHERE email = @email";
+                string sql = "SELECT idusuario, nome FROM Usuario WHERE email = @email;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 cmd.Parameters["@email"].Value = usuario.Email;
@@ -200,7 +201,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario WHERE email = @email AND senha = @senha";
+                string sql = "SELECT * FROM Usuario WHERE email = @email AND senha = @senha;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 cmd.Parameters["@email"].Value = nome;

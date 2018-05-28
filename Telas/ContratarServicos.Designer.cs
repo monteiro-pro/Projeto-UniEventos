@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.slcTipoServico = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -78,13 +79,16 @@
             this.btnContratar.TabIndex = 15;
             this.btnContratar.Text = "Contratar";
             this.btnContratar.UseVisualStyleBackColor = true;
+            this.btnContratar.Click += new System.EventHandler(this.btnContratar_Click);
             // 
             // listServicos
             // 
             this.listServicos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.Nome,
             this.Tipo,
             this.Valor});
+            this.listServicos.FullRowSelect = true;
             this.listServicos.GridLines = true;
             this.listServicos.Location = new System.Drawing.Point(49, 26);
             this.listServicos.Name = "listServicos";
@@ -102,7 +106,7 @@
             // Tipo
             // 
             this.Tipo.Text = "Tipo";
-            this.Tipo.Width = 186;
+            this.Tipo.Width = 144;
             // 
             // Valor
             // 
@@ -143,7 +147,10 @@
             this.slcTipoServico.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slcTipoServico.FormattingEnabled = true;
             this.slcTipoServico.Items.AddRange(new object[] {
-            "Teste"});
+            "Entretenimento",
+            "Espaço",
+            "Alimento",
+            "Equipamento"});
             this.slcTipoServico.Location = new System.Drawing.Point(191, 39);
             this.slcTipoServico.Name = "slcTipoServico";
             this.slcTipoServico.Size = new System.Drawing.Size(286, 33);
@@ -166,6 +173,11 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contratar Serviço";
             // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 49;
+            // 
             // ContratarServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +187,7 @@
             this.Name = "ContratarServicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContratarServicos";
+            this.Load += new System.EventHandler(this.ContratarServicos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -196,5 +209,6 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ComboBox slcTipoServico;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

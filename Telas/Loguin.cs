@@ -51,7 +51,18 @@ namespace AplicacaoForm
             {
                 FachadaUsuario fachada = new FachadaUsuario();
 
-                if (fachada.Logar(txtEmail.Text, txtSenha.Text) != null)
+                if (String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtSenha.Text))
+                {
+                    MessageBox.Show("Digite Um Email e Uma Senha Para Logar!");
+                }
+                else if (txtEmail.Text == "adm" || txtEmail.Text == "ADM" && txtSenha.Text == "123")
+                {
+                    this.Hide();
+                    AdminLogado logado = new AdminLogado();
+                    logado.Closed += (s, args) => this.Close();
+                    logado.Show();
+                }
+                else if (fachada.Logar(txtEmail.Text, txtSenha.Text) != null)
                 {
                     if(fachada.Logar(txtEmail.Text, txtSenha.Text).TipoAcesso == "Cliente")
                     {
@@ -60,21 +71,21 @@ namespace AplicacaoForm
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }
-                    else
+                    else if (fachada.Logar(txtEmail.Text, txtSenha.Text).TipoAcesso == "Empresa")
                     {
                         this.Hide();
                         EmpresaLogada logado = new EmpresaLogada(fachada.Logar(txtEmail.Text, txtSenha.Text).IdUsuario);
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }
+                    else
+                    {
+                        MessageBox.Show("Email ou Senha Inválidos!");
 
-                    
+                        txtEmail.Clear();
+                        txtSenha.Clear();
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Email ou Senha Inválidos!");
-                }
-
             }
             catch(Exception ex)
             {

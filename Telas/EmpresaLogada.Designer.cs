@@ -81,6 +81,7 @@
             this.Nome,
             this.Tipo,
             this.Valor});
+            this.listServicos.FullRowSelect = true;
             this.listServicos.GridLines = true;
             this.listServicos.Location = new System.Drawing.Point(17, 35);
             this.listServicos.Name = "listServicos";

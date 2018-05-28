@@ -15,8 +15,10 @@ namespace Telas
 {
     public partial class ClienteLogado : Form
     {
-        private FachadaUsuario fachada;
-        private Usuario usuario;
+        private FachadaUsuario FachadaUsuario;
+        private FachadaContrato FachadaContrato;
+        private Usuario EntUsuario;
+        private Contrato EntContrato;
 
         private int idEntidade;
 
@@ -29,8 +31,10 @@ namespace Telas
         {
             this.idEntidade = idEntidade;
 
-            fachada = new FachadaUsuario();
-            usuario = new Usuario();
+            FachadaUsuario = new FachadaUsuario();
+            FachadaContrato = new FachadaContrato();
+            EntUsuario = new Usuario();
+            EntContrato = new Contrato();
 
             InitializeComponent();
         }
@@ -54,14 +58,21 @@ namespace Telas
         private void btnContratar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ContratarServicos contratar = new ContratarServicos();
+            ContratarServicos contratar = new ContratarServicos(idEntidade);
             contratar.Closed += (s, args) => this.Close();
             contratar.Show();
         }
 
         private void ClienteLogado_Load(object sender, EventArgs e)
         {
-
+            foreach (Contrato item in FachadaContrato.Listar(idEntidade))
+            {
+                ListViewItem lista = new ListViewItem(item.Nome);
+                lista.SubItems.Add(item.Tipo);
+                lista.SubItems.Add(item.Empresa);
+                lista.SubItems.Add(Convert.ToString(item.Valor));
+                listServicos.Items.Add(lista);
+            }
         }
     }
 }

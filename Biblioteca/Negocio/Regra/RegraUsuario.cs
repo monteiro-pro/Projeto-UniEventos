@@ -51,24 +51,14 @@ namespace Biblioteca.Negocio.Regra
             Validar(usuario);
         }
 
-        public void Deletar(Usuario usuario)
+        public void Deletar(int idUsuario)
         {
-            if(usuario == null)
-            {
-                throw new Exception("Obejeto Não Instanciado!");
-            }
-
-            if (usuario.IdUsuario <= 0)
+            if (idUsuario <= 0)
             {
                 throw new Exception("Usuário Não Informado!");
             }
 
-            if (VerificarDuplicidade(usuario)==false)
-            {
-                throw new Exception("Usuário Não Existe no Banco!");
-            }
-
-            new DadosUsuario().Deletar(usuario);
+            new DadosUsuario().Deletar(idUsuario);
         }
 
         public void Alterar(Usuario usuario)

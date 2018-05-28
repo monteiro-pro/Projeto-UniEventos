@@ -10,40 +10,40 @@ namespace Biblioteca.Fachada
 {
     public class FachadaUsuario
     {
-        private RegraUsuario regra;
+        private RegraUsuario Regra;
         public FachadaUsuario()
         {
-            regra = new RegraUsuario();
+            Regra = new RegraUsuario();
         }
         
         public void Inserir(Usuario usuario)
         {
-            regra.Inserir(usuario);
+            Regra.Inserir(usuario);
         }
 
-        public void Deletar(Usuario usuario)
+        public void Deletar(int idUsuario)
         {
-            regra.Deletar(usuario);
+            Regra.Deletar(idUsuario);
         }
 
         public void Alterar(Usuario usuario)
         {
-            regra.Alterar(usuario);
+            Regra.Alterar(usuario);
         }
 
         public List<Usuario> Listar()
         {
-            return regra.Listar();
+            return Regra.Listar();
         }
 
         public Usuario Logar(String nome, String senha)
         {
-            return regra.Logar(nome, senha);
+            return Regra.Logar(nome, senha);
         }
 
         public Usuario SelectUsuario(int idUsuario)
         {
-            return regra.SelectUsuario(idUsuario);
+            return Regra.SelectUsuario(idUsuario);
         }
     }
 }

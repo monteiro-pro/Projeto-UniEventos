@@ -14,8 +14,8 @@ namespace Telas
 {
     public partial class CadastrarServico : Form
     {
-        private FachadaServicos Fachada;
-        private Servicos Servicos;
+        private FachadaServico Fachada;
+        private Servico Servicos;
 
         private int IdEntidade;
 
@@ -26,8 +26,8 @@ namespace Telas
 
         public CadastrarServico(int idEntidade)
         {
-            Fachada = new FachadaServicos();
-            Servicos = new Servicos();
+            Fachada = new FachadaServico();
+            Servicos = new Servico();
 
             this.IdEntidade = idEntidade;
 
@@ -65,6 +65,11 @@ namespace Telas
             {
                 throw new Exception("Erro ao Tentar Cadastrar o Serviço!" + ex);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public class DadosServicos : Conectar
+    public class DadosServico : Conectar
     {
-        public void Inserir(Servicos servicos)
+        public void Inserir(Servico servicos)
         {
             try
             {
                 this.abrirConexao();
                 string sql = "INSERT INTO Servicos (idusuario,tiposervico,nome,valor) ";
-                sql += "VALUES(@idusuario,@tiposervico,@nome,@valor)";
+                sql += "VALUES(@idusuario,@tiposervico,@nome,@valor);";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.VarChar);
@@ -43,16 +43,16 @@ namespace Biblioteca.Dados.Acesso
             }
         }
 
-        public void Deletar(Servicos servicos)
+        public void Deletar(int idServico)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "DELETE INTO Servicos WHERE idservico = @idservico";
+                string sql = "DELETE Servicos WHERE idservico = @idservico;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idservico", SqlDbType.Int);
-                cmd.Parameters["@idservico"].Value = servicos.IdServico;
+                cmd.Parameters["@idservico"].Value = idServico;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -64,23 +64,57 @@ namespace Biblioteca.Dados.Acesso
             }
         }
 
-        public List<Servicos> Listar(int idServico)
+        public List<Servico> Listar()
         {
-            List<Servicos> retorno = new List<Servicos>();
+            List<Servico> retorno = new List<Servico>();
 
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Servicos WHERE idservico = @idServico";
+                string sql = "SELECT * FROM Servicos;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-                cmd.Parameters.Add("@idServico", SqlDbType.Int);
-                cmd.Parameters["@idServico"].Value = idServico;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 
                 while (DbReader.Read())
                 {
-                    Servicos servico = new Servicos();
+                    Servico servico = new Servico();
+                    servico.IdServico = DbReader.GetInt32(DbReader.GetOrdinal("idservico"));
+                    servico.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
+                    servico.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    servico.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
+                    retorno.Add(servico);
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch
+            {
+                throw new Exception("Erro ao Executar o Comando Listar no Banco!");
+            }
+
+            return retorno;
+        }
+
+        public List<Servico> Listar(int idUsuario)
+        {
+            List<Servico> retorno = new List<Servico>();
+
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM Servicos WHERE idusuario = @idusuario;";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                cmd.Parameters.Add("@idusuario", SqlDbType.Int);
+                cmd.Parameters["@idusuario"].Value = idUsuario;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    Servico servico = new Servico();
                     servico.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
                     servico.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     servico.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));

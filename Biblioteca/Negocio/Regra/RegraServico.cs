@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Negocio.Regra
 {
-    public class RegraServicos
+    public class RegraServico
     {
-        public void Validar(Servicos servicos)
+        public void Validar(Servico servicos)
         {
             if (servicos.TipoServico != "Entretenimento" && servicos.TipoServico != "Espaço" && servicos.TipoServico != "Equipamento" && servicos.TipoServico != "Alimento")
             {
@@ -32,36 +32,36 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Valor Não Informado!");
             }
         }
-        public void Inserir(Servicos servicos)
+        public void Inserir(Servico servicos)
         {
             if (servicos == null)
             {
                 throw new Exception("Objeto Não Instanciado!");
             }
 
-            new DadosServicos().Inserir(servicos);
+            new DadosServico().Inserir(servicos);
 
             Validar(servicos);
         }
 
-        public void Deletar(Servicos servicos)
+        public void Deletar(int idServico)
         {
-            if (servicos == null)
-            {
-                throw new Exception("Obejeto Não Instanciado!");
-            }
-
-            if (servicos.IdUsuario <= 0)
+            if (idServico <= 0)
             {
                 throw new Exception("Serviço Não Informado!");
             }
 
-            new DadosServicos().Deletar(servicos);
+            new DadosServico().Deletar(idServico);
         }
 
-        public List<Servicos> Listar(int idServico)
+        public List<Servico> Listar()
         {
-            return new DadosServicos().Listar(idServico);
+            return new DadosServico().Listar();
+        }
+
+        public List<Servico> Listar(int idServico)
+        {
+            return new DadosServico().Listar(idServico);
         }
     }
 }
