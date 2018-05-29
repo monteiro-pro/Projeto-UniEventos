@@ -31,6 +31,11 @@ namespace Biblioteca.Fachada
             Regra.Alterar(usuario);
         }
 
+        public void validar(Usuario usuario)
+        {
+            Regra.Validar(usuario);
+        }
+
         public List<Usuario> Listar()
         {
             return Regra.Listar();

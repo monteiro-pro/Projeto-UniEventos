@@ -50,7 +50,8 @@ namespace Telas
 
             foreach (Servico item in FachadaServico.Listar(IdEntidade))
             {
-                ListViewItem lista = new ListViewItem(item.Nome);
+                ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                lista.SubItems.Add(item.Nome);
                 lista.SubItems.Add(item.TipoServico);
                 lista.SubItems.Add(Convert.ToString(item.Valor));
                 listServicos.Items.Add(lista);
@@ -76,6 +77,25 @@ namespace Telas
         private void listServicos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (ListViewItem lista in listServicos.SelectedItems)
+                {
+                    FachadaServico.Deletar(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text));
+
+                    lista.Remove();
+
+                    MessageBox.Show("Serviço Excluido Com Sucesso!");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao Tentar Excluir o Item Selecionado: " + ex.Message);
+            }
         }
     }
 }

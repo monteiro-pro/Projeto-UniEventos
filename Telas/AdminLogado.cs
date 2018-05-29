@@ -62,7 +62,7 @@ namespace Telas
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Tentar Excluir o Item Selecionado!" + ex);
+                MessageBox.Show("Erro ao Tentar Excluir o Item Selecionado: " + ex.Message);
             }
         }
     }

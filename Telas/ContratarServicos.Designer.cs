@@ -32,6 +32,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnContratar = new System.Windows.Forms.Button();
             this.listServicos = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.slcTipoServico = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(161, 56);
             this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Voltar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -97,6 +97,11 @@
             this.listServicos.UseCompatibleStateImageBehavior = false;
             this.listServicos.View = System.Windows.Forms.View.Details;
             this.listServicos.SelectedIndexChanged += new System.EventHandler(this.listServicos_SelectedIndexChanged);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 49;
             // 
             // Nome
             // 
@@ -172,11 +177,6 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contratar Serviço";
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 49;
             // 
             // ContratarServicos
             // 

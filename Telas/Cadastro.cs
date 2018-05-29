@@ -43,7 +43,7 @@ namespace AplicacaoForm
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Erro em Tentar Conectar-se ao Banco!" + ex);
+                MessageBox.Show("Erro em Tentar Cadastrar Usuário: " + ex.Message);
             }
         }
 

@@ -36,6 +36,8 @@
             this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +66,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Controls.Add(this.listServicos);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,6 +81,7 @@
             // listServicos
             // 
             this.listServicos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
             this.Nome,
             this.Tipo,
             this.Valor});
@@ -117,6 +121,22 @@
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(571, 111);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(158, 56);
+            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.Text = "Excluir Serviço";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 32;
+            // 
             // EmpresaLogada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,5 +164,7 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Tipo;
         private System.Windows.Forms.ColumnHeader Valor;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

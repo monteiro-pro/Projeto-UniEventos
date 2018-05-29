@@ -76,7 +76,7 @@ namespace Telas
             }
             catch(Exception ex)
             {
-                throw new Exception("Erro ao Tentar Inserir o Item Selecionado!" + ex);
+                MessageBox.Show("Erro ao Tentar Inserir o Item Selecionado: " + ex.Message);
             }
         }
     }

@@ -39,9 +39,9 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Objeto Não Instanciado!");
             }
 
-            new DadosServico().Inserir(servicos);
-
             Validar(servicos);
+
+            new DadosServico().Inserir(servicos);
         }
 
         public void Deletar(int idServico)
@@ -51,7 +51,14 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Serviço Não Informado!");
             }
 
-            new DadosServico().Deletar(idServico);
+            if(new DadosServico().Deletar(idServico))
+            {
+                throw new Exception("Você Não Pode Excluir Um Serviço Que Está Sendo Usado Por Um Cliente!");
+            }
+            else
+            {
+                new DadosServico().Deletar(idServico);
+            }
         }
 
         public List<Servico> Listar()

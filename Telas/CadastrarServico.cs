@@ -63,7 +63,7 @@ namespace Telas
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Tentar Cadastrar o Serviço!" + ex);
+                MessageBox.Show("Erro ao Tentar Cadastrar o Serviço: " + ex.Message);
             }
         }
 

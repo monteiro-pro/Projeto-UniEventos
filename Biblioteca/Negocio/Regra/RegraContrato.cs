@@ -36,9 +36,9 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Objeto não Instanciado!");
             }
 
-            AcessoContrato.Inserir(contrato);
-
             Validar(contrato);
+
+            AcessoContrato.Inserir(contrato);
         }
 
         public void Deletar(int idContrato)

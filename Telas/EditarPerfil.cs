@@ -47,6 +47,8 @@ namespace AplicacaoForm
 
                 MessageBox.Show("Dados Alterados Com Sucesso!");
 
+                FachadaUsuario.validar(EntUsuario);
+
                 if (EntUsuario.TipoAcesso == "Cliente")
                 {
                     this.Hide();
@@ -64,7 +66,7 @@ namespace AplicacaoForm
             }
             catch(Exception ex)
             {
-                throw new Exception("Erro Em Tentar Alterar os Dados!" + ex);
+                MessageBox.Show("Erro Em Tentar Alterar os Dados: " + ex.Message);
             }
 
         }

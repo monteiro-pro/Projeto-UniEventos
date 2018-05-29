@@ -30,7 +30,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex);
             }
@@ -51,7 +51,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!" + ex);
             }
@@ -64,7 +64,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT Servicos.nome, Servicos.tiposervico, Usuario.nome, Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
+                string sql = "SELECT Contrato.idcontrato, Servicos.nome, Servicos.tiposervico, Usuario.nome, Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
                 sql += "INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Contrato.idusuario = @idUsuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -76,6 +76,7 @@ namespace Biblioteca.Dados.Acesso
                 while (DbReader.Read())
                 {
                     Contrato contrato = new Contrato();
+                    contrato.Idcontrato = DbReader.GetInt32(DbReader.GetOrdinal("idcontrato"));
                     contrato.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     contrato.Tipo = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
                     contrato.Empresa = DbReader.GetString(DbReader.GetOrdinal("nome"));
@@ -87,7 +88,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
             }

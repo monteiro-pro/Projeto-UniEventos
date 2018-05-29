@@ -40,9 +40,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex.Message);
+                throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex);
             }
         }
 
@@ -61,36 +61,43 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!");
+                throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!" + ex);
             }
         }
 
         public void Alterar(Usuario usuario)
         {
-            this.abrirConexao();
-            string sql = "UPDATE Usuario SET nome = @nome, telefone = @telefone, email = @email, senha = @senha WHERE idusuario = @idusuario";
-            SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+            try
+            {
+                this.abrirConexao();
+                string sql = "UPDATE Usuario SET nome = @nome, telefone = @telefone, email = @email, senha = @senha WHERE idusuario = @idusuario";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-            cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
-            cmd.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+                cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
+                cmd.Parameters["@idUsuario"].Value = usuario.IdUsuario;
 
-            cmd.Parameters.Add("@nome", SqlDbType.VarChar);
-            cmd.Parameters["@nome"].Value = usuario.Nome;
+                cmd.Parameters.Add("@nome", SqlDbType.VarChar);
+                cmd.Parameters["@nome"].Value = usuario.Nome;
 
-            cmd.Parameters.Add("@telefone", SqlDbType.Int);
-            cmd.Parameters["@telefone"].Value = usuario.Telefone;
+                cmd.Parameters.Add("@telefone", SqlDbType.Int);
+                cmd.Parameters["@telefone"].Value = usuario.Telefone;
 
-            cmd.Parameters.Add("@email", SqlDbType.VarChar);
-            cmd.Parameters["@email"].Value = usuario.Email;
+                cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                cmd.Parameters["@email"].Value = usuario.Email;
 
-            cmd.Parameters.Add("@senha", SqlDbType.VarChar);
-            cmd.Parameters["@senha"].Value = usuario.Senha;
+                cmd.Parameters.Add("@senha", SqlDbType.VarChar);
+                cmd.Parameters["@senha"].Value = usuario.Senha;
 
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-            this.fecharConexao();
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro ao Executar o Camando Alterar no Banco de Dados!" + ex);
+            }
         }
 
         public List<Usuario> Listar()
@@ -121,9 +128,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Listar no Banco!");
+                throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
             }
 
             return retorno;
@@ -155,9 +162,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando SelectUsuario no Banco!");
+                throw new Exception("Erro ao Executar o Comando SelectUsuario no Banco!" + ex);
             }
 
             return retorno;
@@ -187,9 +194,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando VerificarDuplicidade no Banco!");
+                throw new Exception("Erro ao Executar o Comando VerificarDuplicidade no Banco!" + ex);
             }
 
             return retorno;
@@ -225,9 +232,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Logar no Banco!");
+                throw new Exception("Erro ao Executar o Comando Logar no Banco!" + ex);
             }
 
             return retorno;

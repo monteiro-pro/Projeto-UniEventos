@@ -22,12 +22,15 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Nome não Informado!");
             }
 
+            if (String.IsNullOrEmpty(Convert.ToString(usuario.Telefone)))
+            {
+                throw new Exception("Telefone Não Infomado!");
+            }
+
             if (String.IsNullOrEmpty(usuario.Email))
             {
                 throw new Exception("Email Não Informado!");
             }
-
-
 
             if (String.IsNullOrEmpty(usuario.Senha))
             {
@@ -46,9 +49,9 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
             }
 
-            new DadosUsuario().Inserir(usuario);
-
             Validar(usuario);
+
+            new DadosUsuario().Inserir(usuario);
         }
 
         public void Deletar(int idUsuario)
@@ -73,9 +76,9 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Usuário Não Informado!");
             }
 
-            new DadosUsuario().Alterar(usuario);
-
             Validar(usuario);
+
+            new DadosUsuario().Alterar(usuario);
         }
 
         public List<Usuario> Listar()

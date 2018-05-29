@@ -37,30 +37,57 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex.Message);
+                throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex);
             }
         }
 
-        public void Deletar(int idServico)
+        public bool Deletar(int idServico)
         {
+            bool retorno = false;
+
             try
             {
                 this.abrirConexao();
-                string sql = "DELETE Servicos WHERE idservico = @idservico;";
+                string sql = "SELECT * FROM Contrato WHERE idservico = @idservico;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-
-                cmd.Parameters.Add("@idservico", SqlDbType.Int);
+                cmd.Parameters.Add("@idservico", SqlDbType.VarChar);
                 cmd.Parameters["@idservico"].Value = idServico;
 
-                cmd.ExecuteNonQuery();
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    retorno = true;
+                    break;
+                }
+
+                DbReader.Close();
                 cmd.Dispose();
+
+                if (retorno != true)
+                {
+                    sql = "DELETE Servicos WHERE idservico = @idservico;";
+                    SqlCommand cmd2 = new SqlCommand(sql, this.sqlConn);
+                    cmd2.Parameters.Add("@idservico", SqlDbType.VarChar);
+                    cmd2.Parameters["@idservico"].Value = idServico;
+
+                    cmd2.ExecuteNonQuery();
+                    cmd2.Dispose();
+                }
+                else
+                {
+                    retorno = true;
+                }
+
                 this.fecharConexao();
+
+                return retorno;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!");
+                throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!" + ex);
             }
         }
 
@@ -90,9 +117,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Listar no Banco!");
+                throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
             }
 
             return retorno;
@@ -115,6 +142,7 @@ namespace Biblioteca.Dados.Acesso
                 while (DbReader.Read())
                 {
                     Servico servico = new Servico();
+                    servico.IdServico = DbReader.GetInt32(DbReader.GetOrdinal("idservico"));
                     servico.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
                     servico.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     servico.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
@@ -125,9 +153,9 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch
+            catch(Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando Listar no Banco!");
+                throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
             }
 
             return retorno;
