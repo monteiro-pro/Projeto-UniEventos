@@ -54,13 +54,20 @@ namespace Telas
 
         private void ContratarServicos_Load(object sender, EventArgs e)
         {
-            foreach(Servico item in FachadaServico.Listar())
+            try
             {
-                ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
-                lista.SubItems.Add(item.Nome);
-                lista.SubItems.Add(item.TipoServico);
-                lista.SubItems.Add(Convert.ToString(item.Valor));
-                listServicos.Items.Add(lista);
+                foreach (Servico item in FachadaServico.Listar())
+                {
+                    ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                    lista.SubItems.Add(item.Nome);
+                    lista.SubItems.Add(item.TipoServico);
+                    lista.SubItems.Add(Convert.ToString(item.Valor));
+                    listServicos.Items.Add(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Houve Um Erro ao Tentar Listar os Serviços do Banco de Dados!" + ex.Message);
             }
         }
 
@@ -77,6 +84,55 @@ namespace Telas
             catch(Exception ex)
             {
                 MessageBox.Show("Erro ao Tentar Inserir o Item Selecionado: " + ex.Message);
+            }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (slcTipoServico.Text == "Escolha um Tipo..." || slcTipoServico.Text == "Não Escolher Tipo..." && String.IsNullOrEmpty(txtNome.Text))
+                {
+                    MessageBox.Show("Escolha Um Tipo ou Digite Um Nome de Serviço Para Pesquisar!");
+                }
+                else
+                {
+                    if (slcTipoServico.Text != "Não Escolher Tipo...")
+                    {
+                        listServicos.Items.Clear();
+
+                        foreach (Servico item in FachadaServico.Listar(slcTipoServico.Text))
+                        {
+                            ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                            lista.SubItems.Add(item.Nome);
+                            lista.SubItems.Add(item.TipoServico);
+                            lista.SubItems.Add(Convert.ToString(item.Valor));
+                            listServicos.Items.Add(lista);
+                        }
+                    }
+                    else
+                    {
+                        listServicos.Items.Clear();
+
+                        foreach (Servico item in FachadaServico.Listar(txtNome.Text))
+                        {
+                            ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                            lista.SubItems.Add(item.Nome);
+                            lista.SubItems.Add(item.TipoServico);
+                            lista.SubItems.Add(Convert.ToString(item.Valor));
+                            listServicos.Items.Add(lista);
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Ouve Um Erro ao Tentar Listar os Serviços do Banco de Dados!" + ex.Message);
             }
         }
     }

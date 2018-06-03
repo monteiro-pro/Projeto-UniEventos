@@ -10,7 +10,7 @@ using Biblioteca.Negocio.Basica;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public class DadosUsuario : Conectar
+    public class DadosUsuario : Conectar, IDadosUsuario
     {
         public void Inserir(Usuario usuario)
         {
@@ -170,7 +170,7 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
-        public bool VerificarDuplicidade(Usuario usuario)
+        public bool VerificarDuplicidade(string email)
         {
             bool retorno = false;
             try
@@ -180,7 +180,7 @@ namespace Biblioteca.Dados.Acesso
                 string sql = "SELECT idusuario, nome FROM Usuario WHERE email = @email;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
-                cmd.Parameters["@email"].Value = usuario.Email;
+                cmd.Parameters["@email"].Value = email;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 

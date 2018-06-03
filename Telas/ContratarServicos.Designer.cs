@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.slcTipoServico = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnListar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -61,24 +63,28 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
             this.btnCancelar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(630, 108);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(161, 56);
             this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "Voltar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnContratar
             // 
+            this.btnContratar.BackColor = System.Drawing.Color.Lime;
             this.btnContratar.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContratar.ForeColor = System.Drawing.Color.White;
             this.btnContratar.Location = new System.Drawing.Point(630, 26);
             this.btnContratar.Name = "btnContratar";
             this.btnContratar.Size = new System.Drawing.Size(161, 56);
             this.btnContratar.TabIndex = 15;
             this.btnContratar.Text = "Contratar";
-            this.btnContratar.UseVisualStyleBackColor = true;
+            this.btnContratar.UseVisualStyleBackColor = false;
             this.btnContratar.Click += new System.EventHandler(this.btnContratar_Click);
             // 
             // listServicos
@@ -125,6 +131,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(286, 33);
             this.txtNome.TabIndex = 18;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label2
             // 
@@ -152,6 +159,7 @@
             this.slcTipoServico.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.slcTipoServico.FormattingEnabled = true;
             this.slcTipoServico.Items.AddRange(new object[] {
+            "Não Escolher Tipo...",
             "Entretenimento",
             "Espaço",
             "Alimento",
@@ -165,6 +173,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.groupBox2.Controls.Add(this.btnListar);
+            this.groupBox2.Controls.Add(this.btnPesquisar);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.slcTipoServico);
             this.groupBox2.Controls.Add(this.label1);
@@ -178,10 +188,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contratar Serviço";
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.Gray;
+            this.btnPesquisar.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisar.Location = new System.Drawing.Point(513, 34);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(128, 45);
+            this.btnPesquisar.TabIndex = 17;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // btnListar
+            // 
+            this.btnListar.BackColor = System.Drawing.Color.Gray;
+            this.btnListar.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListar.ForeColor = System.Drawing.Color.White;
+            this.btnListar.Location = new System.Drawing.Point(684, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(128, 45);
+            this.btnListar.TabIndex = 21;
+            this.btnListar.Text = "Listar Tudo";
+            this.btnListar.UseVisualStyleBackColor = false;
+            // 
             // ContratarServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(874, 550);
             this.Controls.Add(this.groupBox2);
             this.Name = "ContratarServicos";
@@ -210,5 +246,7 @@
         private System.Windows.Forms.ComboBox slcTipoServico;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.Button btnListar;
+        private System.Windows.Forms.Button btnPesquisar;
     }
 }

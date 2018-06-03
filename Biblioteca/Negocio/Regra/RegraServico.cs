@@ -70,5 +70,15 @@ namespace Biblioteca.Negocio.Regra
         {
             return new DadosServico().Listar(idServico);
         }
+
+        public List<Servico> Listar(string parametro)
+        {
+            if (parametro != "Entretenimento" && parametro != "Espaço" && parametro != "Alimento" && parametro != "Equipamento")
+            {
+                parametro = "%" + parametro + "%";
+            }
+
+            return new DadosServico().Listar(parametro);
+        }
     }
 }

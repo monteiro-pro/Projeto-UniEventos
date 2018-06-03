@@ -43,7 +43,11 @@
     <Compile Include="Dados\Acesso\DadosContrato.cs" />
     <Compile Include="Dados\Acesso\DadosServico.cs" />
     <Compile Include="Dados\Acesso\DadosUsuario.cs" />
+    <Compile Include="Dados\Acesso\IDadosContrato.cs" />
+    <Compile Include="Dados\Acesso\IDadosServicos.cs" />
+    <Compile Include="Dados\Acesso\IDadosUsuario.cs" />
     <Compile Include="Dados\Conexao\Conectar.cs" />
+    <Compile Include="Dados\Conexao\IConectar.cs" />
     <Compile Include="Fachada\FachadaContrato.cs" />
     <Compile Include="Fachada\FachadaServico.cs" />
     <Compile Include="Fachada\FachadaUsuario.cs" />

@@ -55,7 +55,7 @@ namespace AplicacaoForm
                 {
                     MessageBox.Show("Digite Um Email e Uma Senha Para Logar!");
                 }
-                else if (txtEmail.Text == "adm" || txtEmail.Text == "ADM" && txtSenha.Text == "123")
+                else if (txtEmail.Text == "adm" && txtSenha.Text == "123" || txtEmail.Text == "ADM" && txtSenha.Text == "123")
                 {
                     this.Hide();
                     AdminLogado logado = new AdminLogado();

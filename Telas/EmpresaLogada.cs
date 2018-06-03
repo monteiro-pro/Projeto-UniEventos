@@ -16,7 +16,11 @@ namespace Telas
     public partial class EmpresaLogada : Form
     {
         private FachadaServico FachadaServico;
+        private FachadaUsuario FachadaUsuario;
+
         private Servico EntServicos;
+        private Usuario EntUsuario;
+
         private int IdEntidade;
         public EmpresaLogada()
         {
@@ -25,7 +29,10 @@ namespace Telas
         public EmpresaLogada(int idEntidade)
         {
             FachadaServico = new FachadaServico();
+            FachadaUsuario = new FachadaUsuario();
+
             EntServicos = new Servico();
+            EntUsuario = new Usuario();
 
             this.IdEntidade = idEntidade;
 
@@ -47,14 +54,22 @@ namespace Telas
 
         private void EmpresaLogada_Load(object sender, EventArgs e)
         {
-
-            foreach (Servico item in FachadaServico.Listar(IdEntidade))
+            try
             {
-                ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
-                lista.SubItems.Add(item.Nome);
-                lista.SubItems.Add(item.TipoServico);
-                lista.SubItems.Add(Convert.ToString(item.Valor));
-                listServicos.Items.Add(lista);
+                foreach (Servico item in FachadaServico.Listar(IdEntidade))
+                {
+                    ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                    lista.SubItems.Add(item.Nome);
+                    lista.SubItems.Add(item.TipoServico);
+                    lista.SubItems.Add(Convert.ToString(item.Valor));
+                    listServicos.Items.Add(lista);
+                }
+
+                lblNome.Text = FachadaUsuario.SelectUsuario(IdEntidade).Nome;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro No Loguin do Usuário!" + ex.Message);
             }
         }
 
@@ -96,6 +111,11 @@ namespace Telas
             {
                 MessageBox.Show("Erro ao Tentar Excluir o Item Selecionado: " + ex.Message);
             }
+        }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

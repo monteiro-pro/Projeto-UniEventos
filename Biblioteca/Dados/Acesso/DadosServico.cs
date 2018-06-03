@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public class DadosServico : Conectar
+    public class DadosServico : Conectar, IDadosServicos
     {
         public void Inserir(Servico servicos)
         {
@@ -136,6 +136,42 @@ namespace Biblioteca.Dados.Acesso
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
                 cmd.Parameters["@idusuario"].Value = idUsuario;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    Servico servico = new Servico();
+                    servico.IdServico = DbReader.GetInt32(DbReader.GetOrdinal("idservico"));
+                    servico.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
+                    servico.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    servico.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
+                    retorno.Add(servico);
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
+            }
+
+            return retorno;
+        }
+
+        public List<Servico> Listar(string parametro)
+        {
+            List<Servico> retorno = new List<Servico>();
+
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM Servicos WHERE tiposervico = @parametro OR nome LIKE @parametro";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                cmd.Parameters.Add("@parametro", SqlDbType.VarChar);
+                cmd.Parameters["@parametro"].Value = parametro;
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 

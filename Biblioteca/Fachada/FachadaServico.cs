@@ -34,5 +34,10 @@ namespace Biblioteca.Fachada
         {
            return Regra.Listar(idServico);
         }
+
+        public List<Servico> Listar(string parametro)
+        {
+            return Regra.Listar(parametro);
+        }
     }
 }

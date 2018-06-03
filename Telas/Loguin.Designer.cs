@@ -81,24 +81,28 @@
             // 
             // btnLogar
             // 
+            this.btnLogar.BackColor = System.Drawing.Color.Lime;
             this.btnLogar.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogar.ForeColor = System.Drawing.Color.White;
             this.btnLogar.Location = new System.Drawing.Point(223, 212);
             this.btnLogar.Name = "btnLogar";
             this.btnLogar.Size = new System.Drawing.Size(121, 51);
             this.btnLogar.TabIndex = 6;
             this.btnLogar.Text = "Logar";
-            this.btnLogar.UseVisualStyleBackColor = true;
+            this.btnLogar.UseVisualStyleBackColor = false;
             this.btnLogar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.Font = new System.Drawing.Font("Lato", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
             this.btnCadastrar.Location = new System.Drawing.Point(234, 403);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(121, 51);
             this.btnCadastrar.TabIndex = 7;
             this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
@@ -122,6 +126,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lato", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Location = new System.Drawing.Point(175, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 45);
@@ -133,6 +138,7 @@
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(583, 474);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);

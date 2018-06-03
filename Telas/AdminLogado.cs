@@ -28,13 +28,20 @@ namespace Telas
 
         private void AdminLogado_Load(object sender, EventArgs e)
         {
-            foreach (Usuario item in FachadaUsuario.Listar())
+            try
             {
-                ListViewItem lista = new ListViewItem(Convert.ToString(item.IdUsuario));
-                lista.SubItems.Add(item.TipoAcesso);
-                lista.SubItems.Add(item.Nome);
-                lista.SubItems.Add(Convert.ToString(item.Telefone));
-                listCadastrados.Items.Add(lista);
+                foreach (Usuario item in FachadaUsuario.Listar())
+                {
+                    ListViewItem lista = new ListViewItem(Convert.ToString(item.IdUsuario));
+                    lista.SubItems.Add(item.TipoAcesso);
+                    lista.SubItems.Add(item.Nome);
+                    lista.SubItems.Add(Convert.ToString(item.Telefone));
+                    listCadastrados.Items.Add(lista);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Erro No Loguin do Usuário!" + ex.Message);
             }
         }
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public class DadosContrato : Conectar
+    public class DadosContrato : Conectar, IDadosContrato
     {
         public void Inserir(Contrato contrato)
         {

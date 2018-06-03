@@ -44,7 +44,7 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Objeto Não Instanciado!");
             }
 
-            if (VerificarDuplicidade(usuario) == true)
+            if (VerificarDuplicidade(usuario.Email) == true)
             {
                 throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
             }
@@ -107,20 +107,14 @@ namespace Biblioteca.Negocio.Regra
 
         }
 
-        public bool VerificarDuplicidade(Usuario usuario)
+        public bool VerificarDuplicidade(string email)
         {
-            if (usuario == null)
+            if (String.IsNullOrEmpty(email))
             {
-                throw new Exception("Obejeto Não Instanciado!");
+                throw new Exception("Email Não Informado!");
             }
 
-            // ## Mudar Para IdUsuario!!
-            if (String.IsNullOrEmpty(usuario.Nome))
-            {
-                throw new Exception("Usuário Não Informado!");
-            }
-
-            return new DadosUsuario().VerificarDuplicidade(usuario);
+            return new DadosUsuario().VerificarDuplicidade(email);
         }
     }
 }
