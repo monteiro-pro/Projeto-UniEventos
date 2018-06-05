@@ -41,8 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.slcTipoServico = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +188,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contratar Serviço";
             // 
+            // btnListar
+            // 
+            this.btnListar.BackColor = System.Drawing.Color.Gray;
+            this.btnListar.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListar.ForeColor = System.Drawing.Color.White;
+            this.btnListar.Location = new System.Drawing.Point(684, 34);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(128, 45);
+            this.btnListar.TabIndex = 21;
+            this.btnListar.Text = "Listar Tudo";
+            this.btnListar.UseVisualStyleBackColor = false;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.Gray;
@@ -200,18 +213,6 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // btnListar
-            // 
-            this.btnListar.BackColor = System.Drawing.Color.Gray;
-            this.btnListar.Font = new System.Drawing.Font("Lato", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.ForeColor = System.Drawing.Color.White;
-            this.btnListar.Location = new System.Drawing.Point(684, 34);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(128, 45);
-            this.btnListar.TabIndex = 21;
-            this.btnListar.Text = "Listar Tudo";
-            this.btnListar.UseVisualStyleBackColor = false;
             // 
             // ContratarServicos
             // 

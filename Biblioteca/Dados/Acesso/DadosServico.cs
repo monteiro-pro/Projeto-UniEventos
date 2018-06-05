@@ -69,12 +69,10 @@ namespace Biblioteca.Dados.Acesso
                 if (retorno != true)
                 {
                     sql = "DELETE Servicos WHERE idservico = @idservico;";
-                    SqlCommand cmd2 = new SqlCommand(sql, this.sqlConn);
-                    cmd2.Parameters.Add("@idservico", SqlDbType.VarChar);
-                    cmd2.Parameters["@idservico"].Value = idServico;
+                    cmd.CommandText = sql;
 
-                    cmd2.ExecuteNonQuery();
-                    cmd2.Dispose();
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
                 }
                 else
                 {

@@ -1,6 +1,7 @@
 ﻿using AplicacaoForm;
+using AplicacaoForm.localhost;
 using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,9 @@ namespace Telas
 {
     public partial class ClienteLogado : Form
     {
-        private FachadaUsuario FachadaUsuario;
-        private FachadaContrato FachadaContrato;
+        //private FachadaUsuario FachadaUsuario;
+        //private FachadaContrato FachadaContrato;
+        private Service1 Service;
 
         private Usuario EntUsuario;
         private Contrato EntContrato;
@@ -30,13 +32,14 @@ namespace Telas
 
         public ClienteLogado(int idEntidade)
         {
-            this.IdEntidade = idEntidade;
-
-            FachadaUsuario = new FachadaUsuario();
-            FachadaContrato = new FachadaContrato();
+            //FachadaUsuario = new FachadaUsuario();
+            //FachadaContrato = new FachadaContrato();
+            Service = new Service1();
 
             EntUsuario = new Usuario();
             EntContrato = new Contrato();
+
+            this.IdEntidade = idEntidade;
 
             InitializeComponent();
         }
@@ -69,7 +72,7 @@ namespace Telas
         {
             try
             {
-                foreach (Contrato item in FachadaContrato.Listar(IdEntidade))
+                foreach (Contrato item in Service.ListarContrato(IdEntidade, true))
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.Idcontrato));
                     lista.SubItems.Add(item.Nome);
@@ -79,7 +82,7 @@ namespace Telas
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = FachadaUsuario.SelectUsuario(IdEntidade).Nome;
+                lblNome.Text = Service.SelectUsuarioUsuario(IdEntidade, true).Nome;
             }
             catch (Exception ex)
             {
@@ -93,7 +96,7 @@ namespace Telas
             {
                 foreach (ListViewItem lista in listServicos.SelectedItems)
                 {
-                    FachadaContrato.Deletar(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text));
+                    Service.DeletarContrato(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text), true);
 
                     lista.Remove();
 

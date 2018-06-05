@@ -1,6 +1,7 @@
 ﻿using AplicacaoForm;
+using AplicacaoForm.localhost;
 using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,16 @@ namespace Telas
 {
     public partial class AdminLogado : Form
     {
-        private FachadaUsuario FachadaUsuario;
+        //private FachadaUsuario FachadaUsuario;
+        private Service1 Service;
+
         private Usuario EntUsuario;
 
         public AdminLogado()
         {
-            FachadaUsuario = new FachadaUsuario();
+            //FachadaUsuario = new FachadaUsuario();
+            Service = new Service1();
+
             EntUsuario = new Usuario();
 
             InitializeComponent();
@@ -30,7 +35,7 @@ namespace Telas
         {
             try
             {
-                foreach (Usuario item in FachadaUsuario.Listar())
+                foreach (Usuario item in Service.ListarUsuario())
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.IdUsuario));
                     lista.SubItems.Add(item.TipoAcesso);
@@ -59,7 +64,7 @@ namespace Telas
             {
                 foreach (ListViewItem lista in listCadastrados.SelectedItems)
                 {
-                    FachadaUsuario.Deletar(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text));
+                    Service.DeleteUsuario(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
 
                     lista.Remove();
 

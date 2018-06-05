@@ -1,5 +1,6 @@
-﻿using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+﻿using AplicacaoForm.localhost;
+using Biblioteca.Fachada;
+//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,9 @@ namespace AplicacaoForm
 {
     public partial class EditarPerfil : Form
     {
-        private FachadaUsuario FachadaUsuario;
+        //private FachadaUsuario FachadaUsuario;
         private Usuario EntUsuario;
+        private Service1 Service;
 
         private int idEntidade;
         public EditarPerfil()
@@ -26,9 +28,12 @@ namespace AplicacaoForm
 
         public EditarPerfil(int idEntidade)
         {
+
+            Service = new Service1();
+
             this.idEntidade = idEntidade;
 
-            FachadaUsuario = new FachadaUsuario();
+            //FachadaUsuario = new FachadaUsuario();
             EntUsuario = new Usuario();
 
             InitializeComponent();
@@ -43,11 +48,9 @@ namespace AplicacaoForm
                 EntUsuario.Email = txtEmail.Text;
                 EntUsuario.Senha = txtSenha.Text;
 
-                FachadaUsuario.Alterar(EntUsuario);
+                Service.AlterarUsuario(EntUsuario);
 
                 MessageBox.Show("Dados Alterados Com Sucesso!");
-
-                FachadaUsuario.validar(EntUsuario);
 
                 if (EntUsuario.TipoAcesso == "Cliente")
                 {
@@ -73,7 +76,7 @@ namespace AplicacaoForm
 
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
-            EntUsuario = FachadaUsuario.SelectUsuario(idEntidade);
+            EntUsuario = Service.SelectUsuarioUsuario(idEntidade, true);
 
             txtNome.Text = EntUsuario.Nome;
             txtTelefone.Text = Convert.ToString(EntUsuario.Telefone);

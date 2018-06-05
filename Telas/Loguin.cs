@@ -1,4 +1,5 @@
-﻿using Biblioteca.Fachada;
+﻿using AplicacaoForm.localhost;
+using Biblioteca.Fachada;
 using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace AplicacaoForm
         {
             try
             {
-                FachadaUsuario fachada = new FachadaUsuario();
+                Service1 Service = new Service1();
 
                 if (String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtSenha.Text))
                 {
@@ -62,19 +63,19 @@ namespace AplicacaoForm
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
-                else if (fachada.Logar(txtEmail.Text, txtSenha.Text) != null)
+                else if (Service.LogarUsuario(txtEmail.Text, txtSenha.Text) != null)
                 {
-                    if(fachada.Logar(txtEmail.Text, txtSenha.Text).TipoAcesso == "Cliente")
+                    if(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).TipoAcesso == "Cliente")
                     {
                         this.Hide();
-                        ClienteLogado logado = new ClienteLogado(fachada.Logar(txtEmail.Text, txtSenha.Text).IdUsuario);
+                        ClienteLogado logado = new ClienteLogado(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).IdUsuario);
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }
-                    else if (fachada.Logar(txtEmail.Text, txtSenha.Text).TipoAcesso == "Empresa")
+                    else if (Service.LogarUsuario(txtEmail.Text, txtSenha.Text).TipoAcesso == "Empresa")
                     {
                         this.Hide();
-                        EmpresaLogada logado = new EmpresaLogada(fachada.Logar(txtEmail.Text, txtSenha.Text).IdUsuario);
+                        EmpresaLogada logado = new EmpresaLogada(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).IdUsuario);
                         logado.Closed += (s, args) => this.Close();
                         logado.Show();
                     }

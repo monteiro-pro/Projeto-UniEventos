@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" />
+      <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AplicacaoServidor" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_InsertUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectUsuarioUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUsuarioUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectUsuarioUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectUsuarioUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirServico_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirServico" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirServico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarServico_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarServico" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarServico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServico" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServicoID_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicoID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServicoID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicoIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServicoPA_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicoPA" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarServicoPA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarServicoPAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirContrato_InputMessage">
+    <wsdl:part name="parameters" element="tns:InserirContrato" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InserirContrato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InserirContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarContrato_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarContrato" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarContrato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarContrato_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarContrato" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarContrato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarContratoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="InsertUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertUsuario" message="tns:IService1_InsertUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertUsuarioResponse" message="tns:IService1_InsertUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteUsuario" message="tns:IService1_DeleteUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteUsuarioResponse" message="tns:IService1_DeleteUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarUsuario" message="tns:IService1_AlterarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarUsuarioResponse" message="tns:IService1_AlterarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarUsuario" message="tns:IService1_ListarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarUsuarioResponse" message="tns:IService1_ListarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUsuarioUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectUsuarioUsuario" message="tns:IService1_SelectUsuarioUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectUsuarioUsuarioResponse" message="tns:IService1_SelectUsuarioUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogarUsuario" message="tns:IService1_LogarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogarUsuarioResponse" message="tns:IService1_LogarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirServico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirServico" message="tns:IService1_InserirServico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirServicoResponse" message="tns:IService1_InserirServico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarServico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletarServico" message="tns:IService1_DeletarServico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletarServicoResponse" message="tns:IService1_DeletarServico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarServico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarServico" message="tns:IService1_ListarServico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarServicoResponse" message="tns:IService1_ListarServico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicoID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarServicoID" message="tns:IService1_ListarServicoID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarServicoIDResponse" message="tns:IService1_ListarServicoID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicoPA">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarServicoPA" message="tns:IService1_ListarServicoPA_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarServicoPAResponse" message="tns:IService1_ListarServicoPA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InserirContrato">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirContrato" message="tns:IService1_InserirContrato_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InserirContratoResponse" message="tns:IService1_InserirContrato_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarContrato">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletarContrato" message="tns:IService1_DeletarContrato_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletarContratoResponse" message="tns:IService1_DeletarContrato_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarContrato">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarContrato" message="tns:IService1_ListarContrato_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarContratoResponse" message="tns:IService1_ListarContrato_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUsuarioUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectUsuarioUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IService1/LogarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirServico">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirServico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarServico">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletarServico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServico">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarServico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicoID">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarServicoID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarServicoPA">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarServicoPA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InserirContrato">
+      <soap:operation soapAction="http://tempuri.org/IService1/InserirContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarContrato">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletarContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarContrato">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarContrato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:58713/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

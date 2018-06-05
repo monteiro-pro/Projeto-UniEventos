@@ -64,7 +64,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT Contrato.idcontrato, Servicos.nome, Servicos.tiposervico, Usuario.nome, Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
+                string sql = "SELECT Contrato.idcontrato, Servicos.nome, Servicos.tiposervico, Usuario.nome AS 'nomeusu', Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
                 sql += "INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Contrato.idusuario = @idUsuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -79,7 +79,7 @@ namespace Biblioteca.Dados.Acesso
                     contrato.Idcontrato = DbReader.GetInt32(DbReader.GetOrdinal("idcontrato"));
                     contrato.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     contrato.Tipo = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
-                    contrato.Empresa = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    contrato.Empresa = DbReader.GetString(DbReader.GetOrdinal("nomeusu"));
                     contrato.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
                     retorno.Add(contrato);
                 }

@@ -1,6 +1,7 @@
 ﻿using AplicacaoForm;
+using AplicacaoForm.localhost;
 using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,9 @@ namespace Telas
 {
     public partial class EmpresaLogada : Form
     {
-        private FachadaServico FachadaServico;
-        private FachadaUsuario FachadaUsuario;
+        //private FachadaServico FachadaServico;
+        //private FachadaUsuario FachadaUsuario;
+        private Service1 Service;
 
         private Servico EntServicos;
         private Usuario EntUsuario;
@@ -28,8 +30,9 @@ namespace Telas
         }
         public EmpresaLogada(int idEntidade)
         {
-            FachadaServico = new FachadaServico();
-            FachadaUsuario = new FachadaUsuario();
+            //FachadaServico = new FachadaServico();
+            //FachadaUsuario = new FachadaUsuario();
+            Service = new Service1();
 
             EntServicos = new Servico();
             EntUsuario = new Usuario();
@@ -56,7 +59,7 @@ namespace Telas
         {
             try
             {
-                foreach (Servico item in FachadaServico.Listar(IdEntidade))
+                foreach (Servico item in Service.ListarServicoID(IdEntidade, true))
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
                     lista.SubItems.Add(item.Nome);
@@ -65,7 +68,7 @@ namespace Telas
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = FachadaUsuario.SelectUsuario(IdEntidade).Nome;
+                lblNome.Text = Service.SelectUsuarioUsuario(IdEntidade, true).Nome;
             }
             catch(Exception ex)
             {
@@ -100,7 +103,7 @@ namespace Telas
             {
                 foreach (ListViewItem lista in listServicos.SelectedItems)
                 {
-                    FachadaServico.Deletar(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text));
+                    Service.DeletarServico(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text), true);
 
                     lista.Remove();
 

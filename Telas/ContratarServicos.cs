@@ -1,5 +1,6 @@
-﻿using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+﻿using AplicacaoForm.localhost;
+using Biblioteca.Fachada;
+//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,9 @@ namespace Telas
 {
     public partial class ContratarServicos : Form
     {
-        private FachadaServico FachadaServico;
-        private FachadaContrato FachadaContrato;
+        //private FachadaServico FachadaServico;
+        //private FachadaContrato FachadaContrato;
+        private Service1 Service;
 
         private Servico EntServico;
         private Contrato EntContrato;
@@ -30,8 +32,9 @@ namespace Telas
         {
             InitializeComponent();
 
-            FachadaServico = new FachadaServico();
-            FachadaContrato = new FachadaContrato();
+            //FachadaServico = new FachadaServico();
+            //FachadaContrato = new FachadaContrato();
+            Service = new Service1();
 
             EntContrato = new Contrato();
             EntServico = new Servico();
@@ -56,7 +59,7 @@ namespace Telas
         {
             try
             {
-                foreach (Servico item in FachadaServico.Listar())
+                foreach (Servico item in Service.ListarServico())
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
                     lista.SubItems.Add(item.Nome);
@@ -77,7 +80,7 @@ namespace Telas
             {
                 EntContrato.Idusuario = IdEntidade;
                 EntContrato.Idservico = Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text);
-                FachadaContrato.Inserir(EntContrato);
+                Service.InserirContrato(EntContrato);
 
                 MessageBox.Show("Serviço Contratado Com Sucesso!");
             }
@@ -96,17 +99,17 @@ namespace Telas
         {
             try
             {
-                if (slcTipoServico.Text == "Escolha um Tipo..." || slcTipoServico.Text == "Não Escolher Tipo..." && String.IsNullOrEmpty(txtNome.Text))
+                if (slcTipoServico.Text == "Escolha um Tipo..." && String.IsNullOrEmpty(txtNome.Text) || slcTipoServico.Text == "Não Escolher Tipo..." && String.IsNullOrEmpty(txtNome.Text))
                 {
                     MessageBox.Show("Escolha Um Tipo ou Digite Um Nome de Serviço Para Pesquisar!");
                 }
                 else
                 {
-                    if (slcTipoServico.Text != "Não Escolher Tipo...")
+                    if (slcTipoServico.Text != "Não Escolher Tipo..." && slcTipoServico.Text != "Escolha um Tipo...")
                     {
                         listServicos.Items.Clear();
 
-                        foreach (Servico item in FachadaServico.Listar(slcTipoServico.Text))
+                        foreach (Servico item in Service.ListarServicoPA(slcTipoServico.Text))
                         {
                             ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
                             lista.SubItems.Add(item.Nome);
@@ -119,7 +122,7 @@ namespace Telas
                     {
                         listServicos.Items.Clear();
 
-                        foreach (Servico item in FachadaServico.Listar(txtNome.Text))
+                        foreach (Servico item in Service.ListarServicoPA(txtNome.Text))
                         {
                             ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
                             lista.SubItems.Add(item.Nome);
@@ -133,6 +136,27 @@ namespace Telas
             catch(Exception ex)
             {
                 throw new Exception("Ouve Um Erro ao Tentar Listar os Serviços do Banco de Dados!" + ex.Message);
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listServicos.Items.Clear();
+
+                foreach (Servico item in Service.ListarServico())
+                {
+                    ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
+                    lista.SubItems.Add(item.Nome);
+                    lista.SubItems.Add(item.TipoServico);
+                    lista.SubItems.Add(Convert.ToString(item.Valor));
+                    listServicos.Items.Add(lista);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Houve Um Erro ao Tentar Listar os Serviços do Banco de Dados!" + ex.Message);
             }
         }
     }

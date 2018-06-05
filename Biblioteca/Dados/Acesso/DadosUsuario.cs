@@ -17,8 +17,8 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "INSERT INTO Usuario (tipoacesso,nome,telefone,email,senha) ";
-                sql += "VALUES(@tipoacesso,@nome,@telefone,@email,@senha)";
+                string sql = "INSERT INTO Usuario (tipoacesso,nome,telefone,email,senha) "
+                + "VALUES(@tipoacesso,@nome,@telefone,@email,@senha)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@tipoacesso", SqlDbType.VarChar);
@@ -48,14 +48,43 @@ namespace Biblioteca.Dados.Acesso
 
         public void Deletar(int idUsuario)
         {
+            bool checar = false;
+
             try
             {
                 this.abrirConexao();
-                string sql = "DELETE Usuario WHERE idusuario = @idusuario";
+                string sql = "SELECT Servicos.idservico FROM Servicos INNER JOIN Contrato ON Servicos.idservico = " +
+                "Contrato.idservico INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Servicos.idusuario = @idusuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
                 cmd.Parameters["@idusuario"].Value = idUsuario;
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    checar = true;
+                    break;
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+
+                if (checar)
+                {
+                    sql = "DELETE Contrato FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico " +
+                        "INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Servicos.idusuario = @idusuario;";
+
+                    cmd.CommandText = sql;
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                }
+
+                sql = "DELETE Usuario WHERE idusuario = @idusuario;";
+
+                cmd.CommandText = sql;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();

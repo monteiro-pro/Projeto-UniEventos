@@ -1,6 +1,6 @@
 ﻿using Biblioteca.Dados.Conexao;
 using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
+//using Biblioteca.Negocio.Basica;
 using Biblioteca.Negocio.Regra;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AplicacaoForm.localhost;
 
 namespace AplicacaoForm
 {
@@ -32,7 +33,9 @@ namespace AplicacaoForm
                 usuario.Email = txtEmail.Text;
                 usuario.Senha = txtSenha.Text;
 
-                new FachadaUsuario().Inserir(usuario);
+                Service1 sv = new Service1();
+
+                sv.InsertUsuario(usuario);
 
                 MessageBox.Show("Usuário Cadastrado Com Sucesso!");
 
