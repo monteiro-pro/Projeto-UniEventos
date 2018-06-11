@@ -1,6 +1,4 @@
 ﻿using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +14,9 @@ namespace AplicacaoForm
 {
     public partial class EditarPerfil : Form
     {
-        //private FachadaUsuario FachadaUsuario;
-        private Usuario EntUsuario;
+        private Cliente EntCliente;
+        private Empresa EntEmpresa;
+
         private Service1 Service;
 
         private int idEntidade;
@@ -33,8 +32,8 @@ namespace AplicacaoForm
 
             this.idEntidade = idEntidade;
 
-            //FachadaUsuario = new FachadaUsuario();
-            EntUsuario = new Usuario();
+            EntCliente = new Cliente();
+            EntEmpresa = new Empresa();
 
             InitializeComponent();
         }
@@ -43,24 +42,33 @@ namespace AplicacaoForm
         {
             try
             {
-                EntUsuario.Nome = txtNome.Text;
-                EntUsuario.Telefone = Convert.ToInt32(txtTelefone.Text);
-                EntUsuario.Email = txtEmail.Text;
-                EntUsuario.Senha = txtSenha.Text;
-
-                Service.AlterarUsuario(EntUsuario);
-
-                MessageBox.Show("Dados Alterados Com Sucesso!");
-
-                if (EntUsuario.TipoAcesso == "Cliente")
+                if (Service.SelectCliente(idEntidade, true) != null)
                 {
+                    EntCliente.Nome = txtNome.Text;
+                    EntCliente.Telefone = Convert.ToInt32(txtTelefone.Text);
+                    EntCliente.Email = txtEmail.Text;
+                    EntCliente.Senha = txtSenha.Text;
+
+                    Service.AlterarCliente(EntCliente);
+
+                    MessageBox.Show("Dados Alterados Com Sucesso!");
+
                     this.Hide();
                     ClienteLogado logado = new ClienteLogado(idEntidade);
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
-                else
+                else if (Service.SelectEmpresa(idEntidade, true) != null)
                 {
+                    EntEmpresa.Nome = txtNome.Text;
+                    EntEmpresa.Telefone = Convert.ToInt32(txtTelefone.Text);
+                    EntEmpresa.Email = txtEmail.Text;
+                    EntEmpresa.Senha = txtSenha.Text;
+
+                    Service.AlterarEmpresa(EntEmpresa);
+
+                    MessageBox.Show("Dados Alterados Com Sucesso!");
+
                     this.Hide();
                     EmpresaLogada logado = new EmpresaLogada(idEntidade);
                     logado.Closed += (s, args) => this.Close();
@@ -76,13 +84,25 @@ namespace AplicacaoForm
 
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
-            EntUsuario = Service.SelectUsuarioUsuario(idEntidade, true);
+            if(Service.SelectCliente(idEntidade, true) != null)
+            {
+                EntCliente = Service.SelectCliente(idEntidade, true);
 
-            txtNome.Text = EntUsuario.Nome;
-            txtTelefone.Text = Convert.ToString(EntUsuario.Telefone);
-            txtEmail.Text = EntUsuario.Email;
-            txtSenha.Text = EntUsuario.Senha;
+                txtNome.Text = EntCliente.Nome;
+                txtTelefone.Text = Convert.ToString(EntCliente.Telefone);
+                txtEmail.Text = EntCliente.Email;
+                txtSenha.Text = EntCliente.Senha;
+            }
 
+            else if (Service.SelectEmpresa(idEntidade, true) != null)
+            {
+                EntEmpresa = Service.SelectEmpresa(idEntidade, true);
+
+                txtNome.Text = EntEmpresa.Nome;
+                txtTelefone.Text = Convert.ToString(EntEmpresa.Telefone);
+                txtEmail.Text = EntEmpresa.Email;
+                txtSenha.Text = EntEmpresa.Senha;
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -92,7 +112,7 @@ namespace AplicacaoForm
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (EntUsuario.TipoAcesso == "Cliente")
+            if (Service.SelectCliente(idEntidade, true) != null)
             {
                 this.Hide();
                 ClienteLogado logado = new ClienteLogado(idEntidade);

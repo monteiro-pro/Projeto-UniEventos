@@ -1,4 +1,3 @@
-D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.csprojResolveAssemblyReference.cache
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.Cadastro.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.EditarPerfil.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.Loguin.resources
@@ -8,9 +7,6 @@ D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Períod
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.AdminLogado.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.CadastrarServico.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.csproj.CoreCompileInputs.cache
-D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\Biblioteca.dll
-D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\Biblioteca.pdb
-D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.csproj.CopyComplete
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\Telas.ClienteLogado.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\AplicacaoForm.exe.config
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\bin\Debug\AplicacaoForm.exe
@@ -18,3 +14,4 @@ D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Períod
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.Properties.Resources.resources
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.exe
 D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.pdb
+D:\Documentos\Material de Estudo\Analise e Desenvolvimento de Sistemas\3 Período\Sistemas Distribuidos\Projeto\Projeto UniEventos\Telas\obj\Debug\AplicacaoForm.csprojResolveAssemblyReference.cache

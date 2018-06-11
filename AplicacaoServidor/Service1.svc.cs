@@ -14,47 +14,83 @@ namespace AplicacaoServidor
     // OBSERVAÇÃO: Para iniciar o cliente de teste do WCF para testar esse serviço, selecione Service1.svc ou Service1.svc.cs no Gerenciador de Soluções e inicie a depuração.
     public class Service1 : IService1
     {
-        private FachadaUsuario FachadaUsuario;
+        private FachadaCliente FachadaCliente;
+        private FachadaEmpresa FachadaEmpresa;
         private FachadaServico FachadaServico;
         private FachadaContrato FachadaContrato;
 
         public Service1()
         {
-            FachadaUsuario = new FachadaUsuario();
+            FachadaCliente = new FachadaCliente();
+            FachadaEmpresa = new FachadaEmpresa();
             FachadaServico = new FachadaServico();
             FachadaContrato = new FachadaContrato();
         }
 
-        #region Usuario
+        #region Cliente
 
-        public void InsertUsuario(Usuario usuario)
+        public void InsertCliente(Cliente usuario)
         {
-            FachadaUsuario.Inserir(usuario);
+            FachadaCliente.Inserir(usuario);
         }
 
-        public void DeleteUsuario(int idUsuario)
+        public void DeleteCliente(int idUsuario)
         {
-            FachadaUsuario.Deletar(idUsuario);
+            FachadaCliente.Deletar(idUsuario);
         }
 
-        public void AlterarUsuario(Usuario usuario)
+        public void AlterarCliente(Cliente usuario)
         {
-            FachadaUsuario.Alterar(usuario);
+            FachadaCliente.Alterar(usuario);
         }
 
-        public List<Usuario> ListarUsuario()
+        public List<Cliente> ListarCliente()
         {
-            return FachadaUsuario.Listar();
+            return FachadaCliente.Listar();
         }
 
-        public Usuario SelectUsuarioUsuario(int idUsuario)
+        public Cliente SelectCliente(int idUsuario)
         {
-            return FachadaUsuario.SelectUsuario(idUsuario);
+            return FachadaCliente.SelectCliente(idUsuario);
         }
 
-        public Usuario LogarUsuario(string emial, string senha)
+        public Cliente LogarCliente(string emial, string senha)
         {
-            return FachadaUsuario.Logar(emial, senha);
+            return FachadaCliente.Logar(emial, senha);
+        }
+
+        #endregion
+
+        #region Empresa
+
+        public void InsertEmpresa(Empresa usuario)
+        {
+            FachadaEmpresa.Inserir(usuario);
+        }
+
+        public void DeleteEmpresa(int idUsuario)
+        {
+            FachadaEmpresa.Deletar(idUsuario);
+        }
+
+        public void AlterarEmpresa(Empresa usuario)
+        {
+            FachadaEmpresa.Alterar(usuario);
+        }
+
+        public List<Empresa> ListarEmpresa()
+        {
+            return FachadaEmpresa.Listar();
+        }
+
+        public Empresa SelectEmpresa(int idUsuario)
+        {
+            return FachadaEmpresa.SelectEmpresa(idUsuario);
+        }
+
+        public Empresa LogarEmpresa(string emial, string senha)
+        {
+            return FachadaEmpresa.Logar(emial, senha);
         }
 
         #endregion
@@ -107,22 +143,5 @@ namespace AplicacaoServidor
 
         #endregion
 
-        //public string GetData(int value)
-        //{
-        //    return string.Format("You entered: {0}", value);
-        //}
-
-        //public CompositeType GetDataUsingDataContract(CompositeType composite)
-        //{
-        //    if (composite == null)
-        //    {
-        //        throw new ArgumentNullException("composite");
-        //    }
-        //    if (composite.BoolValue)
-        //    {
-        //        composite.StringValue += "Suffix";
-        //    }
-        //    return composite;
-        //}
     }
 }

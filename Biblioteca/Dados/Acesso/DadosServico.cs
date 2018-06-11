@@ -22,7 +22,7 @@ namespace Biblioteca.Dados.Acesso
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.VarChar);
-                cmd.Parameters["@idusuario"].Value = servicos.IdUsuario;
+                cmd.Parameters["@idusuario"].Value = servicos.EntEmpresa.IdUsuario;
 
                 cmd.Parameters.Add("@tiposervico", SqlDbType.VarChar);
                 cmd.Parameters["@tiposervico"].Value = servicos.TipoServico;

@@ -1,6 +1,4 @@
 ﻿using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +13,6 @@ namespace Telas
 {
     public partial class CadastrarServico : Form
     {
-        //private FachadaServico FachadaServico;
         private Service1 Service;
 
         private Servico Servicos;
@@ -29,7 +26,6 @@ namespace Telas
 
         public CadastrarServico(int idEntidade)
         {
-            //FachadaServico = new FachadaServico();
             Service = new Service1();
 
             Servicos = new Servico();
@@ -54,7 +50,7 @@ namespace Telas
                 Servicos.TipoServico = slcTipoCadastro.Text;
                 Servicos.Nome = txtNome.Text;
                 Servicos.Valor = Convert.ToInt32(txtValor.Text);
-                Servicos.IdUsuario = IdEntidade;
+                Servicos.EntEmpresa = Service.SelectEmpresa(IdEntidade, true);
 
                 Service.InserirServico(Servicos);
 

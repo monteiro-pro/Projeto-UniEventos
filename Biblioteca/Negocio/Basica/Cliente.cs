@@ -8,27 +8,23 @@ using System.Threading.Tasks;
 namespace Biblioteca.Negocio.Basica
 {
     [DataContract]
-    public class Servico
+    public class Cliente
     {
-        [DataMember(IsRequired = true)]
-        public Empresa EntEmpresa { get; set; }
-
-        public Servico()
-        {
-            this.EntEmpresa = new Empresa();
-        }
+        public readonly string TipoAcesso = "Cliente";
 
         [DataMember(IsRequired = true)]
-        public int IdServico { set; get; }
+        public int IdUsuario { get; set; }
 
         [DataMember(IsRequired = true)]
-        public string TipoServico { set; get; }
+        public string Nome { get; set; }
 
         [DataMember(IsRequired = true)]
-        public string Nome { set; get; }
+        public int Telefone { get; set; }
 
         [DataMember(IsRequired = true)]
-        public int Valor { set; get; }
+        public string Email { get; set; }
 
+        [DataMember(IsRequired = true)]
+        public string Senha { get; set; }
     }
 }

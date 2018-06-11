@@ -1,7 +1,5 @@
 ﻿using AplicacaoForm;
 using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +14,11 @@ namespace Telas
 {
     public partial class EmpresaLogada : Form
     {
-        //private FachadaServico FachadaServico;
-        //private FachadaUsuario FachadaUsuario;
         private Service1 Service;
 
         private Servico EntServicos;
-        private Usuario EntUsuario;
+        private Cliente EntCliente;
+        private Empresa EntEmpresa;
 
         private int IdEntidade;
         public EmpresaLogada()
@@ -30,12 +27,11 @@ namespace Telas
         }
         public EmpresaLogada(int idEntidade)
         {
-            //FachadaServico = new FachadaServico();
-            //FachadaUsuario = new FachadaUsuario();
             Service = new Service1();
 
             EntServicos = new Servico();
-            EntUsuario = new Usuario();
+            EntCliente = new Cliente();
+            EntEmpresa = new Empresa();
 
             this.IdEntidade = idEntidade;
 
@@ -68,7 +64,7 @@ namespace Telas
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = Service.SelectUsuarioUsuario(IdEntidade, true).Nome;
+                lblNome.Text = Service.SelectEmpresa(IdEntidade, true).Nome;
             }
             catch(Exception ex)
             {

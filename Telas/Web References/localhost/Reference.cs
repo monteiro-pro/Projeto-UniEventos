@@ -29,17 +29,29 @@ namespace AplicacaoForm.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
     public partial class Service1 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback InsertUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback InsertClienteOperationCompleted;
         
-        private System.Threading.SendOrPostCallback DeleteUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback DeleteClienteOperationCompleted;
         
-        private System.Threading.SendOrPostCallback AlterarUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback AlterarClienteOperationCompleted;
         
-        private System.Threading.SendOrPostCallback ListarUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback ListarClienteOperationCompleted;
         
-        private System.Threading.SendOrPostCallback SelectUsuarioUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback SelectClienteOperationCompleted;
         
-        private System.Threading.SendOrPostCallback LogarUsuarioOperationCompleted;
+        private System.Threading.SendOrPostCallback LogarClienteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InsertEmpresaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteEmpresaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarEmpresaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarEmpresaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SelectEmpresaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback LogarEmpresaOperationCompleted;
         
         private System.Threading.SendOrPostCallback InserirServicoOperationCompleted;
         
@@ -56,10 +68,6 @@ namespace AplicacaoForm.localhost {
         private System.Threading.SendOrPostCallback DeletarContratoOperationCompleted;
         
         private System.Threading.SendOrPostCallback ListarContratoOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback GetDataOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback GetDataUsingDataContractOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -100,22 +108,40 @@ namespace AplicacaoForm.localhost {
         }
         
         /// <remarks/>
-        public event InsertUsuarioCompletedEventHandler InsertUsuarioCompleted;
+        public event InsertClienteCompletedEventHandler InsertClienteCompleted;
         
         /// <remarks/>
-        public event DeleteUsuarioCompletedEventHandler DeleteUsuarioCompleted;
+        public event DeleteClienteCompletedEventHandler DeleteClienteCompleted;
         
         /// <remarks/>
-        public event AlterarUsuarioCompletedEventHandler AlterarUsuarioCompleted;
+        public event AlterarClienteCompletedEventHandler AlterarClienteCompleted;
         
         /// <remarks/>
-        public event ListarUsuarioCompletedEventHandler ListarUsuarioCompleted;
+        public event ListarClienteCompletedEventHandler ListarClienteCompleted;
         
         /// <remarks/>
-        public event SelectUsuarioUsuarioCompletedEventHandler SelectUsuarioUsuarioCompleted;
+        public event SelectClienteCompletedEventHandler SelectClienteCompleted;
         
         /// <remarks/>
-        public event LogarUsuarioCompletedEventHandler LogarUsuarioCompleted;
+        public event LogarClienteCompletedEventHandler LogarClienteCompleted;
+        
+        /// <remarks/>
+        public event InsertEmpresaCompletedEventHandler InsertEmpresaCompleted;
+        
+        /// <remarks/>
+        public event DeleteEmpresaCompletedEventHandler DeleteEmpresaCompleted;
+        
+        /// <remarks/>
+        public event AlterarEmpresaCompletedEventHandler AlterarEmpresaCompleted;
+        
+        /// <remarks/>
+        public event ListarEmpresaCompletedEventHandler ListarEmpresaCompleted;
+        
+        /// <remarks/>
+        public event SelectEmpresaCompletedEventHandler SelectEmpresaCompleted;
+        
+        /// <remarks/>
+        public event LogarEmpresaCompletedEventHandler LogarEmpresaCompleted;
         
         /// <remarks/>
         public event InserirServicoCompletedEventHandler InserirServicoCompleted;
@@ -142,187 +168,360 @@ namespace AplicacaoForm.localhost {
         public event ListarContratoCompletedEventHandler ListarContratoCompleted;
         
         /// <remarks/>
-        public event GetDataCompletedEventHandler GetDataCompleted;
-        
-        /// <remarks/>
-        public event GetDataUsingDataContractCompletedEventHandler GetDataUsingDataContractCompleted;
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InsertUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InsertUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
-            this.Invoke("InsertUsuario", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InsertCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InsertCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente usuario) {
+            this.Invoke("InsertCliente", new object[] {
                         usuario});
         }
         
         /// <remarks/>
-        public void InsertUsuarioAsync(Usuario usuario) {
-            this.InsertUsuarioAsync(usuario, null);
+        public void InsertClienteAsync(Cliente usuario) {
+            this.InsertClienteAsync(usuario, null);
         }
         
         /// <remarks/>
-        public void InsertUsuarioAsync(Usuario usuario, object userState) {
-            if ((this.InsertUsuarioOperationCompleted == null)) {
-                this.InsertUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertUsuarioOperationCompleted);
+        public void InsertClienteAsync(Cliente usuario, object userState) {
+            if ((this.InsertClienteOperationCompleted == null)) {
+                this.InsertClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertClienteOperationCompleted);
             }
-            this.InvokeAsync("InsertUsuario", new object[] {
-                        usuario}, this.InsertUsuarioOperationCompleted, userState);
+            this.InvokeAsync("InsertCliente", new object[] {
+                        usuario}, this.InsertClienteOperationCompleted, userState);
         }
         
-        private void OnInsertUsuarioOperationCompleted(object arg) {
-            if ((this.InsertUsuarioCompleted != null)) {
+        private void OnInsertClienteOperationCompleted(object arg) {
+            if ((this.InsertClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.InsertUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.InsertClienteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeleteUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void DeleteUsuario(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
-            this.Invoke("DeleteUsuario", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeleteCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteCliente(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
+            this.Invoke("DeleteCliente", new object[] {
                         idUsuario,
                         idUsuarioSpecified});
         }
         
         /// <remarks/>
-        public void DeleteUsuarioAsync(int idUsuario, bool idUsuarioSpecified) {
-            this.DeleteUsuarioAsync(idUsuario, idUsuarioSpecified, null);
+        public void DeleteClienteAsync(int idUsuario, bool idUsuarioSpecified) {
+            this.DeleteClienteAsync(idUsuario, idUsuarioSpecified, null);
         }
         
         /// <remarks/>
-        public void DeleteUsuarioAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
-            if ((this.DeleteUsuarioOperationCompleted == null)) {
-                this.DeleteUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteUsuarioOperationCompleted);
+        public void DeleteClienteAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
+            if ((this.DeleteClienteOperationCompleted == null)) {
+                this.DeleteClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteClienteOperationCompleted);
             }
-            this.InvokeAsync("DeleteUsuario", new object[] {
+            this.InvokeAsync("DeleteCliente", new object[] {
                         idUsuario,
-                        idUsuarioSpecified}, this.DeleteUsuarioOperationCompleted, userState);
+                        idUsuarioSpecified}, this.DeleteClienteOperationCompleted, userState);
         }
         
-        private void OnDeleteUsuarioOperationCompleted(object arg) {
-            if ((this.DeleteUsuarioCompleted != null)) {
+        private void OnDeleteClienteOperationCompleted(object arg) {
+            if ((this.DeleteClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.DeleteUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.DeleteClienteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
-            this.Invoke("AlterarUsuario", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente usuario) {
+            this.Invoke("AlterarCliente", new object[] {
                         usuario});
         }
         
         /// <remarks/>
-        public void AlterarUsuarioAsync(Usuario usuario) {
-            this.AlterarUsuarioAsync(usuario, null);
+        public void AlterarClienteAsync(Cliente usuario) {
+            this.AlterarClienteAsync(usuario, null);
         }
         
         /// <remarks/>
-        public void AlterarUsuarioAsync(Usuario usuario, object userState) {
-            if ((this.AlterarUsuarioOperationCompleted == null)) {
-                this.AlterarUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarUsuarioOperationCompleted);
+        public void AlterarClienteAsync(Cliente usuario, object userState) {
+            if ((this.AlterarClienteOperationCompleted == null)) {
+                this.AlterarClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarClienteOperationCompleted);
             }
-            this.InvokeAsync("AlterarUsuario", new object[] {
-                        usuario}, this.AlterarUsuarioOperationCompleted, userState);
+            this.InvokeAsync("AlterarCliente", new object[] {
+                        usuario}, this.AlterarClienteOperationCompleted, userState);
         }
         
-        private void OnAlterarUsuarioOperationCompleted(object arg) {
-            if ((this.AlterarUsuarioCompleted != null)) {
+        private void OnAlterarClienteOperationCompleted(object arg) {
+            if ((this.AlterarClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.AlterarUsuarioCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.AlterarClienteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
-        public Usuario[] ListarUsuario() {
-            object[] results = this.Invoke("ListarUsuario", new object[0]);
-            return ((Usuario[])(results[0]));
+        public Cliente[] ListarCliente() {
+            object[] results = this.Invoke("ListarCliente", new object[0]);
+            return ((Cliente[])(results[0]));
         }
         
         /// <remarks/>
-        public void ListarUsuarioAsync() {
-            this.ListarUsuarioAsync(null);
+        public void ListarClienteAsync() {
+            this.ListarClienteAsync(null);
         }
         
         /// <remarks/>
-        public void ListarUsuarioAsync(object userState) {
-            if ((this.ListarUsuarioOperationCompleted == null)) {
-                this.ListarUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarUsuarioOperationCompleted);
+        public void ListarClienteAsync(object userState) {
+            if ((this.ListarClienteOperationCompleted == null)) {
+                this.ListarClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarClienteOperationCompleted);
             }
-            this.InvokeAsync("ListarUsuario", new object[0], this.ListarUsuarioOperationCompleted, userState);
+            this.InvokeAsync("ListarCliente", new object[0], this.ListarClienteOperationCompleted, userState);
         }
         
-        private void OnListarUsuarioOperationCompleted(object arg) {
-            if ((this.ListarUsuarioCompleted != null)) {
+        private void OnListarClienteOperationCompleted(object arg) {
+            if ((this.ListarClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ListarUsuarioCompleted(this, new ListarUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.ListarClienteCompleted(this, new ListarClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SelectUsuarioUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SelectCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Usuario SelectUsuarioUsuario(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
-            object[] results = this.Invoke("SelectUsuarioUsuario", new object[] {
+        public Cliente SelectCliente(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
+            object[] results = this.Invoke("SelectCliente", new object[] {
                         idUsuario,
                         idUsuarioSpecified});
-            return ((Usuario)(results[0]));
+            return ((Cliente)(results[0]));
         }
         
         /// <remarks/>
-        public void SelectUsuarioUsuarioAsync(int idUsuario, bool idUsuarioSpecified) {
-            this.SelectUsuarioUsuarioAsync(idUsuario, idUsuarioSpecified, null);
+        public void SelectClienteAsync(int idUsuario, bool idUsuarioSpecified) {
+            this.SelectClienteAsync(idUsuario, idUsuarioSpecified, null);
         }
         
         /// <remarks/>
-        public void SelectUsuarioUsuarioAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
-            if ((this.SelectUsuarioUsuarioOperationCompleted == null)) {
-                this.SelectUsuarioUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSelectUsuarioUsuarioOperationCompleted);
+        public void SelectClienteAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
+            if ((this.SelectClienteOperationCompleted == null)) {
+                this.SelectClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSelectClienteOperationCompleted);
             }
-            this.InvokeAsync("SelectUsuarioUsuario", new object[] {
+            this.InvokeAsync("SelectCliente", new object[] {
                         idUsuario,
-                        idUsuarioSpecified}, this.SelectUsuarioUsuarioOperationCompleted, userState);
+                        idUsuarioSpecified}, this.SelectClienteOperationCompleted, userState);
         }
         
-        private void OnSelectUsuarioUsuarioOperationCompleted(object arg) {
-            if ((this.SelectUsuarioUsuarioCompleted != null)) {
+        private void OnSelectClienteOperationCompleted(object arg) {
+            if ((this.SelectClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SelectUsuarioUsuarioCompleted(this, new SelectUsuarioUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SelectClienteCompleted(this, new SelectClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/LogarUsuario", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/LogarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Usuario LogarUsuario([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string emial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string senha) {
-            object[] results = this.Invoke("LogarUsuario", new object[] {
+        public Cliente LogarCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string emial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string senha) {
+            object[] results = this.Invoke("LogarCliente", new object[] {
                         emial,
                         senha});
-            return ((Usuario)(results[0]));
+            return ((Cliente)(results[0]));
         }
         
         /// <remarks/>
-        public void LogarUsuarioAsync(string emial, string senha) {
-            this.LogarUsuarioAsync(emial, senha, null);
+        public void LogarClienteAsync(string emial, string senha) {
+            this.LogarClienteAsync(emial, senha, null);
         }
         
         /// <remarks/>
-        public void LogarUsuarioAsync(string emial, string senha, object userState) {
-            if ((this.LogarUsuarioOperationCompleted == null)) {
-                this.LogarUsuarioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLogarUsuarioOperationCompleted);
+        public void LogarClienteAsync(string emial, string senha, object userState) {
+            if ((this.LogarClienteOperationCompleted == null)) {
+                this.LogarClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLogarClienteOperationCompleted);
             }
-            this.InvokeAsync("LogarUsuario", new object[] {
+            this.InvokeAsync("LogarCliente", new object[] {
                         emial,
-                        senha}, this.LogarUsuarioOperationCompleted, userState);
+                        senha}, this.LogarClienteOperationCompleted, userState);
         }
         
-        private void OnLogarUsuarioOperationCompleted(object arg) {
-            if ((this.LogarUsuarioCompleted != null)) {
+        private void OnLogarClienteOperationCompleted(object arg) {
+            if ((this.LogarClienteCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.LogarUsuarioCompleted(this, new LogarUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.LogarClienteCompleted(this, new LogarClienteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/InsertEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void InsertEmpresa([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Empresa usuario) {
+            this.Invoke("InsertEmpresa", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void InsertEmpresaAsync(Empresa usuario) {
+            this.InsertEmpresaAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void InsertEmpresaAsync(Empresa usuario, object userState) {
+            if ((this.InsertEmpresaOperationCompleted == null)) {
+                this.InsertEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("InsertEmpresa", new object[] {
+                        usuario}, this.InsertEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnInsertEmpresaOperationCompleted(object arg) {
+            if ((this.InsertEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InsertEmpresaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeleteEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeleteEmpresa(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
+            this.Invoke("DeleteEmpresa", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified});
+        }
+        
+        /// <remarks/>
+        public void DeleteEmpresaAsync(int idUsuario, bool idUsuarioSpecified) {
+            this.DeleteEmpresaAsync(idUsuario, idUsuarioSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteEmpresaAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
+            if ((this.DeleteEmpresaOperationCompleted == null)) {
+                this.DeleteEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("DeleteEmpresa", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified}, this.DeleteEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnDeleteEmpresaOperationCompleted(object arg) {
+            if ((this.DeleteEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteEmpresaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarEmpresa([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Empresa usuario) {
+            this.Invoke("AlterarEmpresa", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void AlterarEmpresaAsync(Empresa usuario) {
+            this.AlterarEmpresaAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarEmpresaAsync(Empresa usuario, object userState) {
+            if ((this.AlterarEmpresaOperationCompleted == null)) {
+                this.AlterarEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("AlterarEmpresa", new object[] {
+                        usuario}, this.AlterarEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnAlterarEmpresaOperationCompleted(object arg) {
+            if ((this.AlterarEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarEmpresaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
+        public Empresa[] ListarEmpresa() {
+            object[] results = this.Invoke("ListarEmpresa", new object[0]);
+            return ((Empresa[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarEmpresaAsync() {
+            this.ListarEmpresaAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ListarEmpresaAsync(object userState) {
+            if ((this.ListarEmpresaOperationCompleted == null)) {
+                this.ListarEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("ListarEmpresa", new object[0], this.ListarEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnListarEmpresaOperationCompleted(object arg) {
+            if ((this.ListarEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarEmpresaCompleted(this, new ListarEmpresaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SelectEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Empresa SelectEmpresa(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
+            object[] results = this.Invoke("SelectEmpresa", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified});
+            return ((Empresa)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SelectEmpresaAsync(int idUsuario, bool idUsuarioSpecified) {
+            this.SelectEmpresaAsync(idUsuario, idUsuarioSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void SelectEmpresaAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
+            if ((this.SelectEmpresaOperationCompleted == null)) {
+                this.SelectEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSelectEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("SelectEmpresa", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified}, this.SelectEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnSelectEmpresaOperationCompleted(object arg) {
+            if ((this.SelectEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SelectEmpresaCompleted(this, new SelectEmpresaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/LogarEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Empresa LogarEmpresa([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string emial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string senha) {
+            object[] results = this.Invoke("LogarEmpresa", new object[] {
+                        emial,
+                        senha});
+            return ((Empresa)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LogarEmpresaAsync(string emial, string senha) {
+            this.LogarEmpresaAsync(emial, senha, null);
+        }
+        
+        /// <remarks/>
+        public void LogarEmpresaAsync(string emial, string senha, object userState) {
+            if ((this.LogarEmpresaOperationCompleted == null)) {
+                this.LogarEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLogarEmpresaOperationCompleted);
+            }
+            this.InvokeAsync("LogarEmpresa", new object[] {
+                        emial,
+                        senha}, this.LogarEmpresaOperationCompleted, userState);
+        }
+        
+        private void OnLogarEmpresaOperationCompleted(object arg) {
+            if ((this.LogarEmpresaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LogarEmpresaCompleted(this, new LogarEmpresaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -569,68 +768,6 @@ namespace AplicacaoForm.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetData", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string GetData(int value, [System.Xml.Serialization.XmlIgnoreAttribute()] bool valueSpecified) {
-            object[] results = this.Invoke("GetData", new object[] {
-                        value,
-                        valueSpecified});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetDataAsync(int value, bool valueSpecified) {
-            this.GetDataAsync(value, valueSpecified, null);
-        }
-        
-        /// <remarks/>
-        public void GetDataAsync(int value, bool valueSpecified, object userState) {
-            if ((this.GetDataOperationCompleted == null)) {
-                this.GetDataOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDataOperationCompleted);
-            }
-            this.InvokeAsync("GetData", new object[] {
-                        value,
-                        valueSpecified}, this.GetDataOperationCompleted, userState);
-        }
-        
-        private void OnGetDataOperationCompleted(object arg) {
-            if ((this.GetDataCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetDataCompleted(this, new GetDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/GetDataUsingDataContract", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public CompositeType GetDataUsingDataContract([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] CompositeType composite) {
-            object[] results = this.Invoke("GetDataUsingDataContract", new object[] {
-                        composite});
-            return ((CompositeType)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetDataUsingDataContractAsync(CompositeType composite) {
-            this.GetDataUsingDataContractAsync(composite, null);
-        }
-        
-        /// <remarks/>
-        public void GetDataUsingDataContractAsync(CompositeType composite, object userState) {
-            if ((this.GetDataUsingDataContractOperationCompleted == null)) {
-                this.GetDataUsingDataContractOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDataUsingDataContractOperationCompleted);
-            }
-            this.InvokeAsync("GetDataUsingDataContract", new object[] {
-                        composite}, this.GetDataUsingDataContractOperationCompleted, userState);
-        }
-        
-        private void OnGetDataUsingDataContractOperationCompleted(object arg) {
-            if ((this.GetDataUsingDataContractCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetDataUsingDataContractCompleted(this, new GetDataUsingDataContractCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -655,7 +792,198 @@ namespace AplicacaoForm.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
-    public partial class Usuario {
+    public partial class Cliente {
+        
+        private string emailField;
+        
+        private int idUsuarioField;
+        
+        private string nomeField;
+        
+        private string senhaField;
+        
+        private int telefoneField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                this.idUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Senha {
+            get {
+                return this.senhaField;
+            }
+            set {
+                this.senhaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Telefone {
+            get {
+                return this.telefoneField;
+            }
+            set {
+                this.telefoneField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
+    public partial class Contrato {
+        
+        private Cliente entClienteField;
+        
+        private Servico entServicoField;
+        
+        private int idcontratoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Cliente EntCliente {
+            get {
+                return this.entClienteField;
+            }
+            set {
+                this.entClienteField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Servico EntServico {
+            get {
+                return this.entServicoField;
+            }
+            set {
+                this.entServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Idcontrato {
+            get {
+                return this.idcontratoField;
+            }
+            set {
+                this.idcontratoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
+    public partial class Servico {
+        
+        private Empresa entEmpresaField;
+        
+        private int idServicoField;
+        
+        private string nomeField;
+        
+        private string tipoServicoField;
+        
+        private int valorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Empresa EntEmpresa {
+            get {
+                return this.entEmpresaField;
+            }
+            set {
+                this.entEmpresaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdServico {
+            get {
+                return this.idServicoField;
+            }
+            set {
+                this.idServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Nome {
+            get {
+                return this.nomeField;
+            }
+            set {
+                this.nomeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TipoServico {
+            get {
+                return this.tipoServicoField;
+            }
+            set {
+                this.tipoServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
+    public partial class Empresa {
         
         private string emailField;
         
@@ -670,8 +998,6 @@ namespace AplicacaoForm.localhost {
         private int telefoneField;
         
         private bool telefoneFieldSpecified;
-        
-        private string tipoAcessoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -747,384 +1073,184 @@ namespace AplicacaoForm.localhost {
                 this.telefoneFieldSpecified = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string TipoAcesso {
-            get {
-                return this.tipoAcessoField;
-            }
-            set {
-                this.tipoAcessoField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/AplicacaoServidor")]
-    public partial class CompositeType {
-        
-        private bool boolValueField;
-        
-        private bool boolValueFieldSpecified;
-        
-        private string stringValueField;
-        
-        /// <remarks/>
-        public bool BoolValue {
-            get {
-                return this.boolValueField;
-            }
-            set {
-                this.boolValueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool BoolValueSpecified {
-            get {
-                return this.boolValueFieldSpecified;
-            }
-            set {
-                this.boolValueFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StringValue {
-            get {
-                return this.stringValueField;
-            }
-            set {
-                this.stringValueField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
-    public partial class Contrato {
-        
-        private string empresaField;
-        
-        private int idcontratoField;
-        
-        private bool idcontratoFieldSpecified;
-        
-        private int idservicoField;
-        
-        private int idusuarioField;
-        
-        private string nomeField;
-        
-        private string tipoField;
-        
-        private int valorField;
-        
-        private bool valorFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Empresa {
-            get {
-                return this.empresaField;
-            }
-            set {
-                this.empresaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Idcontrato {
-            get {
-                return this.idcontratoField;
-            }
-            set {
-                this.idcontratoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdcontratoSpecified {
-            get {
-                return this.idcontratoFieldSpecified;
-            }
-            set {
-                this.idcontratoFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Idservico {
-            get {
-                return this.idservicoField;
-            }
-            set {
-                this.idservicoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Idusuario {
-            get {
-                return this.idusuarioField;
-            }
-            set {
-                this.idusuarioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Nome {
-            get {
-                return this.nomeField;
-            }
-            set {
-                this.nomeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Tipo {
-            get {
-                return this.tipoField;
-            }
-            set {
-                this.tipoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Valor {
-            get {
-                return this.valorField;
-            }
-            set {
-                this.valorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ValorSpecified {
-            get {
-                return this.valorFieldSpecified;
-            }
-            set {
-                this.valorFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
-    public partial class Servico {
-        
-        private int idServicoField;
-        
-        private bool idServicoFieldSpecified;
-        
-        private int idUsuarioField;
-        
-        private bool idUsuarioFieldSpecified;
-        
-        private string nomeField;
-        
-        private string tipoServicoField;
-        
-        private int valorField;
-        
-        private bool valorFieldSpecified;
-        
-        /// <remarks/>
-        public int IdServico {
-            get {
-                return this.idServicoField;
-            }
-            set {
-                this.idServicoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdServicoSpecified {
-            get {
-                return this.idServicoFieldSpecified;
-            }
-            set {
-                this.idServicoFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdUsuario {
-            get {
-                return this.idUsuarioField;
-            }
-            set {
-                this.idUsuarioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdUsuarioSpecified {
-            get {
-                return this.idUsuarioFieldSpecified;
-            }
-            set {
-                this.idUsuarioFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Nome {
-            get {
-                return this.nomeField;
-            }
-            set {
-                this.nomeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string TipoServico {
-            get {
-                return this.tipoServicoField;
-            }
-            set {
-                this.tipoServicoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Valor {
-            get {
-                return this.valorField;
-            }
-            set {
-                this.valorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ValorSpecified {
-            get {
-                return this.valorFieldSpecified;
-            }
-            set {
-                this.valorFieldSpecified = value;
-            }
-        }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void InsertUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void InsertClienteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void DeleteUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void DeleteClienteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void AlterarUsuarioCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void AlterarClienteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void ListarUsuarioCompletedEventHandler(object sender, ListarUsuarioCompletedEventArgs e);
+    public delegate void ListarClienteCompletedEventHandler(object sender, ListarClienteCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ListarUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class ListarClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal ListarUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal ListarClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Usuario[] Result {
+        public Cliente[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Usuario[])(this.results[0]));
+                return ((Cliente[])(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void SelectUsuarioUsuarioCompletedEventHandler(object sender, SelectUsuarioUsuarioCompletedEventArgs e);
+    public delegate void SelectClienteCompletedEventHandler(object sender, SelectClienteCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SelectUsuarioUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class SelectClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal SelectUsuarioUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal SelectClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Usuario Result {
+        public Cliente Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Usuario)(this.results[0]));
+                return ((Cliente)(this.results[0]));
             }
         }
     }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void LogarUsuarioCompletedEventHandler(object sender, LogarUsuarioCompletedEventArgs e);
+    public delegate void LogarClienteCompletedEventHandler(object sender, LogarClienteCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class LogarUsuarioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class LogarClienteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal LogarUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal LogarClienteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Usuario Result {
+        public Cliente Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Usuario)(this.results[0]));
+                return ((Cliente)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void InsertEmpresaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void DeleteEmpresaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void AlterarEmpresaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void ListarEmpresaCompletedEventHandler(object sender, ListarEmpresaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarEmpresaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarEmpresaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Empresa[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Empresa[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void SelectEmpresaCompletedEventHandler(object sender, SelectEmpresaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SelectEmpresaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SelectEmpresaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Empresa Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Empresa)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void LogarEmpresaCompletedEventHandler(object sender, LogarEmpresaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LogarEmpresaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LogarEmpresaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Empresa Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Empresa)(this.results[0]));
             }
         }
     }
@@ -1245,58 +1371,6 @@ namespace AplicacaoForm.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Contrato[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void GetDataCompletedEventHandler(object sender, GetDataCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetDataCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetDataCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    public delegate void GetDataUsingDataContractCompletedEventHandler(object sender, GetDataUsingDataContractCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetDataUsingDataContractCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetDataUsingDataContractCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public CompositeType Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((CompositeType)(this.results[0]));
             }
         }
     }

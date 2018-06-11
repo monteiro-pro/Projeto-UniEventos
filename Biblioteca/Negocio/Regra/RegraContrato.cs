@@ -18,12 +18,12 @@ namespace Biblioteca.Negocio.Regra
 
         public void Validar(Contrato contrato)
         {
-            if(contrato.Idusuario <= 0)
+            if(contrato.EntCliente.IdUsuario <= 0)
             {
                 throw new Exception("Id do Usuário Não Informado!");
             }
 
-            if(contrato.Idservico <= 0)
+            if(contrato.EntServico.IdServico <= 0)
             {
                 throw new Exception("Id do Serviço Não Informado!");
             }

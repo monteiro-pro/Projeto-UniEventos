@@ -1,8 +1,4 @@
-﻿using Biblioteca.Dados.Conexao;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
-using Biblioteca.Negocio.Regra;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,23 +22,71 @@ namespace AplicacaoForm
         {
             try
             {
-                Usuario usuario = new Usuario();
-                usuario.Nome = txtNome.Text;
-                usuario.TipoAcesso = slcTipoCadastro.Text;
-                usuario.Telefone = Convert.ToInt32(txtTelefone.Text);
-                usuario.Email = txtEmail.Text;
-                usuario.Senha = txtSenha.Text;
+                if (slcTipoCadastro.Text != "Empresa" && slcTipoCadastro.Text != "Cliente")
+                {
+                    MessageBox.Show("Escolha Um Tipo de Cadastro!")
+;               }
+                else
+                {
+                    if (slcTipoCadastro.Text == "Cliente")
+                    {
+                        Cliente cliente = new Cliente();
+                        cliente.Nome = txtNome.Text;
 
-                Service1 sv = new Service1();
+                        if (String.IsNullOrEmpty(txtTelefone.Text))
+                        {
+                            throw new Exception("Campo Telefone Nulo!");
+                        }
+                        else
+                        {
+                            cliente.Telefone = Convert.ToInt32(txtTelefone.Text);
 
-                sv.InsertUsuario(usuario);
+                        }
+                        cliente.Email = txtEmail.Text;
+                        cliente.Senha = txtSenha.Text;
 
-                MessageBox.Show("Usuário Cadastrado Com Sucesso!");
+                        Service1 sv = new Service1();
 
-                this.Hide();
-                Loguin loguin = new Loguin();
-                loguin.Closed += (s, args) => this.Close();
-                loguin.Show();
+                        sv.InsertCliente(cliente);
+
+                        MessageBox.Show("Usuário Cadastrado Com Sucesso!");
+
+                        this.Hide();
+                        Loguin loguin = new Loguin();
+                        loguin.Closed += (s, args) => this.Close();
+                        loguin.Show();
+                    }
+
+                    else if (slcTipoCadastro.Text == "Empresa")
+                    {
+                        Empresa empresa = new Empresa();
+                        empresa.Nome = txtNome.Text;
+
+                        if (String.IsNullOrEmpty(txtTelefone.Text))
+                        {
+                            throw new Exception("Campo Telefone Nulo!");
+                        }
+                        else
+                        {
+                            empresa.Telefone = Convert.ToInt32(txtTelefone.Text);
+
+                        }
+                        empresa.Email = txtEmail.Text;
+                        empresa.Senha = txtSenha.Text;
+
+                        Service1 sv = new Service1();
+
+                        sv.InsertEmpresa(empresa);
+
+                        MessageBox.Show("Usuário Cadastrado Com Sucesso!");
+
+                        this.Hide();
+                        Loguin loguin = new Loguin();
+                        loguin.Closed += (s, args) => this.Close();
+                        loguin.Show();
+                    }
+                }
+
             }
             catch(Exception ex)
             {

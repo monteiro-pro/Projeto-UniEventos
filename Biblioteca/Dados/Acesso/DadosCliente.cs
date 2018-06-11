@@ -10,19 +10,16 @@ using Biblioteca.Negocio.Basica;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public class DadosUsuario : Conectar, IDadosUsuario
+    public class DadosCliente : Conectar, IDadosCliente
     {
-        public void Inserir(Usuario usuario)
+        public void Inserir(Cliente usuario)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "INSERT INTO Usuario (tipoacesso,nome,telefone,email,senha) "
-                + "VALUES(@tipoacesso,@nome,@telefone,@email,@senha)";
+                string sql = "INSERT INTO Cliente (nome,telefone,email,senha) "
+                + "VALUES(@nome,@telefone,@email,@senha)";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
-
-                cmd.Parameters.Add("@tipoacesso", SqlDbType.VarChar);
-                cmd.Parameters["@tipoacesso"].Value = usuario.TipoAcesso;
 
                 cmd.Parameters.Add("@nome", SqlDbType.VarChar);
                 cmd.Parameters["@nome"].Value = usuario.Nome;
@@ -40,7 +37,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando Inserir no Banco de Dados!" + ex);
             }
@@ -54,7 +51,7 @@ namespace Biblioteca.Dados.Acesso
             {
                 this.abrirConexao();
                 string sql = "SELECT Servicos.idservico FROM Servicos INNER JOIN Contrato ON Servicos.idservico = " +
-                "Contrato.idservico INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Servicos.idusuario = @idusuario;";
+                "Contrato.idservico INNER JOIN Cliente ON Contrato.idusuario = Cliente.idusuario WHERE Servicos.idusuario = @idusuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
@@ -74,7 +71,7 @@ namespace Biblioteca.Dados.Acesso
                 if (checar)
                 {
                     sql = "DELETE Contrato FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico " +
-                        "INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Servicos.idusuario = @idusuario;";
+                        "INNER JOIN Cliente ON Contrato.idusuario = Cliente.idusuario WHERE Servicos.idusuario = @idusuario;";
 
                     cmd.CommandText = sql;
 
@@ -82,7 +79,7 @@ namespace Biblioteca.Dados.Acesso
                     cmd.Dispose();
                 }
 
-                sql = "DELETE Usuario WHERE idusuario = @idusuario;";
+                sql = "DELETE Cliente WHERE idusuario = @idusuario;";
 
                 cmd.CommandText = sql;
 
@@ -90,18 +87,18 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Camando Deletar no Banco de Dados!" + ex);
             }
         }
 
-        public void Alterar(Usuario usuario)
+        public void Alterar(Cliente usuario)
         {
             try
             {
                 this.abrirConexao();
-                string sql = "UPDATE Usuario SET nome = @nome, telefone = @telefone, email = @email, senha = @senha WHERE idusuario = @idusuario";
+                string sql = "UPDATE Cliente SET nome = @nome, telefone = @telefone, email = @email, senha = @senha WHERE idusuario = @idusuario";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idUsuario", SqlDbType.Int);
@@ -123,29 +120,28 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Camando Alterar no Banco de Dados!" + ex);
             }
         }
 
-        public List<Usuario> Listar()
+        public List<Cliente> Listar()
         {
-            List<Usuario> retorno = new List<Usuario>();
+            List<Cliente> retorno = new List<Cliente>();
 
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario;";
+                string sql = "SELECT * FROM Cliente;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
 
                 while (DbReader.Read())
                 {
-                    Usuario usuario = new Usuario();
+                    Cliente usuario = new Cliente();
                     usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
-                    usuario.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
                     usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     usuario.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
                     usuario.Email = DbReader.GetString(DbReader.GetOrdinal("email"));
@@ -157,7 +153,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando Listar no Banco!" + ex);
             }
@@ -165,13 +161,13 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
-        public Usuario SelectUsuario(int idUsuario)
+        public Cliente SelectCliente(int idUsuario)
         {
-            Usuario retorno = new Usuario();
+            Cliente retorno = new Cliente();
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario WHERE idUsuario = " + idUsuario + ";";
+                string sql = "SELECT * FROM Cliente WHERE idUsuario = " + idUsuario + ";";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 SqlDataReader DbReader = cmd.ExecuteReader();
@@ -179,7 +175,6 @@ namespace Biblioteca.Dados.Acesso
                 while (DbReader.Read())
                 {
                     retorno.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
-                    retorno.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
                     retorno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     retorno.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
                     retorno.Email = DbReader.GetString(DbReader.GetOrdinal("email"));
@@ -191,7 +186,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando SelectUsuario no Banco!" + ex);
             }
@@ -205,8 +200,7 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                //## Mudar Para IdUsuario
-                string sql = "SELECT idusuario, nome FROM Usuario WHERE email = @email;";
+                string sql = "SELECT idusuario, nome FROM Cliente WHERE email = @email;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 cmd.Parameters["@email"].Value = email;
@@ -219,11 +213,23 @@ namespace Biblioteca.Dados.Acesso
                     break;
                 }
 
+                if (retorno == false)
+                {
+                    sql = "SELECT idusuario, nome FROM Empresa WHERE email = @email;";
+                    cmd.CommandText = sql;
+
+                    while (DbReader.Read())
+                    {
+                        retorno = true;
+                        break;
+                    }
+                }
+               
                 DbReader.Close();
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando VerificarDuplicidade no Banco!" + ex);
             }
@@ -231,13 +237,13 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
-        public Usuario Logar(String nome, String senha)
+        public Cliente Logar(String nome, String senha)
         {
-            Usuario retorno = new Usuario();
+            Cliente retorno = new Cliente();
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT * FROM Usuario WHERE email = @email AND senha = @senha;";
+                string sql = "SELECT * FROM Cliente WHERE email = @email AND senha = @senha;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
                 cmd.Parameters.Add("@email", SqlDbType.VarChar);
                 cmd.Parameters["@email"].Value = nome;
@@ -249,7 +255,6 @@ namespace Biblioteca.Dados.Acesso
                 while (DbReader.Read())
                 {
                     retorno.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
-                    retorno.TipoAcesso = DbReader.GetString(DbReader.GetOrdinal("tipoacesso"));
                     retorno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     retorno.Telefone = DbReader.GetInt32(DbReader.GetOrdinal("telefone"));
                     retorno.Email = DbReader.GetString(DbReader.GetOrdinal("email"));
@@ -261,7 +266,7 @@ namespace Biblioteca.Dados.Acesso
                 cmd.Dispose();
                 this.fecharConexao();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Erro ao Executar o Comando Logar no Banco!" + ex);
             }

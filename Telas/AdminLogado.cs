@@ -1,7 +1,5 @@
 ﻿using AplicacaoForm;
 using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,17 +14,15 @@ namespace Telas
 {
     public partial class AdminLogado : Form
     {
-        //private FachadaUsuario FachadaUsuario;
         private Service1 Service;
 
-        private Usuario EntUsuario;
+        private Cliente EntUsuario;
 
         public AdminLogado()
         {
-            //FachadaUsuario = new FachadaUsuario();
             Service = new Service1();
 
-            EntUsuario = new Usuario();
+            EntUsuario = new Cliente();
 
             InitializeComponent();
         }
@@ -35,10 +31,19 @@ namespace Telas
         {
             try
             {
-                foreach (Usuario item in Service.ListarUsuario())
+                foreach (Cliente item in Service.ListarCliente())
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.IdUsuario));
-                    lista.SubItems.Add(item.TipoAcesso);
+                    lista.SubItems.Add("Cliente");
+                    lista.SubItems.Add(item.Nome);
+                    lista.SubItems.Add(Convert.ToString(item.Telefone));
+                    listCadastrados.Items.Add(lista);
+                }
+
+                foreach (Empresa item in Service.ListarEmpresa())
+                {
+                    ListViewItem lista = new ListViewItem(Convert.ToString(item.IdUsuario));
+                    lista.SubItems.Add("Empresa");
                     lista.SubItems.Add(item.Nome);
                     lista.SubItems.Add(Convert.ToString(item.Telefone));
                     listCadastrados.Items.Add(lista);
@@ -64,7 +69,7 @@ namespace Telas
             {
                 foreach (ListViewItem lista in listCadastrados.SelectedItems)
                 {
-                    Service.DeleteUsuario(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
+                    Service.DeleteCliente(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
 
                     lista.Remove();
 

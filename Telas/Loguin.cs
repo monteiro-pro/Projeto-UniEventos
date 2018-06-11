@@ -1,6 +1,4 @@
 ﻿using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,29 +61,26 @@ namespace AplicacaoForm
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
-                else if (Service.LogarUsuario(txtEmail.Text, txtSenha.Text) != null)
+                else if (!String.IsNullOrEmpty(Service.LogarCliente(txtEmail.Text, txtSenha.Text).Email))
                 {
-                    if(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).TipoAcesso == "Cliente")
-                    {
-                        this.Hide();
-                        ClienteLogado logado = new ClienteLogado(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).IdUsuario);
-                        logado.Closed += (s, args) => this.Close();
-                        logado.Show();
-                    }
-                    else if (Service.LogarUsuario(txtEmail.Text, txtSenha.Text).TipoAcesso == "Empresa")
-                    {
-                        this.Hide();
-                        EmpresaLogada logado = new EmpresaLogada(Service.LogarUsuario(txtEmail.Text, txtSenha.Text).IdUsuario);
-                        logado.Closed += (s, args) => this.Close();
-                        logado.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Email ou Senha Inválidos!");
+                    this.Hide();
+                    ClienteLogado logado = new ClienteLogado(Service.LogarCliente(txtEmail.Text, txtSenha.Text).IdUsuario);
+                    logado.Closed += (s, args) => this.Close();
+                    logado.Show();
+                }
+                else if (!String.IsNullOrEmpty(Service.LogarEmpresa(txtEmail.Text, txtSenha.Text).Email))
+                {
+                    this.Hide();
+                    EmpresaLogada logado = new EmpresaLogada(Service.LogarEmpresa(txtEmail.Text, txtSenha.Text).IdUsuario);
+                    logado.Closed += (s, args) => this.Close();
+                    logado.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Email ou Senha Inválidos!");
 
-                        txtEmail.Clear();
-                        txtSenha.Clear();
-                    }
+                    txtEmail.Clear();
+                    txtSenha.Clear();
                 }
             }
             catch(Exception ex)

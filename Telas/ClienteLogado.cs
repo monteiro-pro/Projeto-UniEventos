@@ -1,7 +1,5 @@
 ﻿using AplicacaoForm;
 using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +14,9 @@ namespace Telas
 {
     public partial class ClienteLogado : Form
     {
-        //private FachadaUsuario FachadaUsuario;
-        //private FachadaContrato FachadaContrato;
         private Service1 Service;
 
-        private Usuario EntUsuario;
+        private Cliente EntCliente;
         private Contrato EntContrato;
 
         private int IdEntidade;
@@ -32,11 +28,9 @@ namespace Telas
 
         public ClienteLogado(int idEntidade)
         {
-            //FachadaUsuario = new FachadaUsuario();
-            //FachadaContrato = new FachadaContrato();
             Service = new Service1();
 
-            EntUsuario = new Usuario();
+            EntCliente = new Cliente();
             EntContrato = new Contrato();
 
             this.IdEntidade = idEntidade;
@@ -75,14 +69,14 @@ namespace Telas
                 foreach (Contrato item in Service.ListarContrato(IdEntidade, true))
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.Idcontrato));
-                    lista.SubItems.Add(item.Nome);
-                    lista.SubItems.Add(item.Tipo);
-                    lista.SubItems.Add(item.Empresa);
-                    lista.SubItems.Add(Convert.ToString(item.Valor));
+                    lista.SubItems.Add(item.EntCliente.Nome);
+                    lista.SubItems.Add(item.EntServico.TipoServico);
+                    lista.SubItems.Add(item.EntServico.EntEmpresa.Nome);
+                    lista.SubItems.Add(Convert.ToString(item.EntServico.Valor));
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = Service.SelectUsuarioUsuario(IdEntidade, true).Nome;
+                lblNome.Text = Service.SelectCliente(IdEntidade, true).Nome;
             }
             catch (Exception ex)
             {

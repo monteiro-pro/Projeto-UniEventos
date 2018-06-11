@@ -21,10 +21,10 @@ namespace Biblioteca.Dados.Acesso
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
-                cmd.Parameters["@idusuario"].Value = contrato.Idusuario;
+                cmd.Parameters["@idusuario"].Value = contrato.EntCliente.IdUsuario;
 
                 cmd.Parameters.Add("@idservico", SqlDbType.Int);
-                cmd.Parameters["@idservico"].Value = contrato.Idservico;
+                cmd.Parameters["@idservico"].Value = contrato.EntServico.IdServico;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -64,8 +64,8 @@ namespace Biblioteca.Dados.Acesso
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT Contrato.idcontrato, Servicos.nome, Servicos.tiposervico, Usuario.nome AS 'nomeusu', Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
-                sql += "INNER JOIN Usuario ON Contrato.idusuario = Usuario.idusuario WHERE Contrato.idusuario = @idUsuario;";
+                string sql = "SELECT Contrato.idcontrato, Servicos.nome, Servicos.tiposervico, Servicos.valor FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico ";
+                sql += "INNER JOIN Cliente ON Contrato.idusuario = Cliente.idusuario WHERE Contrato.idusuario = @idUsuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
@@ -77,10 +77,11 @@ namespace Biblioteca.Dados.Acesso
                 {
                     Contrato contrato = new Contrato();
                     contrato.Idcontrato = DbReader.GetInt32(DbReader.GetOrdinal("idcontrato"));
-                    contrato.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
-                    contrato.Tipo = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
-                    contrato.Empresa = DbReader.GetString(DbReader.GetOrdinal("nomeusu"));
-                    contrato.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
+                    contrato.EntCliente.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    contrato.EntServico.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
+                    contrato.EntServico.EntEmpresa.Nome = "teste";
+                    contrato.EntServico.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
+
                     retorno.Add(contrato);
                 }
 

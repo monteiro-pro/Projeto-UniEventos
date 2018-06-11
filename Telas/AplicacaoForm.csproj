@@ -146,10 +146,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\localhost\CompositeType.datasource">
+    <None Include="Web References\localhost\Cliente.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\Contrato.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Empresa.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\localhost\Reference.map">
@@ -166,24 +169,12 @@
     <None Include="Web References\localhost\Service11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\localhost\Service12.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web References\localhost\Servico.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\localhost\Usuario.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
-      <Project>{1308995a-7963-4f32-b983-429ccd2322c3}</Project>
-      <Name>Biblioteca</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

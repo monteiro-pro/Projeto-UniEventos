@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Fachada
 {
-    public class FachadaUsuario
+    public class FachadaCliente
     {
-        private RegraUsuario Regra;
-        public FachadaUsuario()
+
+        private RegraCliente Regra;
+        public FachadaCliente()
         {
-            Regra = new RegraUsuario();
+            Regra = new RegraCliente();
         }
-        
-        public void Inserir(Usuario usuario)
+
+        public void Inserir(Cliente usuario)
         {
             Regra.Inserir(usuario);
         }
@@ -26,29 +27,30 @@ namespace Biblioteca.Fachada
             Regra.Deletar(idUsuario);
         }
 
-        public void Alterar(Usuario usuario)
+        public void Alterar(Cliente usuario)
         {
             Regra.Alterar(usuario);
         }
 
-        public void validar(Usuario usuario)
+        public void validar(Cliente usuario)
         {
             Regra.Validar(usuario);
         }
 
-        public List<Usuario> Listar()
+        public List<Cliente> Listar()
         {
             return Regra.Listar();
         }
 
-        public Usuario Logar(String nome, String senha)
+        public Cliente Logar(String nome, String senha)
         {
             return Regra.Logar(nome, senha);
         }
 
-        public Usuario SelectUsuario(int idUsuario)
+        public Cliente SelectCliente(int idUsuario)
         {
-            return Regra.SelectUsuario(idUsuario);
+            return Regra.SelectCliente(idUsuario);
         }
+
     }
 }

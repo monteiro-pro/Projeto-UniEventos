@@ -8,15 +8,10 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Negocio.Regra
 {
-    public class RegraUsuario
+    public class RegraEmpresa
     {
-        public void Validar(Usuario usuario)
+        public void Validar(Empresa usuario)
         {
-            if (usuario.TipoAcesso != "Empresa" && usuario.TipoAcesso != "Cliente")
-            {
-                throw new Exception("Tipo de Acesso Não Informado!");
-            }
-
             if (String.IsNullOrEmpty(usuario.Nome))
             {
                 throw new Exception("Nome não Informado!");
@@ -37,7 +32,7 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Senha Não Informada!");
             }
         }
-        public void Inserir(Usuario usuario)
+        public void Inserir(Empresa usuario)
         {
             if (usuario == null)
             {
@@ -51,7 +46,7 @@ namespace Biblioteca.Negocio.Regra
 
             Validar(usuario);
 
-            new DadosUsuario().Inserir(usuario);
+            new DadosEmpresa().Inserir(usuario);
         }
 
         public void Deletar(int idUsuario)
@@ -61,10 +56,10 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Usuário Não Informado!");
             }
 
-            new DadosUsuario().Deletar(idUsuario);
+            new DadosEmpresa().Deletar(idUsuario);
         }
 
-        public void Alterar(Usuario usuario)
+        public void Alterar(Empresa usuario)
         {
             if (usuario == null)
             {
@@ -78,32 +73,32 @@ namespace Biblioteca.Negocio.Regra
 
             Validar(usuario);
 
-            new DadosUsuario().Alterar(usuario);
+            new DadosEmpresa().Alterar(usuario);
         }
 
-        public List<Usuario> Listar()
+        public List<Empresa> Listar()
         {
-            return new DadosUsuario().Listar();
+            return new DadosEmpresa().Listar();
         }
 
-        public Usuario Logar(String nome, String senha)
+        public Empresa Logar(String nome, String senha)
         {
-            if(String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(senha))
+            if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(senha))
             {
                 throw new Exception("Valores do Parametro Não Informado!");
             }
 
-            return new DadosUsuario().Logar(nome, senha);
+            return new DadosEmpresa().Logar(nome, senha);
         }
 
-        public Usuario SelectUsuario(int idUsuario)
+        public Empresa SelectEmpresa(int idUsuario)
         {
-            if(idUsuario <= 0)
+            if (idUsuario <= 0)
             {
                 throw new Exception("Id Não Informado!");
             }
 
-            return new DadosUsuario().SelectUsuario(idUsuario);
+            return new DadosEmpresa().SelectEmpresa(idUsuario);
 
         }
 
@@ -114,7 +109,7 @@ namespace Biblioteca.Negocio.Regra
                 throw new Exception("Email Não Informado!");
             }
 
-            return new DadosUsuario().VerificarDuplicidade(email);
+            return new DadosEmpresa().VerificarDuplicidade(email);
         }
     }
 }

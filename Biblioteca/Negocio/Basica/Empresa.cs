@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Negocio.Basica
 {
-    [DataContract]
-    public class Usuario
+    public class Empresa
     {
-        [DataMember(IsRequired = true)]
-        public int IdUsuario { get; set; }
+        public readonly string TipoAcesso = "Empresa";
 
         [DataMember(IsRequired = true)]
-        public string TipoAcesso { get; set; }
+        public int IdUsuario { get; set; }
 
         [DataMember(IsRequired = true)]
         public string Nome { get; set; }
@@ -27,6 +25,5 @@ namespace Biblioteca.Negocio.Basica
 
         [DataMember(IsRequired = true)]
         public string Senha { get; set; }
-
     }
 }

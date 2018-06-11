@@ -1,5 +1,4 @@
 ﻿using AplicacaoForm.localhost;
-using Biblioteca.Fachada;
 //using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
@@ -15,8 +14,6 @@ namespace Telas
 {
     public partial class ContratarServicos : Form
     {
-        //private FachadaServico FachadaServico;
-        //private FachadaContrato FachadaContrato;
         private Service1 Service;
 
         private Servico EntServico;
@@ -32,8 +29,6 @@ namespace Telas
         {
             InitializeComponent();
 
-            //FachadaServico = new FachadaServico();
-            //FachadaContrato = new FachadaContrato();
             Service = new Service1();
 
             EntContrato = new Contrato();
@@ -78,8 +73,8 @@ namespace Telas
         {
             try
             {
-                EntContrato.Idusuario = IdEntidade;
-                EntContrato.Idservico = Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text);
+                EntContrato.EntCliente.IdUsuario = IdEntidade;
+                EntContrato.EntServico.IdServico = Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text);
                 Service.InserirContrato(EntContrato);
 
                 MessageBox.Show("Serviço Contratado Com Sucesso!");

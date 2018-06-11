@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Dados.Acesso
 {
-    public interface IDadosUsuario
+    public interface IDadosCliente
     {
-        void Inserir(Usuario usuario);
+        void Inserir(Cliente usuario);
         void Deletar(int idUsuario);
-        void Alterar(Usuario usuario);
-        List<Usuario> Listar();
-        Usuario SelectUsuario(int idUsuario);
+        void Alterar(Cliente usuario);
+        List<Cliente> Listar();
+        Cliente SelectCliente(int idUsuario);
         bool VerificarDuplicidade(string email);
-        Usuario Logar(string emial, string senha);
+        Cliente Logar(string emial, string senha);
+
     }
 }

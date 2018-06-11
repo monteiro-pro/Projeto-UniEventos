@@ -5,44 +5,79 @@
       <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" />
-      <xsd:import schemaLocation="http://localhost:58713/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AplicacaoServidor" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService1_InsertUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertUsuario" />
+  <wsdl:message name="IService1_InsertCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_InsertUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertUsuarioResponse" />
+  <wsdl:message name="IService1_InsertCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_DeleteUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUsuario" />
+  <wsdl:message name="IService1_DeleteCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_DeleteUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUsuarioResponse" />
+  <wsdl:message name="IService1_DeleteCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_AlterarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:AlterarUsuario" />
+  <wsdl:message name="IService1_AlterarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_AlterarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AlterarUsuarioResponse" />
+  <wsdl:message name="IService1_AlterarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListarUsuario" />
+  <wsdl:message name="IService1_ListarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_ListarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListarUsuarioResponse" />
+  <wsdl:message name="IService1_ListarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectUsuarioUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:SelectUsuarioUsuario" />
+  <wsdl:message name="IService1_SelectCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_SelectUsuarioUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SelectUsuarioUsuarioResponse" />
+  <wsdl:message name="IService1_SelectCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_LogarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:LogarUsuario" />
+  <wsdl:message name="IService1_LogarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogarCliente" />
   </wsdl:message>
-  <wsdl:message name="IService1_LogarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LogarUsuarioResponse" />
+  <wsdl:message name="IService1_LogarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogarEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogarEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_LogarEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogarEmpresaResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_InserirServico_InputMessage">
     <wsdl:part name="parameters" element="tns:InserirServico" />
@@ -92,42 +127,54 @@
   <wsdl:message name="IService1_ListarContrato_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarContratoResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
-  </wsdl:message>
   <wsdl:portType name="IService1">
-    <wsdl:operation name="InsertUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertUsuario" message="tns:IService1_InsertUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertUsuarioResponse" message="tns:IService1_InsertUsuario_OutputMessage" />
+    <wsdl:operation name="InsertCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCliente" message="tns:IService1_InsertCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertClienteResponse" message="tns:IService1_InsertCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteUsuario" message="tns:IService1_DeleteUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteUsuarioResponse" message="tns:IService1_DeleteUsuario_OutputMessage" />
+    <wsdl:operation name="DeleteCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteCliente" message="tns:IService1_DeleteCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteClienteResponse" message="tns:IService1_DeleteCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AlterarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarUsuario" message="tns:IService1_AlterarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarUsuarioResponse" message="tns:IService1_AlterarUsuario_OutputMessage" />
+    <wsdl:operation name="AlterarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarCliente" message="tns:IService1_AlterarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarClienteResponse" message="tns:IService1_AlterarCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ListarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarUsuario" message="tns:IService1_ListarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarUsuarioResponse" message="tns:IService1_ListarUsuario_OutputMessage" />
+    <wsdl:operation name="ListarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarCliente" message="tns:IService1_ListarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarClienteResponse" message="tns:IService1_ListarCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SelectUsuarioUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectUsuarioUsuario" message="tns:IService1_SelectUsuarioUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectUsuarioUsuarioResponse" message="tns:IService1_SelectUsuarioUsuario_OutputMessage" />
+    <wsdl:operation name="SelectCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectCliente" message="tns:IService1_SelectCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectClienteResponse" message="tns:IService1_SelectCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="LogarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogarUsuario" message="tns:IService1_LogarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogarUsuarioResponse" message="tns:IService1_LogarUsuario_OutputMessage" />
+    <wsdl:operation name="LogarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogarCliente" message="tns:IService1_LogarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogarClienteResponse" message="tns:IService1_LogarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertEmpresa" message="tns:IService1_InsertEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertEmpresaResponse" message="tns:IService1_InsertEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteEmpresa" message="tns:IService1_DeleteEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteEmpresaResponse" message="tns:IService1_DeleteEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarEmpresa" message="tns:IService1_AlterarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarEmpresaResponse" message="tns:IService1_AlterarEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarEmpresa" message="tns:IService1_ListarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarEmpresaResponse" message="tns:IService1_ListarEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectEmpresa" message="tns:IService1_SelectEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectEmpresaResponse" message="tns:IService1_SelectEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogarEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogarEmpresa" message="tns:IService1_LogarEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogarEmpresaResponse" message="tns:IService1_LogarEmpresa_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InserirServico">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InserirServico" message="tns:IService1_InserirServico_InputMessage" />
@@ -161,19 +208,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarContrato" message="tns:IService1_ListarContrato_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarContratoResponse" message="tns:IService1_ListarContrato_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="InsertUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/InsertUsuario" style="document" />
+    <wsdl:operation name="InsertCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -181,8 +220,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/DeleteUsuario" style="document" />
+    <wsdl:operation name="DeleteCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -190,8 +229,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AlterarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/AlterarUsuario" style="document" />
+    <wsdl:operation name="AlterarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -199,8 +238,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ListarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListarUsuario" style="document" />
+    <wsdl:operation name="ListarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -208,8 +247,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SelectUsuarioUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/SelectUsuarioUsuario" style="document" />
+    <wsdl:operation name="SelectCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -217,8 +256,62 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LogarUsuario">
-      <soap:operation soapAction="http://tempuri.org/IService1/LogarUsuario" style="document" />
+    <wsdl:operation name="LogarCliente">
+      <soap:operation soapAction="http://tempuri.org/IService1/LogarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogarEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IService1/LogarEmpresa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -291,24 +384,6 @@
     </wsdl:operation>
     <wsdl:operation name="ListarContrato">
       <soap:operation soapAction="http://tempuri.org/IService1/ListarContrato" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
