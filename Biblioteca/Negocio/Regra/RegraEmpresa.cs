@@ -73,6 +73,11 @@ namespace Biblioteca.Negocio.Regra
 
             Validar(usuario);
 
+            if (VerificarDuplicidade(usuario.Email) == true)
+            {
+                throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
+            }
+
             new DadosEmpresa().Alterar(usuario);
         }
 

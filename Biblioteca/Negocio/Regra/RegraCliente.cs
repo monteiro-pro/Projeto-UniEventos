@@ -60,7 +60,7 @@ namespace Biblioteca.Negocio.Regra
             new DadosCliente().Deletar(idUsuario);
         }
 
-        public void Alterar(Cliente usuario)
+        public void Alterar(Cliente usuario, bool emailAtual)
         {
             if (usuario == null)
             {
@@ -73,6 +73,11 @@ namespace Biblioteca.Negocio.Regra
             }
 
             Validar(usuario);
+
+            if (VerificarDuplicidade(usuario.Email, emailAtual) == true)
+            {
+                throw new Exception("Já Existe um Usuário Cadastrado Com Esse Email!");
+            }
 
             new DadosCliente().Alterar(usuario);
         }
@@ -111,6 +116,16 @@ namespace Biblioteca.Negocio.Regra
             }
 
             return new DadosCliente().VerificarDuplicidade(email);
+        }
+
+        public bool VerificarDuplicidade(string email, bool emailAtual)
+        {
+            if (String.IsNullOrEmpty(email))
+            {
+                throw new Exception("Email Não Informado!");
+            }
+
+            return new DadosCliente().VerificarDuplicidade(email, emailAtual);
         }
     }
 }

@@ -13,8 +13,13 @@ namespace AplicacaoForm
 {
     public partial class Cadastro : Form
     {
+        private Cliente EntCliente;
+        private Empresa EntEmpresa;
         public Cadastro()
         {
+            EntCliente = new Cliente();
+            EntEmpresa = new Empresa();
+
             InitializeComponent();
         }
 
@@ -30,24 +35,22 @@ namespace AplicacaoForm
                 {
                     if (slcTipoCadastro.Text == "Cliente")
                     {
-                        Cliente cliente = new Cliente();
-                        cliente.Nome = txtNome.Text;
-
+                        EntCliente.Nome = txtNome.Text;
                         if (String.IsNullOrEmpty(txtTelefone.Text))
                         {
-                            throw new Exception("Campo Telefone Nulo!");
+                            throw new Exception("Preencha Todos os Campos!");
                         }
                         else
                         {
-                            cliente.Telefone = Convert.ToInt32(txtTelefone.Text);
+                            EntCliente.Telefone = Convert.ToInt32(txtTelefone.Text);
 
                         }
-                        cliente.Email = txtEmail.Text;
-                        cliente.Senha = txtSenha.Text;
+                        EntCliente.Email = txtEmail.Text;
+                        EntCliente.Senha = txtSenha.Text;
 
                         Service1 sv = new Service1();
 
-                        sv.InsertCliente(cliente);
+                        sv.InsertCliente(EntCliente);
 
                         MessageBox.Show("Usuário Cadastrado Com Sucesso!");
 
@@ -59,24 +62,22 @@ namespace AplicacaoForm
 
                     else if (slcTipoCadastro.Text == "Empresa")
                     {
-                        Empresa empresa = new Empresa();
-                        empresa.Nome = txtNome.Text;
-
+                        EntEmpresa.Nome = txtNome.Text;
                         if (String.IsNullOrEmpty(txtTelefone.Text))
                         {
-                            throw new Exception("Campo Telefone Nulo!");
+                            throw new Exception("Preencha Todos os Campos!");
                         }
                         else
                         {
-                            empresa.Telefone = Convert.ToInt32(txtTelefone.Text);
+                            EntEmpresa.Telefone = Convert.ToInt32(txtTelefone.Text);
 
                         }
-                        empresa.Email = txtEmail.Text;
-                        empresa.Senha = txtSenha.Text;
+                        EntEmpresa.Email = txtEmail.Text;
+                        EntEmpresa.Senha = txtSenha.Text;
 
                         Service1 sv = new Service1();
 
-                        sv.InsertEmpresa(empresa);
+                        sv.InsertEmpresa(EntEmpresa);
 
                         MessageBox.Show("Usuário Cadastrado Com Sucesso!");
 

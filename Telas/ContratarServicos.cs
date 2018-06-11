@@ -1,5 +1,4 @@
 ﻿using AplicacaoForm.localhost;
-//using Biblioteca.Negocio.Basica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,25 +15,23 @@ namespace Telas
     {
         private Service1 Service;
 
-        private Servico EntServico;
         private Contrato EntContrato;
 
-        private int IdEntidade;
+        private Cliente EntCliente;
         public ContratarServicos()
         {
             InitializeComponent();
         }
 
-        public ContratarServicos(int idEntidade)
+        public ContratarServicos(Cliente EntCliente)
         {
             InitializeComponent();
 
-            Service = new Service1();
+            this.Service = new Service1();
 
-            EntContrato = new Contrato();
-            EntServico = new Servico();
+            this.EntContrato = new Contrato();
 
-            this.IdEntidade = idEntidade;
+            this.EntCliente = EntCliente;
         }
 
         private void listServicos_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,7 +42,7 @@ namespace Telas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ClienteLogado cliente = new ClienteLogado(IdEntidade);
+            ClienteLogado cliente = new ClienteLogado(EntCliente);
             cliente.Closed += (s, args) => this.Close();
             cliente.Show();
         }
@@ -73,8 +70,9 @@ namespace Telas
         {
             try
             {
-                EntContrato.EntCliente.IdUsuario = IdEntidade;
-                EntContrato.EntServico.IdServico = Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text);
+                EntContrato.EntCliente = EntCliente;
+                EntContrato.EntServico = Service.SelectServico(Convert.ToInt32(listServicos.SelectedItems[0].SubItems[0].Text), true);
+                EntContrato.EntServico.EntEmpresa = Service.SelectEmpresa(EntContrato.EntServico.IdUsuario, true);
                 Service.InserirContrato(EntContrato);
 
                 MessageBox.Show("Serviço Contratado Com Sucesso!");

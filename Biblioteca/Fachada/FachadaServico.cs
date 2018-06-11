@@ -25,6 +25,11 @@ namespace Biblioteca.Fachada
             Regra.Deletar(idServico);
         }
 
+        public Servico SelectServico(int idUsuario)
+        {
+            return Regra.SelectServico(idUsuario);
+        }
+
         public List<Servico> Listar()
         {
             return Regra.Listar();

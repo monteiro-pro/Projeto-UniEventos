@@ -29,6 +29,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="usuario" nillable="true" type="q2:Cliente" />
+        <xs:element minOccurs="0" name="emailAtual" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -179,6 +180,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SelectServico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectServicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="SelectServicoResult" nillable="true" type="q12:Servico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ListarServico">
     <xs:complexType>
       <xs:sequence />
@@ -187,7 +202,7 @@
   <xs:element name="ListarServicoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoResult" nillable="true" type="q12:ArrayOfServico" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoResult" nillable="true" type="q13:ArrayOfServico" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -201,7 +216,7 @@
   <xs:element name="ListarServicoIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoIDResult" nillable="true" type="q13:ArrayOfServico" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoIDResult" nillable="true" type="q14:ArrayOfServico" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -215,14 +230,14 @@
   <xs:element name="ListarServicoPAResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoPAResult" nillable="true" type="q14:ArrayOfServico" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarServicoPAResult" nillable="true" type="q15:ArrayOfServico" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InserirContrato">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="contrato" nillable="true" type="q15:Contrato" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="contrato" nillable="true" type="q16:Contrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -253,7 +268,7 @@
   <xs:element name="ListarContratoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarContratoResult" nillable="true" type="q16:ArrayOfContrato" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="ListarContratoResult" nillable="true" type="q17:ArrayOfContrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

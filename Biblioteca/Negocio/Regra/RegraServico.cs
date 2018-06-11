@@ -61,6 +61,11 @@ namespace Biblioteca.Negocio.Regra
             }
         }
 
+        public Servico SelectServico(int idUsuario)
+        {
+            return new DadosServico().SelectServico(idUsuario);
+        }
+
         public List<Servico> Listar()
         {
             return new DadosServico().Listar();

@@ -89,6 +89,39 @@ namespace Biblioteca.Dados.Acesso
             }
         }
 
+        public Servico SelectServico(int idUsuario)
+        {
+            Servico retorno = new Servico();
+            try
+            {
+                this.abrirConexao();
+                string sql = "SELECT * FROM Servicos WHERE idservico = " + idUsuario + ";";
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    retorno.IdServico = DbReader.GetInt32(DbReader.GetOrdinal("idservico"));
+                    retorno.TipoServico = DbReader.GetString(DbReader.GetOrdinal("tiposervico"));
+                    retorno.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    retorno.Valor = DbReader.GetInt32(DbReader.GetOrdinal("valor"));
+                    retorno.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idusuario"));
+                    break;
+                }
+
+                DbReader.Close();
+                cmd.Dispose();
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Executar o Comando SelectServico no Banco!" + ex);
+            }
+
+            return retorno;
+        }
+
         public List<Servico> Listar()
         {
             List<Servico> retorno = new List<Servico>();

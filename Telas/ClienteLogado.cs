@@ -19,21 +19,19 @@ namespace Telas
         private Cliente EntCliente;
         private Contrato EntContrato;
 
-        private int IdEntidade;
-
         public ClienteLogado()
         {
             InitializeComponent();
         }
 
-        public ClienteLogado(int idEntidade)
+        public ClienteLogado(Cliente EntCliente)
         {
             Service = new Service1();
 
-            EntCliente = new Cliente();
-            EntContrato = new Contrato();
+            this.EntCliente = new Cliente();
+            this.EntContrato = new Contrato();
 
-            this.IdEntidade = idEntidade;
+            this.EntCliente = EntCliente;
 
             InitializeComponent();
         }
@@ -49,7 +47,7 @@ namespace Telas
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditarPerfil perfil = new EditarPerfil(IdEntidade);
+            EditarPerfil perfil = new EditarPerfil(EntCliente);
             perfil.Closed += (s, args) => this.Close();
             perfil.Show();
         }
@@ -57,7 +55,7 @@ namespace Telas
         private void btnContratar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ContratarServicos contratar = new ContratarServicos(IdEntidade);
+            ContratarServicos contratar = new ContratarServicos(EntCliente);
             contratar.Closed += (s, args) => this.Close();
             contratar.Show();
         }
@@ -66,17 +64,17 @@ namespace Telas
         {
             try
             {
-                foreach (Contrato item in Service.ListarContrato(IdEntidade, true))
+                foreach (Contrato item in Service.ListarContrato(EntCliente.IdUsuario, true))
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.Idcontrato));
-                    lista.SubItems.Add(item.EntCliente.Nome);
-                    lista.SubItems.Add(item.EntServico.TipoServico);
-                    lista.SubItems.Add(item.EntServico.EntEmpresa.Nome);
-                    lista.SubItems.Add(Convert.ToString(item.EntServico.Valor));
+                    lista.SubItems.Add(item.NomeServico);
+                    lista.SubItems.Add(item.TipoServico);
+                    lista.SubItems.Add(item.NomeEmpresa);
+                    lista.SubItems.Add(Convert.ToString(item.Valor));
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = Service.SelectCliente(IdEntidade, true).Nome;
+                lblNome.Text = EntCliente.Nome;
             }
             catch (Exception ex)
             {

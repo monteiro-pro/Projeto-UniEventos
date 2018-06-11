@@ -11,6 +11,7 @@ namespace Biblioteca.Dados.Acesso
     {
         void Inserir(Servico servico);
         bool Deletar(int idServico);
+        Servico SelectServico(int idUsuario);
         List<Servico> Listar();
         List<Servico> Listar(int idUsuario);
         List<Servico> Listar(string parametro);

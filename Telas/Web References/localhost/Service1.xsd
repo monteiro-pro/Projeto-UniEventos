@@ -18,11 +18,11 @@
   <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
   <xs:complexType name="Empresa">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdUsuario" type="xs:int" />
-      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Telefone" type="xs:int" />
+      <xs:element name="Email" nillable="true" type="xs:string" />
+      <xs:element name="IdUsuario" type="xs:int" />
+      <xs:element name="Nome" nillable="true" type="xs:string" />
+      <xs:element name="Senha" nillable="true" type="xs:string" />
+      <xs:element name="Telefone" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Empresa" nillable="true" type="tns:Empresa" />
@@ -36,6 +36,7 @@
     <xs:sequence>
       <xs:element name="EntEmpresa" nillable="true" type="tns:Empresa" />
       <xs:element name="IdServico" type="xs:int" />
+      <xs:element name="IdUsuario" type="xs:int" />
       <xs:element name="Nome" nillable="true" type="xs:string" />
       <xs:element name="TipoServico" nillable="true" type="xs:string" />
       <xs:element name="Valor" type="xs:int" />
@@ -53,6 +54,10 @@
       <xs:element name="EntCliente" nillable="true" type="tns:Cliente" />
       <xs:element name="EntServico" nillable="true" type="tns:Servico" />
       <xs:element name="Idcontrato" type="xs:int" />
+      <xs:element name="NomeEmpresa" nillable="true" type="xs:string" />
+      <xs:element name="NomeServico" nillable="true" type="xs:string" />
+      <xs:element name="TipoServico" nillable="true" type="xs:string" />
+      <xs:element name="Valor" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Contrato" nillable="true" type="tns:Contrato" />

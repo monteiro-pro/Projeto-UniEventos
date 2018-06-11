@@ -14,8 +14,13 @@ namespace AplicacaoForm
 {
     public partial class Loguin : Form
     {
+        private Cliente EntCliente;
+        private Empresa EntEmpresa;
         public Loguin()
         {
+            EntCliente = new Cliente();
+            EntEmpresa = new Empresa();
+
             InitializeComponent();
         }
 
@@ -63,15 +68,16 @@ namespace AplicacaoForm
                 }
                 else if (!String.IsNullOrEmpty(Service.LogarCliente(txtEmail.Text, txtSenha.Text).Email))
                 {
+                    EntCliente = Service.LogarCliente(txtEmail.Text, txtSenha.Text);
                     this.Hide();
-                    ClienteLogado logado = new ClienteLogado(Service.LogarCliente(txtEmail.Text, txtSenha.Text).IdUsuario);
+                    ClienteLogado logado = new ClienteLogado(EntCliente);
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
                 else if (!String.IsNullOrEmpty(Service.LogarEmpresa(txtEmail.Text, txtSenha.Text).Email))
                 {
                     this.Hide();
-                    EmpresaLogada logado = new EmpresaLogada(Service.LogarEmpresa(txtEmail.Text, txtSenha.Text).IdUsuario);
+                    EmpresaLogada logado = new EmpresaLogada(Service.LogarEmpresa(txtEmail.Text, txtSenha.Text));
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }

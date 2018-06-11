@@ -30,5 +30,8 @@ namespace Biblioteca.Negocio.Basica
         [DataMember(IsRequired = true)]
         public int Valor { set; get; }
 
+        [DataMember(IsRequired = true)]
+        public int IdUsuario { set; get; }
+
     }
 }

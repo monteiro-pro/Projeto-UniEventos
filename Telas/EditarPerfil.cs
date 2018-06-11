@@ -19,49 +19,82 @@ namespace AplicacaoForm
 
         private Service1 Service;
 
-        private int idEntidade;
+        private string TipoAcesso;
         public EditarPerfil()
         {
             InitializeComponent();
         }
 
-        public EditarPerfil(int idEntidade)
+        public EditarPerfil(Cliente EntCliente)
         {
-
             Service = new Service1();
 
-            this.idEntidade = idEntidade;
+            this.EntCliente = new Cliente();
+            this.EntCliente = EntCliente;
 
-            EntCliente = new Cliente();
-            EntEmpresa = new Empresa();
+            TipoAcesso = "Cliente";
+
+            InitializeComponent();
+        }
+        public EditarPerfil(Empresa EntEmpresa)
+        {
+            Service = new Service1();
+
+            this.EntEmpresa = new Empresa();
+            this.EntEmpresa = EntEmpresa;
+
+            TipoAcesso = "Empresa";
 
             InitializeComponent();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            bool verificarEmail = false;
+
+            if (EntCliente.Email != txtEmail.Text)
+            {
+                verificarEmail = true;
+            }
+
             try
             {
-                if (Service.SelectCliente(idEntidade, true) != null)
+                if (TipoAcesso == "Cliente")
                 {
                     EntCliente.Nome = txtNome.Text;
-                    EntCliente.Telefone = Convert.ToInt32(txtTelefone.Text);
+                    if (String.IsNullOrEmpty(txtTelefone.Text))
+                    {
+                        throw new Exception("Preencha Todos os Campos!");
+                    }
+                    else
+                    {
+                        EntCliente.Telefone = Convert.ToInt32(txtTelefone.Text);
+
+                    }
                     EntCliente.Email = txtEmail.Text;
                     EntCliente.Senha = txtSenha.Text;
 
-                    Service.AlterarCliente(EntCliente);
+                    Service.AlterarCliente(EntCliente, verificarEmail, true);
 
                     MessageBox.Show("Dados Alterados Com Sucesso!");
 
                     this.Hide();
-                    ClienteLogado logado = new ClienteLogado(idEntidade);
+                    ClienteLogado logado = new ClienteLogado(EntCliente);
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
-                else if (Service.SelectEmpresa(idEntidade, true) != null)
+                else if (TipoAcesso == "Empresa")
                 {
                     EntEmpresa.Nome = txtNome.Text;
-                    EntEmpresa.Telefone = Convert.ToInt32(txtTelefone.Text);
+                    if (String.IsNullOrEmpty(txtTelefone.Text))
+                    {
+                        throw new Exception("Preencha Todos os Campos!");
+                    }
+                    else
+                    {
+                        EntEmpresa.Telefone = Convert.ToInt32(txtTelefone.Text);
+
+                    }
                     EntEmpresa.Email = txtEmail.Text;
                     EntEmpresa.Senha = txtSenha.Text;
 
@@ -70,7 +103,7 @@ namespace AplicacaoForm
                     MessageBox.Show("Dados Alterados Com Sucesso!");
 
                     this.Hide();
-                    EmpresaLogada logado = new EmpresaLogada(idEntidade);
+                    EmpresaLogada logado = new EmpresaLogada(EntEmpresa);
                     logado.Closed += (s, args) => this.Close();
                     logado.Show();
                 }
@@ -84,20 +117,16 @@ namespace AplicacaoForm
 
         private void EditarPerfil_Load(object sender, EventArgs e)
         {
-            if(Service.SelectCliente(idEntidade, true) != null)
+            if(TipoAcesso == "Cliente")
             {
-                EntCliente = Service.SelectCliente(idEntidade, true);
-
                 txtNome.Text = EntCliente.Nome;
                 txtTelefone.Text = Convert.ToString(EntCliente.Telefone);
                 txtEmail.Text = EntCliente.Email;
                 txtSenha.Text = EntCliente.Senha;
             }
 
-            else if (Service.SelectEmpresa(idEntidade, true) != null)
+            else if (TipoAcesso == "Empresa")
             {
-                EntEmpresa = Service.SelectEmpresa(idEntidade, true);
-
                 txtNome.Text = EntEmpresa.Nome;
                 txtTelefone.Text = Convert.ToString(EntEmpresa.Telefone);
                 txtEmail.Text = EntEmpresa.Email;
@@ -112,17 +141,17 @@ namespace AplicacaoForm
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (Service.SelectCliente(idEntidade, true) != null)
+            if (TipoAcesso == "Cliente")
             {
                 this.Hide();
-                ClienteLogado logado = new ClienteLogado(idEntidade);
+                ClienteLogado logado = new ClienteLogado(EntCliente);
                 logado.Closed += (s, args) => this.Close();
                 logado.Show();
             }
             else
             {
                 this.Hide();
-                EmpresaLogada logado = new EmpresaLogada(idEntidade);
+                EmpresaLogada logado = new EmpresaLogada(EntEmpresa);
                 logado.Closed += (s, args) => this.Close();
                 logado.Show();
             }

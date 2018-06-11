@@ -91,6 +91,12 @@
   <wsdl:message name="IService1_DeletarServico_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletarServicoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SelectServico_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectServico" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SelectServico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectServicoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_ListarServico_InputMessage">
     <wsdl:part name="parameters" element="tns:ListarServico" />
   </wsdl:message>
@@ -183,6 +189,10 @@
     <wsdl:operation name="DeletarServico">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletarServico" message="tns:IService1_DeletarServico_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletarServicoResponse" message="tns:IService1_DeletarServico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectServico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SelectServico" message="tns:IService1_SelectServico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SelectServicoResponse" message="tns:IService1_SelectServico_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ListarServico">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarServico" message="tns:IService1_ListarServico_InputMessage" />
@@ -330,6 +340,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeletarServico">
       <soap:operation soapAction="http://tempuri.org/IService1/DeletarServico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectServico">
+      <soap:operation soapAction="http://tempuri.org/IService1/SelectServico" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

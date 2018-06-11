@@ -21,7 +21,7 @@ namespace AplicacaoServidor
         void DeleteCliente(int idUsuario);
 
         [OperationContract]
-        void AlterarCliente(Cliente usuario);
+        void AlterarCliente(Cliente usuario, bool emailAtual);
 
         [OperationContract]
         List<Cliente> ListarCliente();
@@ -61,6 +61,9 @@ namespace AplicacaoServidor
         void DeletarServico(int idServico);
 
         [OperationContract]
+        Servico SelectServico(int idUsuario);
+
+        [OperationContract]
         List<Servico> ListarServico();
 
         [OperationContract]
@@ -80,6 +83,5 @@ namespace AplicacaoServidor
         [OperationContract]
         List<Contrato> ListarContrato(int idUsuario);
         #endregion
-
     }
 }

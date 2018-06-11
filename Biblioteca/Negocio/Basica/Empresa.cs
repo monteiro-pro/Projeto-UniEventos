@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Negocio.Basica
 {
+    [DataContract]
     public class Empresa
     {
         public readonly string TipoAcesso = "Empresa";

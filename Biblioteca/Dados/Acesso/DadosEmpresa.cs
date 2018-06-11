@@ -45,43 +45,14 @@ namespace Biblioteca.Dados.Acesso
 
         public void Deletar(int idUsuario)
         {
-            bool checar = false;
-
             try
             {
                 this.abrirConexao();
-                string sql = "SELECT Servicos.idservico FROM Servicos INNER JOIN Contrato ON Servicos.idservico = " +
-                "Contrato.idservico INNER JOIN Empresa ON Contrato.idusuario = Empresa.idusuario WHERE Servicos.idusuario = @idusuario;";
+                string sql = "DELETE FROM Empresa WHERE idusuario = @idusuario;";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("@idusuario", SqlDbType.Int);
                 cmd.Parameters["@idusuario"].Value = idUsuario;
-
-                SqlDataReader DbReader = cmd.ExecuteReader();
-
-                while (DbReader.Read())
-                {
-                    checar = true;
-                    break;
-                }
-
-                DbReader.Close();
-                cmd.Dispose();
-
-                if (checar)
-                {
-                    sql = "DELETE Contrato FROM Servicos INNER JOIN Contrato ON Servicos.idservico = Contrato.idservico " +
-                        "INNER JOIN Empresa ON Contrato.idusuario = Empresa.idusuario WHERE Servicos.idusuario = @idusuario;";
-
-                    cmd.CommandText = sql;
-
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                }
-
-                sql = "DELETE Empresa WHERE idusuario = @idusuario;";
-
-                cmd.CommandText = sql;
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -188,7 +159,7 @@ namespace Biblioteca.Dados.Acesso
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao Executar o Comando SelectUsuario no Banco!" + ex);
+                throw new Exception("Erro ao Executar o Comando SelectEmpresa no Banco!" + ex);
             }
 
             return retorno;
@@ -212,11 +183,13 @@ namespace Biblioteca.Dados.Acesso
                     retorno = true;
                     break;
                 }
+                DbReader.Close();
 
                 if (retorno == false)
                 {
                     sql = "SELECT idusuario, nome FROM Cliente WHERE email = @email;";
                     cmd.CommandText = sql;
+                    DbReader = cmd.ExecuteReader();
 
                     while (DbReader.Read())
                     {

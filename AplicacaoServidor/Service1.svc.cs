@@ -39,9 +39,9 @@ namespace AplicacaoServidor
             FachadaCliente.Deletar(idUsuario);
         }
 
-        public void AlterarCliente(Cliente usuario)
+        public void AlterarCliente(Cliente usuario, bool emailAtual)
         {
-            FachadaCliente.Alterar(usuario);
+            FachadaCliente.Alterar(usuario, emailAtual);
         }
 
         public List<Cliente> ListarCliente()
@@ -105,6 +105,11 @@ namespace AplicacaoServidor
         public void DeletarServico(int idServico)
         {
             FachadaServico.Deletar(idServico);
+        }
+
+        public Servico SelectServico(int idUsuario)
+        {
+            return FachadaServico.SelectServico(idUsuario);
         }
 
         public List<Servico> ListarServico()

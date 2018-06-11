@@ -16,13 +16,9 @@ namespace Telas
     {
         private Service1 Service;
 
-        private Cliente EntUsuario;
-
         public AdminLogado()
         {
             Service = new Service1();
-
-            EntUsuario = new Cliente();
 
             InitializeComponent();
         }
@@ -69,7 +65,14 @@ namespace Telas
             {
                 foreach (ListViewItem lista in listCadastrados.SelectedItems)
                 {
-                    Service.DeleteCliente(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
+                    if (listCadastrados.SelectedItems[0].SubItems[1].Text == "Cliente")
+                    {
+                        Service.DeleteCliente(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
+                    }
+                    else
+                    {
+                        Service.DeleteEmpresa(Convert.ToInt32(listCadastrados.SelectedItems[0].SubItems[0].Text), true);
+                    }
 
                     lista.Remove();
 

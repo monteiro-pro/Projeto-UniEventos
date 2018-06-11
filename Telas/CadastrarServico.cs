@@ -17,20 +17,20 @@ namespace Telas
 
         private Servico Servicos;
 
-        private int IdEntidade;
+        private Empresa EntEmpresa;
 
         public CadastrarServico()
         {
             InitializeComponent();
         }
 
-        public CadastrarServico(int idEntidade)
+        public CadastrarServico(Empresa EntEmpresa)
         {
             Service = new Service1();
 
             Servicos = new Servico();
 
-            this.IdEntidade = idEntidade;
+            this.EntEmpresa = EntEmpresa;
 
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace Telas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EmpresaLogada empresa = new EmpresaLogada(IdEntidade);
+            EmpresaLogada empresa = new EmpresaLogada(EntEmpresa);
             empresa.Closed += (s, args) => this.Close();
             empresa.Show();
         }
@@ -50,14 +50,14 @@ namespace Telas
                 Servicos.TipoServico = slcTipoCadastro.Text;
                 Servicos.Nome = txtNome.Text;
                 Servicos.Valor = Convert.ToInt32(txtValor.Text);
-                Servicos.EntEmpresa = Service.SelectEmpresa(IdEntidade, true);
+                Servicos.EntEmpresa = EntEmpresa;
 
                 Service.InserirServico(Servicos);
 
                 MessageBox.Show("Serviço Cadastrado Com Sucesso!");
 
                 this.Hide();
-                EmpresaLogada empresa = new EmpresaLogada(IdEntidade);
+                EmpresaLogada empresa = new EmpresaLogada(EntEmpresa);
                 empresa.Closed += (s, args) => this.Close();
                 empresa.Show();
 

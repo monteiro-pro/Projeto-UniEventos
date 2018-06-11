@@ -21,6 +21,18 @@ namespace Biblioteca.Negocio.Basica
         public int Idcontrato { set; get; }
 
         [DataMember(IsRequired = true)]
+        public string NomeServico { set; get; }
+
+        [DataMember(IsRequired = true)]
+        public string TipoServico { set; get; }
+
+        [DataMember(IsRequired = true)]
+        public string NomeEmpresa { set; get; }
+
+        [DataMember(IsRequired = true)]
+        public int Valor { set; get; }
+
+        [DataMember(IsRequired = true)]
         public Cliente EntCliente { get; set; }
 
         [DataMember(IsRequired = true)]

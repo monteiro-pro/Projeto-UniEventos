@@ -15,6 +15,7 @@ namespace Biblioteca.Dados.Acesso
         List<Cliente> Listar();
         Cliente SelectCliente(int idUsuario);
         bool VerificarDuplicidade(string email);
+        bool VerificarDuplicidade(string email, bool emailAtual);
         Cliente Logar(string emial, string senha);
 
     }

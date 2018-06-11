@@ -16,24 +16,19 @@ namespace Telas
     {
         private Service1 Service;
 
-        private Servico EntServicos;
-        private Cliente EntCliente;
         private Empresa EntEmpresa;
 
-        private int IdEntidade;
         public EmpresaLogada()
         {
             InitializeComponent();
         }
-        public EmpresaLogada(int idEntidade)
+        public EmpresaLogada(Empresa EntEmpresa)
         {
             Service = new Service1();
 
-            EntServicos = new Servico();
-            EntCliente = new Cliente();
-            EntEmpresa = new Empresa();
+            this.EntEmpresa = new Empresa();
 
-            this.IdEntidade = idEntidade;
+            this.EntEmpresa = EntEmpresa;
 
             InitializeComponent();
         }
@@ -41,7 +36,7 @@ namespace Telas
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CadastrarServico cadastrar = new CadastrarServico(IdEntidade);
+            CadastrarServico cadastrar = new CadastrarServico(EntEmpresa);
             cadastrar.Closed += (s, args) => this.Close();
             cadastrar.Show();
         }
@@ -55,7 +50,7 @@ namespace Telas
         {
             try
             {
-                foreach (Servico item in Service.ListarServicoID(IdEntidade, true))
+                foreach (Servico item in Service.ListarServicoID(EntEmpresa.IdUsuario, true))
                 {
                     ListViewItem lista = new ListViewItem(Convert.ToString(item.IdServico));
                     lista.SubItems.Add(item.Nome);
@@ -64,7 +59,7 @@ namespace Telas
                     listServicos.Items.Add(lista);
                 }
 
-                lblNome.Text = Service.SelectEmpresa(IdEntidade, true).Nome;
+                lblNome.Text = EntEmpresa.Nome;
             }
             catch(Exception ex)
             {
@@ -83,7 +78,7 @@ namespace Telas
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditarPerfil perfil = new EditarPerfil(IdEntidade);
+            EditarPerfil perfil = new EditarPerfil(EntEmpresa);
             perfil.Closed += (s, args) => this.Close();
             perfil.Show();
         }

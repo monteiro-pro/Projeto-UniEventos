@@ -57,6 +57,8 @@ namespace AplicacaoForm.localhost {
         
         private System.Threading.SendOrPostCallback DeletarServicoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SelectServicoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ListarServicoOperationCompleted;
         
         private System.Threading.SendOrPostCallback ListarServicoIDOperationCompleted;
@@ -150,6 +152,9 @@ namespace AplicacaoForm.localhost {
         public event DeletarServicoCompletedEventHandler DeletarServicoCompleted;
         
         /// <remarks/>
+        public event SelectServicoCompletedEventHandler SelectServicoCompleted;
+        
+        /// <remarks/>
         public event ListarServicoCompletedEventHandler ListarServicoCompleted;
         
         /// <remarks/>
@@ -227,23 +232,27 @@ namespace AplicacaoForm.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente usuario) {
+        public void AlterarCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente usuario, bool emailAtual, [System.Xml.Serialization.XmlIgnoreAttribute()] bool emailAtualSpecified) {
             this.Invoke("AlterarCliente", new object[] {
-                        usuario});
+                        usuario,
+                        emailAtual,
+                        emailAtualSpecified});
         }
         
         /// <remarks/>
-        public void AlterarClienteAsync(Cliente usuario) {
-            this.AlterarClienteAsync(usuario, null);
+        public void AlterarClienteAsync(Cliente usuario, bool emailAtual, bool emailAtualSpecified) {
+            this.AlterarClienteAsync(usuario, emailAtual, emailAtualSpecified, null);
         }
         
         /// <remarks/>
-        public void AlterarClienteAsync(Cliente usuario, object userState) {
+        public void AlterarClienteAsync(Cliente usuario, bool emailAtual, bool emailAtualSpecified, object userState) {
             if ((this.AlterarClienteOperationCompleted == null)) {
                 this.AlterarClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarClienteOperationCompleted);
             }
             this.InvokeAsync("AlterarCliente", new object[] {
-                        usuario}, this.AlterarClienteOperationCompleted, userState);
+                        usuario,
+                        emailAtual,
+                        emailAtualSpecified}, this.AlterarClienteOperationCompleted, userState);
         }
         
         private void OnAlterarClienteOperationCompleted(object arg) {
@@ -584,6 +593,38 @@ namespace AplicacaoForm.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SelectServico", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Servico SelectServico(int idUsuario, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idUsuarioSpecified) {
+            object[] results = this.Invoke("SelectServico", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified});
+            return ((Servico)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SelectServicoAsync(int idUsuario, bool idUsuarioSpecified) {
+            this.SelectServicoAsync(idUsuario, idUsuarioSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void SelectServicoAsync(int idUsuario, bool idUsuarioSpecified, object userState) {
+            if ((this.SelectServicoOperationCompleted == null)) {
+                this.SelectServicoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSelectServicoOperationCompleted);
+            }
+            this.InvokeAsync("SelectServico", new object[] {
+                        idUsuario,
+                        idUsuarioSpecified}, this.SelectServicoOperationCompleted, userState);
+        }
+        
+        private void OnSelectServicoOperationCompleted(object arg) {
+            if ((this.SelectServicoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SelectServicoCompleted(this, new SelectServicoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarServico", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica")]
@@ -872,6 +913,14 @@ namespace AplicacaoForm.localhost {
         
         private int idcontratoField;
         
+        private string nomeEmpresaField;
+        
+        private string nomeServicoField;
+        
+        private string tipoServicoField;
+        
+        private int valorField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Cliente EntCliente {
@@ -903,6 +952,49 @@ namespace AplicacaoForm.localhost {
                 this.idcontratoField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NomeEmpresa {
+            get {
+                return this.nomeEmpresaField;
+            }
+            set {
+                this.nomeEmpresaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NomeServico {
+            get {
+                return this.nomeServicoField;
+            }
+            set {
+                this.nomeServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TipoServico {
+            get {
+                return this.tipoServicoField;
+            }
+            set {
+                this.tipoServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Valor {
+            get {
+                return this.valorField;
+            }
+            set {
+                this.valorField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -916,6 +1008,8 @@ namespace AplicacaoForm.localhost {
         private Empresa entEmpresaField;
         
         private int idServicoField;
+        
+        private int idUsuarioField;
         
         private string nomeField;
         
@@ -941,6 +1035,16 @@ namespace AplicacaoForm.localhost {
             }
             set {
                 this.idServicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdUsuario {
+            get {
+                return this.idUsuarioField;
+            }
+            set {
+                this.idUsuarioField = value;
             }
         }
         
@@ -989,15 +1093,11 @@ namespace AplicacaoForm.localhost {
         
         private int idUsuarioField;
         
-        private bool idUsuarioFieldSpecified;
-        
         private string nomeField;
         
         private string senhaField;
         
         private int telefoneField;
-        
-        private bool telefoneFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -1017,17 +1117,6 @@ namespace AplicacaoForm.localhost {
             }
             set {
                 this.idUsuarioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdUsuarioSpecified {
-            get {
-                return this.idUsuarioFieldSpecified;
-            }
-            set {
-                this.idUsuarioFieldSpecified = value;
             }
         }
         
@@ -1060,17 +1149,6 @@ namespace AplicacaoForm.localhost {
             }
             set {
                 this.telefoneField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TelefoneSpecified {
-            get {
-                return this.telefoneFieldSpecified;
-            }
-            set {
-                this.telefoneFieldSpecified = value;
             }
         }
     }
@@ -1262,6 +1340,32 @@ namespace AplicacaoForm.localhost {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
     public delegate void DeletarServicoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    public delegate void SelectServicoCompletedEventHandler(object sender, SelectServicoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SelectServicoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SelectServicoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Servico Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Servico)(this.results[0]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2558.0")]
