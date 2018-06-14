@@ -41,7 +41,7 @@ namespace AplicacaoServidor
         void DeleteEmpresa(int idUsuario);
 
         [OperationContract]
-        void AlterarEmpresa(Empresa usuario);
+        void AlterarEmpresa(Empresa usuario, bool emailAtual);
 
         [OperationContract]
         List<Empresa> ListarEmpresa();

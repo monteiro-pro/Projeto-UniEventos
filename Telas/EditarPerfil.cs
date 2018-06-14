@@ -25,25 +25,22 @@ namespace AplicacaoForm
             InitializeComponent();
         }
 
-        public EditarPerfil(Cliente EntCliente)
+        public EditarPerfil(Object Entidade, bool Usuario)
         {
             Service = new Service1();
 
-            this.EntCliente = new Cliente();
-            this.EntCliente = EntCliente;
+            if (Usuario)
+            {
+                this.EntCliente = (Cliente) Entidade;
 
-            TipoAcesso = "Cliente";
+                TipoAcesso = "Cliente";
+            }
+            else
+            {
+                this.EntEmpresa = (Empresa) Entidade;
 
-            InitializeComponent();
-        }
-        public EditarPerfil(Empresa EntEmpresa)
-        {
-            Service = new Service1();
-
-            this.EntEmpresa = new Empresa();
-            this.EntEmpresa = EntEmpresa;
-
-            TipoAcesso = "Empresa";
+                TipoAcesso = "Empresa";
+            }
 
             InitializeComponent();
         }
@@ -52,15 +49,15 @@ namespace AplicacaoForm
         {
             bool verificarEmail = false;
 
-            if (EntCliente.Email != txtEmail.Text)
-            {
-                verificarEmail = true;
-            }
-
             try
             {
                 if (TipoAcesso == "Cliente")
                 {
+                    if (EntCliente.Email != txtEmail.Text)
+                    {
+                        verificarEmail = true;
+                    }
+
                     EntCliente.Nome = txtNome.Text;
                     if (String.IsNullOrEmpty(txtTelefone.Text))
                     {
@@ -85,6 +82,11 @@ namespace AplicacaoForm
                 }
                 else if (TipoAcesso == "Empresa")
                 {
+                    if (EntEmpresa.Email != txtEmail.Text)
+                    {
+                        verificarEmail = true;
+                    }
+
                     EntEmpresa.Nome = txtNome.Text;
                     if (String.IsNullOrEmpty(txtTelefone.Text))
                     {
@@ -98,7 +100,7 @@ namespace AplicacaoForm
                     EntEmpresa.Email = txtEmail.Text;
                     EntEmpresa.Senha = txtSenha.Text;
 
-                    Service.AlterarEmpresa(EntEmpresa);
+                    Service.AlterarEmpresa(EntEmpresa, verificarEmail, true);
 
                     MessageBox.Show("Dados Alterados Com Sucesso!");
 

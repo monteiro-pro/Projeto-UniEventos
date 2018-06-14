@@ -210,6 +210,69 @@ namespace Biblioteca.Dados.Acesso
             return retorno;
         }
 
+        public bool VerificarDuplicidade(string email, bool emailAtual)
+        {
+            bool retorno = false;
+            try
+            {
+                this.abrirConexao();
+
+                if (emailAtual)
+                {
+                    string sql = "SELECT idusuario, nome FROM Empresa WHERE email = @email;";
+                    SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                    cmd.Parameters["@email"].Value = email;
+
+                    SqlDataReader DbReader = cmd.ExecuteReader();
+
+                    while (DbReader.Read())
+                    {
+                        retorno = true;
+                        break;
+                    }
+                    DbReader.Close();
+
+                    if (retorno == false)
+                    {
+                        sql = "SELECT idusuario, nome FROM Cliente WHERE email = @email;";
+                        cmd.CommandText = sql;
+                        DbReader = cmd.ExecuteReader();
+
+                        while (DbReader.Read())
+                        {
+                            retorno = true;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    string sql = "SELECT idusuario, nome FROM Cliente WHERE email = @email;";
+                    SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+                    cmd.Parameters.Add("@email", SqlDbType.VarChar);
+                    cmd.Parameters["@email"].Value = email;
+
+                    SqlDataReader DbReader = cmd.ExecuteReader();
+
+                    while (DbReader.Read())
+                    {
+                        retorno = true;
+                        break;
+                    }
+                    DbReader.Close();
+                    cmd.Dispose();
+                }
+
+                this.fecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Executar o Comando VerificarDuplicidade no Banco!" + ex);
+            }
+
+            return retorno;
+        }
         public Empresa Logar(String nome, String senha)
         {
             Empresa retorno = new Empresa();

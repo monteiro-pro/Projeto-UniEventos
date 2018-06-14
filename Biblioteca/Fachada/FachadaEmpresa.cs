@@ -26,9 +26,9 @@ namespace Biblioteca.Fachada
             Regra.Deletar(idUsuario);
         }
 
-        public void Alterar(Empresa usuario)
+        public void Alterar(Empresa usuario, bool emailAtual)
         {
-            Regra.Alterar(usuario);
+            Regra.Alterar(usuario, emailAtual);
         }
 
         public void validar(Empresa usuario)

@@ -73,9 +73,9 @@ namespace AplicacaoServidor
             FachadaEmpresa.Deletar(idUsuario);
         }
 
-        public void AlterarEmpresa(Empresa usuario)
+        public void AlterarEmpresa(Empresa usuario, bool emialAtual)
         {
-            FachadaEmpresa.Alterar(usuario);
+            FachadaEmpresa.Alterar(usuario, emialAtual);
         }
 
         public List<Empresa> ListarEmpresa()

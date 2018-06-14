@@ -107,6 +107,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Biblioteca.Negocio.Basica" minOccurs="0" name="usuario" nillable="true" type="q7:Empresa" />
+        <xs:element minOccurs="0" name="emailAtual" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

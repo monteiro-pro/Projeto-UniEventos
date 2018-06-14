@@ -78,7 +78,7 @@ namespace Telas
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditarPerfil perfil = new EditarPerfil(EntEmpresa);
+            EditarPerfil perfil = new EditarPerfil(EntEmpresa, false);
             perfil.Closed += (s, args) => this.Close();
             perfil.Show();
         }

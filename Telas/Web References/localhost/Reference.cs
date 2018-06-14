@@ -415,23 +415,27 @@ namespace AplicacaoForm.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarEmpresa", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarEmpresa([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Empresa usuario) {
+        public void AlterarEmpresa([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Empresa usuario, bool emailAtual, [System.Xml.Serialization.XmlIgnoreAttribute()] bool emailAtualSpecified) {
             this.Invoke("AlterarEmpresa", new object[] {
-                        usuario});
+                        usuario,
+                        emailAtual,
+                        emailAtualSpecified});
         }
         
         /// <remarks/>
-        public void AlterarEmpresaAsync(Empresa usuario) {
-            this.AlterarEmpresaAsync(usuario, null);
+        public void AlterarEmpresaAsync(Empresa usuario, bool emailAtual, bool emailAtualSpecified) {
+            this.AlterarEmpresaAsync(usuario, emailAtual, emailAtualSpecified, null);
         }
         
         /// <remarks/>
-        public void AlterarEmpresaAsync(Empresa usuario, object userState) {
+        public void AlterarEmpresaAsync(Empresa usuario, bool emailAtual, bool emailAtualSpecified, object userState) {
             if ((this.AlterarEmpresaOperationCompleted == null)) {
                 this.AlterarEmpresaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarEmpresaOperationCompleted);
             }
             this.InvokeAsync("AlterarEmpresa", new object[] {
-                        usuario}, this.AlterarEmpresaOperationCompleted, userState);
+                        usuario,
+                        emailAtual,
+                        emailAtualSpecified}, this.AlterarEmpresaOperationCompleted, userState);
         }
         
         private void OnAlterarEmpresaOperationCompleted(object arg) {
